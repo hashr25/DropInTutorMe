@@ -14,6 +14,10 @@ The widget that adds a tutor to the database
 		{
 			line-height:25px;
 		}
+		#courses_taken
+		{
+			padding: 10px;
+		}
 		#tutor_schedule
 		{
 			padding: 10px;
@@ -52,14 +56,37 @@ The widget that adds a tutor to the database
 				</li>
 				<li>
 				<!--
+				This is the course taken code
+				It is a table with the beginning of 1 rows labeled Course Taken
+				After that it has fields or indications
+				-->
+					Here you put in some key courses the tutor has taken (like if they took an advanced class)<br>
+					You can add more key courses if needed in Modify Tutor if you wish <br>
+					If the tutor does not have 5 key courses, you can fill them with N/A<br>
+					<div class = "courses" id = "courses_taken">
+						<table style="width:100%">
+							<tr style = "text-align: center">
+								<td>Courses Taken</td>
+								<td><input type="text" name="course_1"></td> 
+								<td><input type="text" name="course_2"></td>
+								<td><input type="text" name="course_3"></td> 
+								<td><input type="text" name="course_4"></td>
+								<td><input type="text" name="course_5"></td> 
+							</tr>
+						</table>
+					</div>
+				</li>
+				<li>
+				<!--
 				This is the schedule addition code
 				It is a table with the beginning of 3 rows labeled Day, Start Time, and End Time
 				After that it has fields or indications
 				-->
 					<h3><ins><font face="arial">The Tutor's Schedule</font></ins></h3>
-					If there is a day the tutor does not tutor, put in n/a or N/A <br>
+					If there is a day the tutor does not teach, put in N/A <br>
+					If the tutor teaches more than one time block a day, you can add that time in Modify Tutor<br>
 					<div class = "schedule" id = "tutor_schedule">
-						<table border="1" style="width:100%">
+						<table style="width:100%">
 							<tr style = "text-align: center">
 								<td>Day</td>
 								<td>Monday</td> 

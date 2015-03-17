@@ -20,7 +20,9 @@ This is the script that is run to add a tutor to the database
 				if (empty($_POST['first_name']) || empty($_POST['last_name']) || empty($_POST['email']) || empty($_POST['subject'])
 				|| empty($_POST['building']) || empty($_POST['location']) || empty($_POST['mon_start']) || empty($_POST['tues_start'])
 				|| empty($_POST['wed_start']) || empty($_POST['thurs_start']) || empty($_POST['fri_start']) || empty($_POST['mon_end'])
-				|| empty($_POST['tues_end']) || empty($_POST['wed_end']) || empty($_POST['thurs_end']) || empty($_POST['fri_end']))
+				|| empty($_POST['tues_end']) || empty($_POST['wed_end']) || empty($_POST['thurs_end']) || empty($_POST['fri_end'])
+				|| empty($_POST['course_1']) || empty($_POST['course_2']) || empty($_POST['course_3']) || empty($_POST['course_4'])
+				|| empty($_POST['course_5']))
 				{
 					$error = "A field was not entered.";
 					print($error);
@@ -45,10 +47,18 @@ This is the script that is run to add a tutor to the database
 					$w_end = mysql_real_escape_string($_POST['wed_end']);
 					$th_end = mysql_real_escape_string($_POST['thurs_end']);
 					$f_end = mysql_real_escape_string($_POST['fri_end']);
+					$course_1 = mysql_real_escape_string($_POST['course_1']);
+					$course_2 = mysql_real_escape_string($_POST['course_2']);
+					$course_3 = mysql_real_escape_string($_POST['course_3']);
+					$course_4 = mysql_real_escape_string($_POST['course_4']);
+					$course_5 = mysql_real_escape_string($_POST['course_5']);
 
 					//put the times into an array, for easy access later (indexing is $row_wanted + (0 if start time) or (5 if end time))
 					$times = array($m_start, $tu_start, $w_start, $th_start, $f_start,
 									$m_end, $tu_end, $w_end, $th_end, $f_end);
+									
+					//also put courses into an array
+					$courses = array($course_1, $course_2, $course_3, $course_4, $course_5);
 					
 					//make sure the email given is in the format xxx@xxx.xxx
 					if (!eregi("^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$", $email))
@@ -114,9 +124,37 @@ This is the script that is run to add a tutor to the database
 						$tutor_update = "UPDATE `tutors` SET `schedule_id` = '$schedule_id' WHERE `tutor_id` = '$tutor_id'"; 
 						$result = mysql_query($tutor_update);
 						
-						//and now the tutor should be created and their schedule as well
+						//now, we have to create the courses and add them + the tutor to the junction table
+						foreach($courses as $course)
+						{
+							$naCheck = strtoupper($course);
+							
+							if ($naCheck != "N/A")
+							{
+								//first, check to make sure the course does not already exist, if it doesn't create a new one
+								$query = mysql_query("SELECT * FROM `courses` WHERE `college_id` = '$college_id' AND `display_text` = '$course'");
+								$rows = mysql_num_rows($query);
+								
+								if ($rows == 0)
+								{
+									//insert the course
+									$course_query = "INSERT INTO courses (`course_id`,`college_id`,`display_text`) 
+													VALUES (NULL,'$college_id','$course')";
+									$result = mysql_query($course_query);
+								}
+					
+								//get the course ID
+								$course_id = mysql_result(mysql_query("SELECT `course_id` FROM `courses` WHERE `display_text` = '$course' AND `college_id` = '$college_id'"), 0, 'course_id');
+								
+								//tutor has just been created, so no need to check for existing connection_aborted
+								//insert the course - tutor junction
+								$tutor_course_query = "INSERT INTO tutors_courses (`tutor_course_id`,`tutor_id`,`course_id`) 
+																				VALUES (NULL,'$tutor_id','$course_id')";
+								$result = mysql_query($tutor_course_query);	
+							}
+						}
 						
-						//header("location: index.php"); //go back to the main page
+						header("location: index.php"); //go back to the main page
 						exit();
 					}
 				}

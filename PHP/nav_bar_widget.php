@@ -37,8 +37,8 @@ navigation bar widget for the website
 		<a href = "login.php">Sign In</a><br>
 		<a href = "logout.php">Sign Out</a><br>
 		<a href = "reg_college.php">Register a College</a><br>
-		<a hreg = "add_tutor.php">Add a Tutor</a><br>
-		Drop a Tutor<br>
+		<a href = "add_tutor.php">Add a Tutor</a><br>
+		<a href = "drop_tutor.php">Drop a Tutor</a><br>
 		Modify a Tutor<br>
 		Check Reported Reviews<br>
 		Personal Settings<br>
