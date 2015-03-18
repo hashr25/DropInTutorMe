@@ -20,7 +20,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class MainMenu extends ActionBarActivity {
+import java.net.MalformedURLException;
+
+public class MainMenu extends ActionBarActivity
+{
 
     private TextView responseTextView;
 
@@ -30,13 +33,9 @@ public class MainMenu extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
 
-
         this.responseTextView = (TextView) this.findViewById(R.id.responseTextView);
 
-
         new GetTutorsTask().execute(new ApiConnector());
-
-
     }
 
     public void setTextToTextView(JSONArray jsonArray)
@@ -45,24 +44,25 @@ public class MainMenu extends ActionBarActivity {
 
         if(jsonArray != null)
         {
-            for (int i = 0; i < jsonArray.length(); i++) {
-
+            for (int i = 0; i < jsonArray.length(); i++)
+            {
                 JSONObject json = null;
-                try {
+                try
+                {
                     json = jsonArray.getJSONObject(i);
                     s = s +
                             "Name : " + json.getString("first_name") + " " + json.getString("last_name") + "\n" +
                             "Email : " + json.getString("email") + "\n" +
                             "Subject : " + json.getString("subject") + "\n\n";
-                } catch (Exception e) {
+                }
+                catch (Exception e)
+                {
                     e.printStackTrace();
                 }
-
             }
         }
 
         this.responseTextView.setText(s);
-
     }
 
 
@@ -71,7 +71,16 @@ public class MainMenu extends ActionBarActivity {
         @Override
         protected JSONArray doInBackground(ApiConnector... params)
         {
-            return params[0].GetTutors();
+            try
+            {
+                return params[0].GetTutors();
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
+
+            return null;
         }
 
         @Override
