@@ -13,7 +13,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.os.Build;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ListView;
+import android.widget.SearchView;
 import android.widget.TextView;
 
 import org.json.JSONArray;
@@ -22,10 +24,16 @@ import org.json.JSONObject;
 
 import java.net.MalformedURLException;
 
-public class MainMenu extends ActionBarActivity
+public class MainMenu extends Activity
 {
 
     private TextView responseTextView;
+
+    private SearchView collegeSearch;
+    private Button onlineResourceButton;
+    private Button freelanceSearchButton;
+    private Button freelanceSignUpButton;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -34,8 +42,12 @@ public class MainMenu extends ActionBarActivity
         setContentView(R.layout.activity_main_menu);
 
         this.responseTextView = (TextView) this.findViewById(R.id.responseTextView);
+        this.collegeSearch = (SearchView) this.findViewById(R.id.collegeSearch);
+        this.onlineResourceButton = (Button) this.findViewById(R.id.onlineResourcesButton);
+        this.freelanceSearchButton = (Button) this.findViewById(R.id.freelanceTutorSearchButton);
+        this.freelanceSignUpButton = (Button) this.findViewById(R.id.freelanceSignupButton);
 
-        new GetTutorsTask().execute(new ApiConnector());
+        //new GetTutorsTask().execute(new ApiConnector());
     }
 
     public void setTextToTextView(JSONArray jsonArray)

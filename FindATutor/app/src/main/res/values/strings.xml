@@ -1,6 +1,12 @@
 <resources>
+    <!-- General Use -->
     <string name="app_name">FindATutor</string>
 
-    <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+
+    <!-- Buttons and enter text fields-->
+    <string name="college_chosen">Enter a College</string>
+    <string name="freelance_tutor_search">Freelance Tutor Search</string>
+    <string name="online_resources">Online Resources</string>
+    <string name="freelance_sign_up">Freelance Sign-up</string>
 </resources>
