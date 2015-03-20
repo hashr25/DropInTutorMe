@@ -1,0 +1,87 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:background="@drawable/background1"
+    tools:context="com.cs410tutorgroup.findatutor.OnlineResources">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/app_name"
+            android:id="@+id/appNameID"
+            android:layout_gravity="center_horizontal"
+            android:elegantTextHeight="true"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:textColor="#FFF" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/online_tutoring"
+            android:id="@+id/onlineTutoringText"
+            android:layout_gravity="center_horizontal"
+            android:textSize="25dp"
+            android:paddingTop="45dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/online_tutoring_link"
+            android:id="@+id/onlineTutoringLink"
+            android:layout_gravity="center_horizontal"
+            android:textColor="#00F"
+            android:textSize="25dp"
+            android:linksClickable="true"
+            android:paddingBottom="15dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/khan_academy"
+            android:id="@+id/khanAcademyText"
+            android:layout_gravity="center_horizontal"
+            android:textSize="25dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/khan_academy_link"
+            android:id="@+id/khanAcademyLink"
+            android:layout_gravity="center_horizontal"
+            android:textColor="#00F"
+            android:textSize="24dp"
+            android:linksClickable="true"
+            android:paddingBottom="15dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/mit_open_courseware"
+            android:id="@+id/mitOpenCourseWareText"
+            android:layout_gravity="center_horizontal"
+            android:textSize="25dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/mit_open_courseware_link"
+            android:id="@+id/mitOpenCourseWareLink"
+            android:layout_gravity="center_horizontal"
+            android:textSize="25dp"
+            android:textColor="#00F"
+            android:linksClickable="true"
+            android:paddingBottom="15dp" />
+    </LinearLayout>
+</RelativeLayout>

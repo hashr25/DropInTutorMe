@@ -1,6 +1,7 @@
 package com.cs410tutorgroup.findatutor;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
@@ -30,7 +31,7 @@ public class MainMenu extends Activity
     private TextView responseTextView;
 
     private SearchView collegeSearch;
-    private Button onlineResourceButton;
+    private Button onlineResourcesButton;
     private Button freelanceSearchButton;
     private Button freelanceSignUpButton;
 
@@ -43,12 +44,31 @@ public class MainMenu extends Activity
 
         this.responseTextView = (TextView) this.findViewById(R.id.responseTextView);
         this.collegeSearch = (SearchView) this.findViewById(R.id.collegeSearch);
-        this.onlineResourceButton = (Button) this.findViewById(R.id.onlineResourcesButton);
+        this.onlineResourcesButton = (Button) this.findViewById(R.id.onlineResourcesButton);
         this.freelanceSearchButton = (Button) this.findViewById(R.id.freelanceTutorSearchButton);
         this.freelanceSignUpButton = (Button) this.findViewById(R.id.freelanceSignupButton);
 
         //new GetTutorsTask().execute(new ApiConnector());
     }
+
+    public void onlineResourcesButtonClicked(View view)
+    {
+        Intent onlineResourcesIntent = new Intent(this, OnlineResources.class);
+        startActivity(onlineResourcesIntent);
+    }
+
+    public void freelanceSearchButtonClicked(View view)
+    {
+        //Intent freelanceSearchIntent = new Intent(this, FreelanceSearch.class);
+        //startActivity(freelanceSearchIntent);
+    }
+
+    public void freelanceSignupButtonClicked(View view)
+    {
+        //Intent freelanceSignupIntent = new Intent(this, FreelanceSignup.class);
+        //startActivity(freelanceSignupIntent);
+    }
+
 
     public void setTextToTextView(JSONArray jsonArray)
     {

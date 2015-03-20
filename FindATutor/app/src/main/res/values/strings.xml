@@ -9,4 +9,13 @@
     <string name="freelance_tutor_search">Freelance Tutor Search</string>
     <string name="online_resources">Online Resources</string>
     <string name="freelance_sign_up">Freelance Sign-up</string>
+    <string name="title_activity_online_resources">OnlineResources</string>
+
+    <!-- Online Resources -->
+    <string name="online_tutoring">Online Tutoring: </string>
+    <string name="online_tutoring_link">http://www.smarthinking.com/</string>
+    <string name="khan_academy">Khan Academy:</string>
+    <string name="khan_academy_link">https://www.khanacademy.org/</string>
+    <string name="mit_open_courseware">MIT OpenCourseWare:</string>
+    <string name="mit_open_courseware_link">http://ocw.mit.edu/index.htm</string>
 </resources>
