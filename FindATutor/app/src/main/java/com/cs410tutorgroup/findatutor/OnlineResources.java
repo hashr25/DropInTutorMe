@@ -23,6 +23,8 @@ public class OnlineResources extends Activity {
         /**
          * This method is used to fix an unclickable link problem.
          * This solution was found on stackoverflow.com
+         * If any more links are added to the layout. This method
+         *      must be changed to include the new link.
          */
 
         TextView linkToEnable = (TextView) findViewById(R.id.onlineTutoringText);
