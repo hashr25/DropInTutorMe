@@ -45,21 +45,24 @@
             android:layout_height="wrap_content"
             android:text="@string/online_resources"
             android:id="@+id/onlineResourcesButton"
-            android:layout_gravity="center_horizontal" />
+            android:layout_gravity="center_horizontal"
+            android:onClick="onlineResourcesButtonClicked" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/freelance_tutor_search"
             android:id="@+id/freelanceTutorSearchButton"
-            android:layout_gravity="center_horizontal" />
+            android:layout_gravity="center_horizontal"
+            android:onClick="freelanceSearchButtonClicked" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/freelance_sign_up"
             android:id="@+id/freelanceSignupButton"
-            android:layout_gravity="center_horizontal" />
+            android:layout_gravity="center_horizontal"
+            android:onClick="freelanceSignupButtonClicked" />
     </LinearLayout>
 
 </RelativeLayout>

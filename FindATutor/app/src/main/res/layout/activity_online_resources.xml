@@ -33,18 +33,9 @@
             android:id="@+id/onlineTutoringText"
             android:layout_gravity="center_horizontal"
             android:textSize="25dp"
-            android:paddingTop="45dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/online_tutoring_link"
-            android:id="@+id/onlineTutoringLink"
-            android:layout_gravity="center_horizontal"
-            android:textColor="#00F"
-            android:textSize="25dp"
+            android:paddingTop="55dp"
             android:linksClickable="true"
-            android:paddingBottom="15dp" />
+            android:autoText="false" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -52,18 +43,9 @@
             android:text="@string/khan_academy"
             android:id="@+id/khanAcademyText"
             android:layout_gravity="center_horizontal"
-            android:textSize="25dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/khan_academy_link"
-            android:id="@+id/khanAcademyLink"
-            android:layout_gravity="center_horizontal"
-            android:textColor="#00F"
-            android:textSize="24dp"
+            android:textSize="25dp"
             android:linksClickable="true"
-            android:paddingBottom="15dp" />
+            android:paddingTop="15dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -71,17 +53,9 @@
             android:text="@string/mit_open_courseware"
             android:id="@+id/mitOpenCourseWareText"
             android:layout_gravity="center_horizontal"
-            android:textSize="25dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/mit_open_courseware_link"
-            android:id="@+id/mitOpenCourseWareLink"
-            android:layout_gravity="center_horizontal"
             android:textSize="25dp"
-            android:textColor="#00F"
             android:linksClickable="true"
-            android:paddingBottom="15dp" />
+            android:paddingTop="15dp" />
+
     </LinearLayout>
 </RelativeLayout>

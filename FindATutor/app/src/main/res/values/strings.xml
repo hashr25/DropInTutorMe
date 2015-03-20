@@ -12,10 +12,7 @@
     <string name="title_activity_online_resources">OnlineResources</string>
 
     <!-- Online Resources -->
-    <string name="online_tutoring">Online Tutoring: </string>
-    <string name="online_tutoring_link">http://www.smarthinking.com/</string>
-    <string name="khan_academy">Khan Academy:</string>
-    <string name="khan_academy_link">https://www.khanacademy.org/</string>
-    <string name="mit_open_courseware">MIT OpenCourseWare:</string>
-    <string name="mit_open_courseware_link">http://ocw.mit.edu/index.htm</string>
+    <string name="online_tutoring"><a href="http://www.smarthinking.com/">Smarthinking Online Tutoring</a></string>
+    <string name="khan_academy"><a href="https://www.khanacademy.org">Khan Academy</a></string>
+    <string name="mit_open_courseware"><a href="http://ocw.mit.edu/index.htm">MIT OpenCourseWare</a></string>
 </resources>

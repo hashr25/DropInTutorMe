@@ -7,6 +7,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -53,8 +54,11 @@ public class MainMenu extends Activity
 
     public void onlineResourcesButtonClicked(View view)
     {
+        Log.d("StartFunction", "Reaching button clicked method");
         Intent onlineResourcesIntent = new Intent(this, OnlineResources.class);
+        Log.d("IntentMade", "Intent created from class");
         startActivity(onlineResourcesIntent);
+        Log.d("EndFunction", "Completed function");
     }
 
     public void freelanceSearchButtonClicked(View view)
