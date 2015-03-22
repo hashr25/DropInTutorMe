@@ -7,6 +7,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -14,7 +15,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.os.Build;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ListView;
+import android.widget.SearchView;
 import android.widget.TextView;
 
 import org.json.JSONArray;
@@ -23,10 +26,16 @@ import org.json.JSONObject;
 
 import java.net.MalformedURLException;
 
-public class MainMenu extends ActionBarActivity
+public class MainMenu extends Activity
 {
 
     private TextView responseTextView;
+
+    private SearchView collegeSearch;
+    private Button onlineResourcesButton;
+    private Button freelanceSearchButton;
+    private Button freelanceSignUpButton;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -34,10 +43,35 @@ public class MainMenu extends ActionBarActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
 
-        this.responseTextView = (TextView) this.findViewById(R.id.responseTextView);
 
-        new GetTutorsTask().execute(new ApiConnector());
+        this.collegeSearch = (SearchView) this.findViewById(R.id.collegeSearch);
+        this.onlineResourcesButton = (Button) this.findViewById(R.id.onlineResourcesButton);
+        this.freelanceSearchButton = (Button) this.findViewById(R.id.freelanceTutorSearchButton);
+        this.freelanceSignUpButton = (Button) this.findViewById(R.id.freelanceSignupButton);
+
+        this.responseTextView = (TextView) this.findViewById(R.id.responseTextView);
+        //new GetTutorsTask().execute(new ApiConnector());
     }
+
+    public void onlineResourcesButtonClicked(View view)
+    {
+        Intent onlineResourcesIntent = new Intent(this, OnlineResources.class);
+        startActivity(onlineResourcesIntent);
+    }
+
+    public void freelanceSearchButtonClicked(View view)
+    {
+        //This needs to be changed to correct activity. This was used for testing.
+        Intent freelanceSearchIntent = new Intent(this, testDatabase.class);
+        startActivity(freelanceSearchIntent);
+    }
+
+    public void freelanceSignupButtonClicked(View view)
+    {
+        //Intent freelanceSignupIntent = new Intent(this, FreelanceSignup.class);
+        //startActivity(freelanceSignupIntent);
+    }
+
 
     public void setTextToTextView(JSONArray jsonArray)
     {

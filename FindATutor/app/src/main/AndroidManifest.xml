@@ -26,6 +26,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".OnlineResources"
+            android:label="@string/title_activity_online_resources" >
+        </activity>
+
+        <activity
+            android:name=".StandardTutorSearch"
+            android:label="@string/title_activity_standard_tutor_search" >
+        </activity>
+
+        <activity
+            android:name=".testDatabase"
+            android:label="@string/title_activity_test_database" >
+        </activity>
 
         <meta-data
             android:name="com.google.android.gms.version"

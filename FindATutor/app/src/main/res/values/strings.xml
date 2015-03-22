@@ -6,4 +6,32 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_tutor_registration">Tutor Registration</string>
 
+    <!-- General Use -->
+    <string name="app_name">FindATutor</string>
+
+    <!-- This line is used to change the bar at the top. Currently there are backgrounds 1-9 -->
+    <string name="background_chosen">@drawable/background2</string>
+
+    <string name="action_settings">Settings</string>
+
+    <!-- Activity Labels -->
+    <string name="title_activity_online_resources">OnlineResources</string>
+    <string name="title_activity_standard_tutor_search">standardTutorSearch</string>
+    <string name="title_activity_test_database">testDatabase</string>
+
+    <!-- Main Menu -->
+    <string name="college_chosen">Enter a College</string>
+    <string name="freelance_tutor_search">Freelance Tutor Search</string>
+    <string name="online_resources">Online Resources</string>
+    <string name="freelance_sign_up">Freelance Sign-up</string>
+
+    <!-- Online Resources -->
+    <string name="online_tutoring"><a href="http://www.smarthinking.com/">Smarthinking Online Tutoring</a></string>
+    <string name="khan_academy"><a href="https://www.khanacademy.org">Khan Academy</a></string>
+    <string name="mit_open_courseware"><a href="http://ocw.mit.edu/index.htm">MIT OpenCourseWare</a></string>
+
+
+
+    <!-- Standard Tutor Search -->
+
 </resources>
