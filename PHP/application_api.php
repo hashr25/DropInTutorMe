@@ -9,6 +9,7 @@ $con = $con = mysql_connect($dbhost,$dbuser,$dbpass);
 
 if (!$con)
 {
+        print('Could not connect: You suck.');
 	die('Could not connect: ' . mysql_error());
 }
 
@@ -29,24 +30,22 @@ if(isset($_POST['tag']))
 	}
 	else if($_POST['tag'] == "add_tutor")
 	{
-		$first_name = $_POST['first_name'];
-		$last_name = $_POST['last_name'];
-		$email = $_POST['email'];
-		$longitude = $_POST['longitude'];
-		$latitude = $_POST['latitude'];
+		$first_name = mysql_real_escape_string($_POST['first_name']);
+		$last_name = mysql_real_escape_string($_POST['last_name']);
+		$email = mysql_real_escape_string($_POST['email']);
+		$longitude = mysql_real_escape_string($_POST['longitude']);
+		$latitude = mysql_real_escape_string($_POST['latitude']);
 		
 		$id_results = mysql_query("SELECT freelance_id FROM freelancers ORDER BY freelance_id DESC");
+
+		$result = mysql_query("INSERT INTO freelancers (first_name, last_name, email, lat_cord, long_cord)
+							   VALUES ('$first_name', '$last_name', '$email', '$latitude', '$longitude')");
 		
-		$new_id = $id_results[0] + 1;
-		
-		$result = mysql_query("INSERT INTO tutors (freelance_id, first_name, last_name, email, lat_cord, long_cord)
-							   VALUES ($new_id, $first_name, $last_name, $email, $latitude, $longitude)");
-		
-		while($row = mysql_fetch_assoc($result))
+                while($row = mysql_fetch_assoc($id_results))
 		{
-			$output[] = $row;
+			$output[]=$row;
 		}
-		
+
 		print(json_encode($output));
 	}
 }
