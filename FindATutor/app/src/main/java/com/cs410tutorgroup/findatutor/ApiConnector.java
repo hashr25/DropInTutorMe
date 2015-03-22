@@ -5,20 +5,11 @@ package com.cs410tutorgroup.findatutor;
  */
 import android.util.Log;
 
-import org.apache.http.Header;
-import org.apache.http.HeaderElement;
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
-import org.apache.http.ParseException;
-import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
-import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -39,10 +30,10 @@ import java.util.List;
 
 public class ApiConnector {
 
+    String url = "http://tutorapp.net76.net/application_api.php";
+
     public JSONArray GetTutors() throws MalformedURLException, IOException, JSONException
     {
-        // URL for getting tutors
-        String url = "http://tutorapp.net76.net/get_tutors.php";
 
         JSONArray results = null;
 
@@ -55,11 +46,10 @@ public class ApiConnector {
             conn.setDoOutput(true);
             conn.setDoInput(true);
             conn.setRequestMethod("POST");
-            //conn.setChunkedStreamingMode(0);
 
             List<NameValuePair> POSTlist = new ArrayList<NameValuePair>();
 
-            POSTlist.add(new BasicNameValuePair("tag","POOP"));
+            POSTlist.add(new BasicNameValuePair("tag","get_tutors"));
 
             OutputStream out = new BufferedOutputStream(conn.getOutputStream());
             writeStream(out, POSTlist);
@@ -100,6 +90,119 @@ public class ApiConnector {
         return results;
     }
 
+    public JSONArray AddTutor(String name, String email, String address) throws MalformedURLException, IOException
+    {
+        JSONArray results = null;
+
+        //Connection for geocoding the entered address
+
+        URL geocodeApi = new URL(parseAddressURL(address));
+
+        HttpURLConnection geocodeConn = (HttpURLConnection) geocodeApi.openConnection();
+
+        String latitude = "", longitude = "";
+
+        try
+        {
+            geocodeConn.setDoOutput(true);
+            geocodeConn.setDoInput(true);
+            geocodeConn.setRequestMethod("POST");
+
+            geocodeConn.connect();
+
+            InputStream in = new BufferedInputStream(geocodeConn.getInputStream());
+
+            BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+            StringBuilder response = new StringBuilder();
+            while(true)
+            {
+                String s = reader.readLine();
+                if(s==null)
+                {
+                    break;
+                }
+                else
+                {
+                    response.append(s);
+                }
+            }
+
+            Log.d("Geocoding response", response.toString());
+
+            JSONArray geocodeResults = new JSONArray(cleanString(response.toString()));
+
+            latitude = new Double(geocodeResults.getJSONObject(0).getJSONObject("geometry").getJSONObject("location").getDouble("lat")).toString();
+            longitude = new Double(geocodeResults.getJSONObject(0).getJSONObject("geometry").getJSONObject("location").getDouble("lng")).toString();
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        finally
+        {
+            geocodeConn.disconnect();
+        }
+
+        //Connection for sending data to the database
+
+        URL u = new URL(url);
+
+        HttpURLConnection conn = (HttpURLConnection) u.openConnection();
+
+        try
+        {
+            if(latitude != "" && longitude != "")
+            {
+                conn.setDoOutput(true);
+                conn.setDoInput(true);
+                conn.setRequestMethod("POST");
+
+                List<NameValuePair> POSTlist = new ArrayList<NameValuePair>();
+
+                POSTlist.add(new BasicNameValuePair("tag", "add_tutor"));
+                POSTlist.add(new BasicNameValuePair("first_name", name.substring(0, name.indexOf(" "))));
+                POSTlist.add(new BasicNameValuePair("last_name", name.substring(name.indexOf(" "), name.length())));
+                POSTlist.add(new BasicNameValuePair("email", email));
+                POSTlist.add(new BasicNameValuePair("latitude", latitude));
+                POSTlist.add(new BasicNameValuePair("longitude", longitude));
+
+                OutputStream out = new BufferedOutputStream(conn.getOutputStream());
+                writeStream(out, POSTlist);
+                out.close();
+
+                conn.connect();
+
+                InputStream in = new BufferedInputStream(conn.getInputStream());
+
+                BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+                StringBuilder response = new StringBuilder();
+                while (true) {
+                    String s = reader.readLine();
+                    if (s == null) {
+                        break;
+                    } else {
+                        response.append(s);
+                    }
+                }
+
+                Log.d("Response", response.toString());
+
+                results = new JSONArray(cleanString(response.toString()));
+            }
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        finally
+        {
+            conn.disconnect();
+        }
+
+        return results;
+    }
+
+    //Writes a request URL to the server connection's output stream
     private void writeStream(OutputStream out, List<NameValuePair> l) throws UnsupportedEncodingException, IOException
     {
         BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(out, "UTF-8"));
@@ -128,9 +231,27 @@ public class ApiConnector {
         writer.close();
     }
 
+    //Cleans a JSON response from the server so it can be used as a JSONArray
     private String cleanString(String s)
     {
         int firstIndex = -1, secondIndex = -1;
+
+        /*int firstBracketIndex = s.indexOf("[");
+        int secondBracketIndex = s.lastIndexOf("]");
+
+        int firstBraceIndex = s.indexOf("{");
+        int secondBraceIndex = s.lastIndexOf("}");
+
+        if(firstBraceIndex < firstBracketIndex)
+        {
+            firstIndex = firstBraceIndex;
+            secondIndex = secondBraceIndex;
+        }
+        else
+        {
+            firstIndex = firstBracketIndex;
+            secondIndex = secondBracketIndex;
+        }*/
 
         firstIndex = s.indexOf("[");
         secondIndex = s.lastIndexOf("]");
@@ -143,5 +264,31 @@ public class ApiConnector {
         {
             return "";
         }
+    }
+
+    //Turns an address into a url request for google's geocoding API
+    private String parseAddressURL(String address)
+    {
+        String baseURL = "https://maps.googleapis.com/maps/api/geocode/json?address=";
+
+        String[] addressPieces = address.split(" ");
+
+        for(int i = 0; i < addressPieces.length; i++)
+        {
+            String piece = addressPieces[i];
+            baseURL += piece;
+
+            if(i != addressPieces.length-1)
+            {
+                baseURL += "+";
+            }
+        }
+
+        baseURL += "&";
+        baseURL += Globals.API_KEY;
+
+        Log.d("Compiled URL", baseURL);
+
+        return baseURL;
     }
 }

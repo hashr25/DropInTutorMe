@@ -1,6 +1,7 @@
 package com.cs410tutorgroup.findatutor;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
@@ -65,6 +66,12 @@ public class MainMenu extends ActionBarActivity
         this.responseTextView.setText(s);
     }
 
+    public void tutorRegButtonClicked(View view)
+    {
+        Intent regIntent = new Intent(this, TutorRegistration.class);
+
+        startActivity(regIntent);
+    }
 
     private class GetTutorsTask extends AsyncTask<ApiConnector,Long,JSONArray>
     {
