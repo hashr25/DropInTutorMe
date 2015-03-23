@@ -90,9 +90,9 @@ public class ApiConnector {
         return results;
     }
 
-    public JSONArray AddTutor(String name, String email, String address) throws MalformedURLException, IOException
+    public Boolean AddTutor(String name, String email, String address) throws MalformedURLException, IOException
     {
-        JSONArray results = null;
+        Boolean success = true;
 
         //Connection for geocoding the entered address
 
@@ -137,6 +137,7 @@ public class ApiConnector {
         catch(Exception e)
         {
             e.printStackTrace();
+            success = false;
         }
         finally
         {
@@ -172,11 +173,13 @@ public class ApiConnector {
 
                 conn.connect();
 
+                //Retrieve data sent from the server for debugging
                 InputStream in = new BufferedInputStream(conn.getInputStream());
 
                 BufferedReader reader = new BufferedReader(new InputStreamReader(in));
                 StringBuilder response = new StringBuilder();
-                while (true) {
+                while (true)
+                {
                     String s = reader.readLine();
                     if (s == null) {
                         break;
@@ -186,20 +189,19 @@ public class ApiConnector {
                 }
 
                 Log.d("Response", response.toString());
-
-                results = new JSONArray(cleanString(response.toString()));
             }
         }
         catch(Exception e)
         {
             e.printStackTrace();
+            success = false;
         }
         finally
         {
             conn.disconnect();
         }
 
-        return results;
+        return success;
     }
 
     //Writes a request URL to the server connection's output stream

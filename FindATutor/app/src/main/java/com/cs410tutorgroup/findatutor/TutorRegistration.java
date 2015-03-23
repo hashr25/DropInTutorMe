@@ -1,43 +1,48 @@
 package com.cs410tutorgroup.findatutor;
 
+import android.app.Dialog;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.AsyncTask;
-import android.support.v4.app.DialogFragment;
+import android.app.DialogFragment;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 
-import org.json.JSONArray;
-
-
-public class TutorRegistration extends ActionBarActivity {
+public class TutorRegistration extends ActionBarActivity
+{
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tutor_registration);
     }
 
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_tutor_registration, menu);
         return true;
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_settings)
+        {
             return true;
         }
 
@@ -46,13 +51,49 @@ public class TutorRegistration extends ActionBarActivity {
 
     public void registerButtonClicked(View view)
     {
-        new AddTutorTask().execute(new ApiConnector());
+        //Check the text to make sure it's valid
+        boolean nameGood = false;
+        boolean emailGood = false;
+
+        String nameString = ((EditText) findViewById(R.id.name_edit)).getText().toString();
+        if(nameString.matches(getString(R.string.name_regex)))
+        {
+            nameGood = true;
+            Log.d("NameRegEx", "It's good!");
+        }
+        else
+        {
+            showErrorDialog(R.string.name_error);
+        }
+
+        String emailString = ((EditText) findViewById(R.id.email_edit)).getText().toString();
+        if(emailString.matches(getString(R.string.email_regex)))
+        {
+            emailGood = true;
+            Log.d("EmailRegEx", "It's good!");
+        }
+        else
+        {
+            showErrorDialog(R.string.email_error);
+        }
+
+        if(nameGood && emailGood)
+        {
+            new AddTutorTask().execute(new ApiConnector());
+            //Show progress dialog
+        }
     }
 
-    private class AddTutorTask extends AsyncTask<ApiConnector,Long,JSONArray>
+    void showErrorDialog(int messageId)
+    {
+        DialogFragment newFragment = ErrorDialogFragment.newInstance(messageId);
+        newFragment.show(getFragmentManager(), "dialog");
+    }
+
+    private class AddTutorTask extends AsyncTask<ApiConnector,Long,Boolean>
     {
         @Override
-        protected JSONArray doInBackground(ApiConnector... params)
+        protected Boolean doInBackground(ApiConnector... params)
         {
             try
             {
@@ -67,13 +108,50 @@ public class TutorRegistration extends ActionBarActivity {
                 e.printStackTrace();
             }
 
-            return null;
+            return false;
         }
 
         @Override
-        protected void onPostExecute(JSONArray jsonArray)
+        protected void onPostExecute(Boolean success)
         {
-            DialogFragment f = new DialogFragment();
+            if(success)
+            {
+                showErrorDialog(R.string.registration_complete);
+            }
+            else
+            {
+                showErrorDialog(R.string.address_error);
+            }
         }
     }
+
+    public static class ErrorDialogFragment extends DialogFragment
+    {
+        public static ErrorDialogFragment newInstance(int message)
+        {
+            ErrorDialogFragment frag = new ErrorDialogFragment();
+            Bundle args = new Bundle();
+            args.putInt("message", message);
+            frag.setArguments(args);
+            return frag;
+        }
+
+        @Override
+        public Dialog onCreateDialog(Bundle savedInstanceState)
+        {
+            int message = getArguments().getInt("message");
+
+            return new AlertDialog.Builder(getActivity())
+                    .setMessage(message)
+                    .setPositiveButton(R.string.alert_dialog_ok,
+                            new DialogInterface.OnClickListener()
+                            {
+                                public void onClick(DialogInterface dialog, int whichButton){}
+                            }
+                    )
+                    .create();
+        }
+    }
+
+
 }

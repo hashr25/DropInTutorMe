@@ -4,6 +4,19 @@
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_tutor_registration">Tutor Registration</string>
 
+    <!-- RegEx Strings -->
+    <string name="name_regex">^[A-Z][:alpha:]*\\s[A-Z][:alpha:]*$</string>
+    <string name="email_regex">^[:alpha:]*\Q@\E[:alpha:]*\Q.\E[:alpha:]{2,3}</string>
+
+    <!-- Error messages -->
+    <string name="name_error">Nah, can\'t take that name dawg.</string>
+    <string name="email_error">You done messed up your email homie.</string>
+    <string name="address_error">What kind of address is that? Gimme a better one.</string>
+    <string name="registration_complete">Registration successful!</string>
+
+    <!-- Dialog buttons -->
+    <string name="alert_dialog_ok">OK</string>
+
     <!-- General Use -->
     <string name="app_name">FindATutor</string>
 
@@ -27,7 +40,6 @@
     <string name="online_tutoring"><a href="http://www.smarthinking.com/">Smarthinking Online Tutoring</a></string>
     <string name="khan_academy"><a href="https://www.khanacademy.org">Khan Academy</a></string>
     <string name="mit_open_courseware"><a href="http://ocw.mit.edu/index.htm">MIT OpenCourseWare</a></string>
-
 
 
     <!-- Standard Tutor Search -->
