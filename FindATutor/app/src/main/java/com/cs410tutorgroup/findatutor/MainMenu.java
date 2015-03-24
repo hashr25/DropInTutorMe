@@ -50,7 +50,7 @@ public class MainMenu extends Activity
         this.freelanceSignUpButton = (Button) this.findViewById(R.id.freelanceSignupButton);
 
         this.responseTextView = (TextView) this.findViewById(R.id.responseTextView);
-        //new GetTutorsTask().execute(new ApiConnector());
+        new GetTutorsTask().execute(new ApiConnector());
     }
 
     public void onlineResourcesButtonClicked(View view)
