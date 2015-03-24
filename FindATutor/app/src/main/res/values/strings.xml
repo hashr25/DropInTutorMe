@@ -31,7 +31,7 @@
     <string name="title_activity_test_database">testDatabase</string>
 
     <!-- Main Menu -->
-    <string name="college_chosen">Enter a College</string>
+    <string name="chose_college">Enter a College</string>
     <string name="freelance_tutor_search">Freelance Tutor Search</string>
     <string name="online_resources">Online Resources</string>
     <string name="freelance_sign_up">Freelance Sign-up</string>
@@ -40,6 +40,7 @@
     <string name="online_tutoring"><a href="http://www.smarthinking.com/">Smarthinking Online Tutoring</a></string>
     <string name="khan_academy"><a href="https://www.khanacademy.org">Khan Academy</a></string>
     <string name="mit_open_courseware"><a href="http://ocw.mit.edu/index.htm">MIT OpenCourseWare</a></string>
+    <string name="title_activity_tutor_review">tutorReview</string>
 
 
     <!-- Standard Tutor Search -->

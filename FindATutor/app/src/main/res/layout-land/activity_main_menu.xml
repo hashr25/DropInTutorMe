@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@string/background_chosen">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textSize="35dp"
+        android:textStyle="bold"
+        android:elegantTextHeight="true"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/app_name"
+        android:id="@+id/AppNameID"
+        android:textColor="#FFF"
+        android:layout_gravity="top|center_horizontal" />
+
+    <SearchView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/collegeSearch"
+        android:layout_gravity="center_horizontal"
+        android:hapticFeedbackEnabled="true"
+        android:iconifiedByDefault="false"
+        android:queryHint="@string/chose_college"
+        android:layout_marginTop="80dp"
+        android:layout_marginBottom="30dp"
+        android:contentDescription="@string/chose_college" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/online_resources"
+        android:id="@+id/onlineResourcesButton"
+        android:layout_gravity="center_horizontal"
+        android:onClick="onlineResourcesButtonClicked" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/freelance_tutor_search"
+        android:id="@+id/freelanceTutorSearchButton"
+        android:layout_gravity="center_horizontal"
+        android:onClick="freelanceSearchButtonClicked" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/freelance_sign_up"
+        android:id="@+id/freelanceSignupButton"
+        android:layout_gravity="center_horizontal"
+        android:onClick="freelanceSignupButtonClicked" />
+</LinearLayout>

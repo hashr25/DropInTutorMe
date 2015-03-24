@@ -68,8 +68,8 @@ public class MainMenu extends Activity
 
     public void freelanceSignupButtonClicked(View view)
     {
-        //Intent freelanceSignupIntent = new Intent(this, FreelanceSignup.class);
-        //startActivity(freelanceSignupIntent);
+        Intent freelanceSignupIntent = new Intent(this, TutorRegistration.class);
+        startActivity(freelanceSignupIntent);
     }
 
 

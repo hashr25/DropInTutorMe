@@ -56,10 +56,12 @@
             android:layout_height="wrap_content"
             android:id="@+id/collegeSearch"
             android:layout_gravity="center_horizontal"
-            android:queryHint="@string/college_chosen"
+            android:hapticFeedbackEnabled="true"
+            android:iconifiedByDefault="false"
+            android:queryHint="@string/chose_college"
             android:layout_marginTop="240dp"
             android:layout_marginBottom="30dp"
-            android:contentDescription="@string/college_chosen" />
+            android:contentDescription="@string/chose_college" />
 
         <Button
             android:layout_width="wrap_content"

@@ -1,5 +1,6 @@
 package com.cs410tutorgroup.findatutor;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -13,7 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 
-public class TutorRegistration extends ActionBarActivity
+public class TutorRegistration extends Activity
 {
 
     @Override

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@string/background_chosen">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/online_resources"
+        android:id="@+id/pageTitleID"
+        android:layout_gravity="center_horizontal"
+        android:elegantTextHeight="true"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:textColor="#FFF"
+        android:paddingTop="15dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/online_tutoring"
+        android:id="@+id/onlineTutoringText"
+        android:layout_gravity="center_horizontal"
+        android:textSize="25dp"
+        android:paddingTop="25dp"
+        android:linksClickable="true"
+        android:autoText="false" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/khan_academy"
+        android:id="@+id/khanAcademyText"
+        android:layout_gravity="center_horizontal"
+        android:textSize="25dp"
+        android:linksClickable="true"
+        android:paddingTop="15dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/mit_open_courseware"
+        android:id="@+id/mitOpenCourseWareText"
+        android:layout_gravity="center_horizontal"
+        android:textSize="25dp"
+        android:linksClickable="true"
+        android:paddingTop="15dp" />
+
+</LinearLayout>

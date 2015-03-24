@@ -30,12 +30,10 @@
             android:name=".OnlineResources"
             android:label="@string/title_activity_online_resources" >
         </activity>
-
         <activity
             android:name=".StandardTutorSearch"
             android:label="@string/title_activity_standard_tutor_search" >
         </activity>
-
         <activity
             android:name=".testDatabase"
             android:label="@string/title_activity_test_database" >
@@ -51,6 +49,10 @@
         <activity
             android:name=".TutorRegistration"
             android:label="@string/title_activity_tutor_registration" >
+        </activity>
+        <activity
+            android:name=".tutorReview"
+            android:label="@string/title_activity_tutor_review" >
         </activity>
     </application>
 
