@@ -62,10 +62,6 @@ public class TutorRegistration extends Activity
             nameGood = true;
             Log.d("NameRegEx", "It's good!");
         }
-        else
-        {
-            showErrorDialog(R.string.name_error);
-        }
 
         String emailString = ((EditText) findViewById(R.id.email_edit)).getText().toString();
         if(emailString.matches(getString(R.string.email_regex)))
@@ -73,15 +69,23 @@ public class TutorRegistration extends Activity
             emailGood = true;
             Log.d("EmailRegEx", "It's good!");
         }
-        else
-        {
-            showErrorDialog(R.string.email_error);
-        }
 
         if(nameGood && emailGood)
         {
             new AddTutorTask().execute(new ApiConnector());
             //Show progress dialog
+        }
+        else if(!emailGood && !nameGood)
+        {
+            showErrorDialog(R.string.name_email_error);
+        }
+        else if(!emailGood)
+        {
+            showErrorDialog(R.string.email_error);
+        }
+        else
+        {
+            showErrorDialog(R.string.name_error);
         }
     }
 

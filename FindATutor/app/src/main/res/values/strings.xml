@@ -11,6 +11,7 @@
     <!-- Error messages -->
     <string name="name_error">Nah, can\'t take that name dawg.</string>
     <string name="email_error">You done messed up your email homie.</string>
+    <string name="name_email_error">Dang fool, you got both your name and your email wrong. Wassup with dat homie?</string>
     <string name="address_error">What kind of address is that? Gimme a better one.</string>
     <string name="registration_complete">Registration successful!</string>
 
