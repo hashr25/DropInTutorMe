@@ -10,7 +10,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="35dp"
+        android:textSize="@dimen/title_font_size"
         android:textStyle="bold"
         android:elegantTextHeight="true"
         android:textAppearance="?android:attr/textAppearanceLarge"
@@ -42,72 +42,68 @@
         android:text="@string/tutor_name"
         android:id="@+id/tutorName"
         android:layout_alignTop="@+id/tutorPhoto"
-        android:layout_alignParentEnd="false"
-        android:layout_alignParentStart="false"
-        android:layout_alignParentLeft="false"
-        android:textSize="20dp"
+        android:textSize="@dimen/standard_font_size"
         android:layout_toEndOf="@id/tutorPhoto"
-        android:layout_marginLeft="15dp" />
+        android:layout_toRightOf="@+id/tutorPhoto" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/college_name"
         android:id="@+id/tutorCollege"
+        android:textSize="@dimen/standard_font_size"
         android:layout_below="@+id/tutorName"
-        android:layout_toEndOf="@+id/tutorPhoto"
-        android:textSize="20dp"
-        android:layout_marginLeft="15dp" />
+        android:layout_alignLeft="@+id/tutorName" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/location"
         android:id="@+id/tutorLocation"
-        android:layout_below="@+id/tutorCollege"
-        android:layout_toEndOf="@+id/tutorPhoto"
-        android:textSize="20dp"
-        android:layout_marginLeft="15dp" />
+        android:textSize="@dimen/standard_font_size"
+        android:layout_alignLeft="@+id/tutorCollege"
+        android:layout_below="@+id/tutorCollege" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/subject"
         android:id="@+id/tutorSubject"
-        android:textSize="20dp"
+        android:textSize="@dimen/standard_font_size"
         android:layout_alignTop="@+id/tutorName"
-        android:layout_alignStart="@+id/tutorBio" />
+        android:layout_toRightOf="@+id/tutorName"
+        android:layout_marginLeft="100dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/bio"
         android:id="@+id/tutorBio"
-        android:textSize="20dp"
-        android:layout_marginLeft="15dp"
-        android:layout_above="@+id/tutorLocation"
-        android:layout_alignEnd="@+id/tutorNameHeader" />
+        android:textSize="@dimen/standard_font_size"
+        android:layout_alignTop="@+id/tutorCollege"
+        android:layout_alignLeft="@+id/tutorSubject" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/courses"
         android:id="@+id/tutorCourses"
-        android:textSize="20dp"
-        android:layout_centerVertical="true"
-        android:layout_alignStart="@+id/tutorBio" />
+        android:textSize="@dimen/standard_font_size"
+        android:layout_alignTop="@+id/tutorSchedule"
+        android:layout_alignLeft="@+id/tutorBio" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/schedule"
         android:id="@+id/tutorSchedule"
-        android:textSize="20dp"
-        android:layout_centerVertical="true"
-        android:layout_alignStart="@+id/tutorPhoto" />
+        android:textSize="@dimen/standard_font_size"
+        android:layout_below="@+id/tutorPhoto"
+        android:layout_alignLeft="@+id/tutorPhoto"
+        android:layout_marginTop="10dp" />
 
     <Button
-        android:layout_width="100dp"
+        android:layout_width="150dp"
         android:layout_height="50dp"
         android:text="@string/reviews"
         android:id="@+id/reviewButton"
@@ -116,7 +112,7 @@
         android:layout_marginBottom="10dp" />
 
     <Button
-        android:layout_width="100dp"
+        android:layout_width="150dp"
         android:layout_height="50dp"
         android:text="@string/open_map"
         android:id="@+id/mapButton"

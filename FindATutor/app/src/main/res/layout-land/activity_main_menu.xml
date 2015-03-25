@@ -54,4 +54,10 @@
         android:id="@+id/freelanceSignupButton"
         android:layout_gravity="center_horizontal"
         android:onClick="freelanceSignupButtonClicked" />
+
+    <TextView android:text="@string/hello_world"
+        android:id="@+id/responseTextView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+          />
 </LinearLayout>
