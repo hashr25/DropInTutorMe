@@ -61,6 +61,7 @@
     <string name="schedule">Schedule: </string>
     <string name="reviews">Reviews</string>
     <string name="open_map">Open Map</string>
+    <string name="title_activity_list_of_tutors">ListOfTutors</string>
 
 
 </resources>

@@ -15,30 +15,28 @@ public class Tutor
     public String emailAddress;
     public String subject;
     public String bio;
-    public String building;
-    public String room;
-    public int scheduleID;
     public String pictureLink;
 
     //Methods
-    public void loadFromJsonObject(JSONObject jsonObj)
+    public static Tutor loadFromJsonObject(JSONObject jsonObj)
     {
+        Tutor tutor = new Tutor();
+
         try
         {
-            this.tutorID = jsonObj.getInt("tutor_id");
-            this.firstName = jsonObj.getString("first_name");
-            this.lastName = jsonObj.getString("last_name");
-            this.emailAddress = jsonObj.getString("email");
-            this.subject = jsonObj.getString("subject");
-            this.bio = jsonObj.getString("bio");
-            this.building = jsonObj.getString("building");
-            this.room = jsonObj.getString("room");
-            this.scheduleID = jsonObj.getInt("schedule_id");
+            tutor.tutorID = jsonObj.getInt("tutor_id");
+            tutor.firstName = jsonObj.getString("first_name");
+            tutor.lastName = jsonObj.getString("last_name");
+            tutor.emailAddress = jsonObj.getString("email");
+            tutor.subject = jsonObj.getString("subject");
+            tutor.bio = jsonObj.getString("bio");
             //tutorToLoad.pictureLink = jsonObj.getString("picture");
         }
         catch (Exception e)
         {
             e.printStackTrace();
         }
+
+        return tutor;
     }
 }

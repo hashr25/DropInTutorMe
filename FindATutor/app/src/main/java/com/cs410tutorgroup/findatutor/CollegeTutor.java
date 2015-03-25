@@ -9,19 +9,27 @@ public class CollegeTutor extends Tutor
 {
     //Attributes
     public int collegeID;
+    public String building;
+    public String room;
+    public int scheduleID;
 
     //Methods
-    public void loadFromJsonObject(JSONObject jsonObj)
+    public static CollegeTutor loadFromJsonObject(JSONObject jsonObj)
     {
-        super.loadFromJsonObject(jsonObj);
+        CollegeTutor tutor = (CollegeTutor) Tutor.loadFromJsonObject(jsonObj);
 
         try
         {
-            this.collegeID = jsonObj.getInt("college_id");
+            tutor.collegeID = jsonObj.getInt("college_id");
+            tutor.building = jsonObj.getString("building");
+            tutor.room = jsonObj.getString("room");
+            tutor.scheduleID = jsonObj.getInt("schedule_id");
         }
         catch(Exception e)
         {
             e.printStackTrace();
         }
+
+        return tutor;
     }
 }
