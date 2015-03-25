@@ -15,7 +15,7 @@
         android:elegantTextHeight="true"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/app_name"
-        android:id="@+id/AppNameID"
+        android:id="@+id/tutorNameHeader"
         android:textColor="#FFF"
         android:layout_gravity="top|center_horizontal" />
 

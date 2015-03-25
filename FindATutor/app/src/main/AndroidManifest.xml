@@ -50,9 +50,14 @@
             android:name=".TutorRegistration"
             android:label="@string/title_activity_tutor_registration" >
         </activity>
+
         <activity
-            android:name=".tutorReview"
+            android:name=".TutorReview"
             android:label="@string/title_activity_tutor_review" >
+        </activity>
+        <activity
+            android:name=".TutorProfile"
+            android:label="@string/title_activity_tutor_profile" >
         </activity>
     </application>
 

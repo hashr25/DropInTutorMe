@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@string/background_chosen"
+    tools:context="com.cs410tutorgroup.findatutor.tutorProfile">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="35dp"
+        android:textStyle="bold"
+        android:elegantTextHeight="true"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/app_name"
+        android:id="@+id/tutorNameHeader"
+        android:textColor="#FFF"
+        android:layout_gravity="top|center_horizontal"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tutorPhoto"
+        android:maxWidth="85dp"
+        android:minHeight="85dp"
+        android:minWidth="85dp"
+        android:maxHeight="85dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="70dp"
+        android:layout_marginLeft="20dp"
+        android:src="@drawable/test_face" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tutor_name"
+        android:id="@+id/tutorName"
+        android:layout_alignTop="@+id/tutorPhoto"
+        android:layout_alignParentEnd="false"
+        android:layout_alignParentStart="false"
+        android:layout_alignParentLeft="false"
+        android:textSize="20dp"
+        android:layout_toEndOf="@id/tutorPhoto"
+        android:layout_marginLeft="15dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/college_name"
+        android:id="@+id/tutorCollege"
+        android:layout_below="@+id/tutorName"
+        android:layout_toEndOf="@+id/tutorPhoto"
+        android:textSize="20dp"
+        android:layout_marginLeft="15dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/location"
+        android:id="@+id/tutorLocation"
+        android:layout_below="@+id/tutorCollege"
+        android:layout_toEndOf="@+id/tutorPhoto"
+        android:textSize="20dp"
+        android:layout_marginLeft="15dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/subject"
+        android:id="@+id/tutorSubject"
+        android:textSize="20dp"
+        android:layout_alignTop="@+id/tutorName"
+        android:layout_alignStart="@+id/tutorBio" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/bio"
+        android:id="@+id/tutorBio"
+        android:textSize="20dp"
+        android:layout_marginLeft="15dp"
+        android:layout_above="@+id/tutorLocation"
+        android:layout_alignEnd="@+id/tutorNameHeader" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/courses"
+        android:id="@+id/tutorCourses"
+        android:textSize="20dp"
+        android:layout_centerVertical="true"
+        android:layout_alignStart="@+id/tutorBio" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/schedule"
+        android:id="@+id/tutorSchedule"
+        android:textSize="20dp"
+        android:layout_centerVertical="true"
+        android:layout_alignStart="@+id/tutorPhoto" />
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:text="@string/reviews"
+        android:id="@+id/reviewButton"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="125dp"
+        android:layout_marginBottom="10dp" />
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:text="@string/open_map"
+        android:id="@+id/mapButton"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="125dp"
+        android:layout_marginBottom="10dp" />
+
+</RelativeLayout>

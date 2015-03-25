@@ -62,7 +62,7 @@ public class MainMenu extends Activity
     public void freelanceSearchButtonClicked(View view)
     {
         //This needs to be changed to correct activity. This was used for testing.
-        Intent freelanceSearchIntent = new Intent(this, testDatabase.class);
+        Intent freelanceSearchIntent = new Intent(this, TutorProfile.class);
         startActivity(freelanceSearchIntent);
     }
 
