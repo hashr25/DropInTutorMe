@@ -181,9 +181,11 @@ public class ApiConnector {
                 while (true)
                 {
                     String s = reader.readLine();
-                    if (s == null) {
+                    if (s == null)
+                    {
                         break;
-                    } else {
+                    } else
+                    {
                         response.append(s);
                     }
                 }

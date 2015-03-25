@@ -157,6 +157,4 @@ public class TutorRegistration extends Activity
                     .create();
         }
     }
-
-
 }
