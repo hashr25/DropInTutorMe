@@ -90,7 +90,7 @@ public class TutorRegistration extends Activity
 
     void showErrorDialog(int messageId)
     {
-        DialogFragment newFragment = ErrorDialogFragment.newInstance(messageId);
+        DialogFragment newFragment = Globals.ErrorDialogFragment.newInstance(messageId);
         newFragment.show(getFragmentManager(), "dialog");
     }
 
@@ -126,34 +126,6 @@ public class TutorRegistration extends Activity
             {
                 showErrorDialog(R.string.address_error);
             }
-        }
-    }
-
-    public static class ErrorDialogFragment extends DialogFragment
-    {
-        public static ErrorDialogFragment newInstance(int message)
-        {
-            ErrorDialogFragment frag = new ErrorDialogFragment();
-            Bundle args = new Bundle();
-            args.putInt("message", message);
-            frag.setArguments(args);
-            return frag;
-        }
-
-        @Override
-        public Dialog onCreateDialog(Bundle savedInstanceState)
-        {
-            int message = getArguments().getInt("message");
-
-            return new AlertDialog.Builder(getActivity())
-                    .setMessage(message)
-                    .setPositiveButton(R.string.alert_dialog_ok,
-                            new DialogInterface.OnClickListener()
-                            {
-                                public void onClick(DialogInterface dialog, int whichButton){}
-                            }
-                    )
-                    .create();
         }
     }
 }

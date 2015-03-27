@@ -1,36 +1,12 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainMenu"
     android:background="@string/background_chosen">
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Tutor Registration"
-        android:id="@+id/tutor_reg_button"
-        android:textSize="24dp"
-        android:layout_marginTop="72dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:onClick="tutorRegButtonClicked" />
-
-    <ScrollView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/scrollView"
-        android:layout_centerHorizontal="true"
-        android:layout_below = "@id/tutor_reg_button">
-
-        <TextView android:text="@string/hello_world"
-            android:id="@+id/responseTextView"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content" />
-
-    </ScrollView>
 
     <LinearLayout
         android:orientation="vertical"
@@ -51,17 +27,16 @@
             android:textColor="#FFF"
             android:layout_gravity="top|center_horizontal" />
 
-        <SearchView
-            android:layout_width="wrap_content"
+        <AutoCompleteTextView
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:id="@+id/collegeSearch"
             android:layout_gravity="center_horizontal"
-            android:hapticFeedbackEnabled="true"
-            android:iconifiedByDefault="false"
-            android:queryHint="@string/chose_college"
+            android:hint="@string/chose_college"
             android:layout_marginTop="240dp"
             android:layout_marginBottom="30dp"
-            android:contentDescription="@string/chose_college" />
+            android:imeOptions="actionSearch"
+            android:inputType="text|textAutoComplete" />
 
         <Button
             android:layout_width="wrap_content"

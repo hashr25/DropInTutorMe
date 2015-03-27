@@ -13,6 +13,7 @@
     <string name="email_error">You done messed up your email homie.</string>
     <string name="name_email_error">Dang fool, you got both your name and your email wrong. Wassup with dat homie?</string>
     <string name="address_error">What kind of address is that? Gimme a better one.</string>
+    <string name="college_error">That ain\'t a valid college name playa. Try one of the suggestions next time fool.</string>
     <string name="registration_complete">Registration successful!</string>
 
     <!-- Dialog buttons -->
@@ -62,6 +63,7 @@
     <string name="reviews">Reviews</string>
     <string name="open_map">Open Map</string>
     <string name="title_activity_list_of_tutors">ListOfTutors</string>
+    <string name="title_activity_search_narrower">SearchNarrower</string>
 
 
 </resources>

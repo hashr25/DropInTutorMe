@@ -8,7 +8,6 @@ import android.util.Log;
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONArray;
-import org.json.JSONException;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -31,7 +30,7 @@ public class ApiConnector {
 
     String url = "http://tutorapp.net76.net/application_api.php";
 
-    public JSONArray GetTutors() throws MalformedURLException, IOException, JSONException
+    public JSONArray GetTutors() throws MalformedURLException, IOException
     {
 
         JSONArray results = null;
@@ -203,6 +202,63 @@ public class ApiConnector {
         }
 
         return success;
+    }
+
+    public JSONArray GetAllColleges() throws MalformedURLException, IOException
+    {
+        JSONArray results = null;
+
+        URL u = new URL(url);
+
+        HttpURLConnection conn = (HttpURLConnection) u.openConnection();
+
+        try
+        {
+            conn.setDoOutput(true);
+            conn.setDoInput(true);
+            conn.setRequestMethod("POST");
+
+            List<NameValuePair> POSTlist = new ArrayList<NameValuePair>();
+
+            POSTlist.add(new BasicNameValuePair("tag","get_colleges"));
+
+            OutputStream out = new BufferedOutputStream(conn.getOutputStream());
+            writeStream(out, POSTlist);
+            out.close();
+
+            conn.connect();
+
+            InputStream in = new BufferedInputStream(conn.getInputStream());
+
+            BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+            StringBuilder response = new StringBuilder();
+            while(true)
+            {
+                String s = reader.readLine();
+                if(s==null)
+                {
+                    break;
+                }
+                else
+                {
+                    response.append(s);
+                }
+            }
+
+            Log.d("Response", response.toString());
+
+            results = new JSONArray(cleanString(response.toString()));
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        finally
+        {
+            conn.disconnect();
+        }
+
+        return results;
     }
 
     //Writes a request URL to the server connection's output stream

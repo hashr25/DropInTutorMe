@@ -62,6 +62,10 @@
             android:name=".ListOfTutors"
             android:label="@string/title_activity_list_of_tutors" >
         </activity>
+        <activity
+            android:name=".SearchNarrower"
+            android:label="@string/title_activity_search_narrower" >
+        </activity>
     </application>
 
 </manifest>

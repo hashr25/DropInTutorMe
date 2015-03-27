@@ -1,6 +1,6 @@
-import android.content.Context;
+package com.cs410tutorgroup.findatutor;
 
-import com.cs410tutorgroup.findatutor.TutorListContainer;
+import android.content.Context;
 
 import org.json.JSONObject;
 
