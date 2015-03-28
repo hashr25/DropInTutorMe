@@ -72,7 +72,7 @@ public class ApiConnector {
                 }
             }
 
-            Log.d("Response", response.toString());
+            Log.d("Get Tutors Response", response.toString());
 
             results = new JSONArray(cleanString(response.toString()));
         }
@@ -188,7 +188,7 @@ public class ApiConnector {
                     }
                 }
 
-                Log.d("Response", response.toString());
+                Log.d("Add Tutor Response", response.toString());
             }
         }
         catch(Exception e)
@@ -218,7 +218,7 @@ public class ApiConnector {
             conn.setDoInput(true);
             conn.setRequestMethod("POST");
 
-            List<NameValuePair> POSTlist = new ArrayList<NameValuePair>();
+            List<NameValuePair> POSTlist = new ArrayList<>();
 
             POSTlist.add(new BasicNameValuePair("tag","get_colleges"));
 
@@ -245,7 +245,7 @@ public class ApiConnector {
                 }
             }
 
-            Log.d("Response", response.toString());
+            Log.d("Colleges Response", response.toString());
 
             results = new JSONArray(cleanString(response.toString()));
         }
@@ -256,6 +256,61 @@ public class ApiConnector {
         finally
         {
             conn.disconnect();
+        }
+
+        return results;
+    }
+
+    public JSONArray GetSubjects() throws MalformedURLException, IOException
+    {
+        JSONArray results = null;
+
+        URL u = new URL(url);
+
+        HttpURLConnection conn = (HttpURLConnection) u.openConnection();
+
+        try
+        {
+            conn.setDoInput(true);
+            conn.setDoOutput(true);
+            conn.setRequestMethod("POST");
+
+            List<NameValuePair> POSTList = new ArrayList<>();
+
+            POSTList.add(new BasicNameValuePair("tag","get_subjects"));
+            Log.d("Current college",Globals.selectedCollegeName);
+            POSTList.add(new BasicNameValuePair("college_name",Globals.selectedCollegeName));
+
+            OutputStream out = new BufferedOutputStream(conn.getOutputStream());
+            writeStream(out,POSTList);
+            out.close();
+
+            conn.connect();
+
+            InputStream in = new BufferedInputStream(conn.getInputStream());
+
+            BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+            StringBuilder response = new StringBuilder();
+            while(true)
+            {
+                String s = reader.readLine();
+                if(s==null)
+                {
+                    break;
+                }
+                else
+                {
+                    response.append(s);
+                }
+            }
+
+            Log.d("Subjects Response", response.toString());
+
+            results = new JSONArray(cleanString(response.toString()));
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
         }
 
         return results;

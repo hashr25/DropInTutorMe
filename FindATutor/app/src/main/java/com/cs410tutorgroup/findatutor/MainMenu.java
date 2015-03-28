@@ -156,7 +156,8 @@ public class MainMenu extends Activity
 
         if(queryOk)
         {
-            //Query was good! We have a college to search
+            //Query was good! We have a college to search in
+            Globals.selectedCollegeName = v.getText().toString();
             Intent searchNarrowerIntent = new Intent(this, SearchNarrower.class);
             startActivity(searchNarrowerIntent);
         }

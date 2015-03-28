@@ -5,6 +5,9 @@ import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.util.Pair;
+
+import java.util.ArrayList;
 
 /**
  * Created by Conor on 3/21/2015.
@@ -13,7 +16,23 @@ public class Globals
 {
     public static final String API_KEY = "AIzaSyDbcrROWyAIVoYqXhaFW7lxi_KYxmoqWYY";
 
-    public static final String collegeToSearch = "";
+    //Information on the currently selected college
+    public static String selectedCollegeName = "";
+
+    /*public static ArrayList<Pair<String, Integer>> selectedCollegeSubjects = new ArrayList<>();
+
+    public static int getSubjectID(String subjectName)
+    {
+        for(int i = 0; i < selectedCollegeSubjects.size(); i++)
+        {
+            if(selectedCollegeSubjects.get(i).first == subjectName)
+            {
+                return selectedCollegeSubjects.get(i).second;
+            }
+        }
+
+        return -1;
+    }*/
 
     public static class ErrorDialogFragment extends DialogFragment
     {
