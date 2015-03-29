@@ -2,21 +2,24 @@ package com.cs410tutorgroup.findatutor;
 
 import android.app.Activity;
 import android.os.AsyncTask;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
-
 import org.json.JSONArray;
+import org.json.JSONObject;
 
+public class SearchNarrower extends Activity implements AdapterView.OnItemSelectedListener
+{
 
-public class SearchNarrower extends Activity implements AdapterView.OnItemSelectedListener {
+    private int[] subjectIDs;
+    private String[] subjectNames;
+
+    private int[] courseIDs;
+    private String[] courseNames;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -30,6 +33,9 @@ public class SearchNarrower extends Activity implements AdapterView.OnItemSelect
         Spinner subjectSpinner = (Spinner) findViewById(R.id.subject_spinner);
         Spinner courseSpinner = (Spinner) findViewById(R.id.course_spinner);
 
+        subjectSpinner.setOnItemSelectedListener(this);
+        courseSpinner.setOnItemSelectedListener(this);
+
         subjectSpinner.setEnabled(false);
         courseSpinner.setEnabled(false);
 
@@ -39,9 +45,17 @@ public class SearchNarrower extends Activity implements AdapterView.OnItemSelect
     //Called when an item in one of the spinners is selected
     public void onItemSelected(AdapterView<?> parent, View view, int pos, long id)
     {
+        Log.d("Item selected", view.toString());
         if(parent.getId() == R.id.subject_spinner)
         {
             String s = parent.getItemAtPosition(pos).toString();
+            for(int i = 0; i < subjectNames.length; i++)
+            {
+                if(subjectNames[i].equals(s))
+                {
+                    new GetCoursesTask(subjectIDs[i]).execute(new ApiConnector());
+                }
+            }
         }
     }
 
@@ -55,13 +69,16 @@ public class SearchNarrower extends Activity implements AdapterView.OnItemSelect
         Log.d("Subject Array",subjectsArray.toString());
         Spinner subjectSpinner = (Spinner) findViewById(R.id.subject_spinner);
 
-        String[] validSubjects = new String[subjectsArray.length()];
+        subjectNames = new String[subjectsArray.length()];
+        subjectIDs = new int[subjectsArray.length()];
 
         try
         {
             for(int i = 0; i < subjectsArray.length(); i++)
             {
-                validSubjects[i] = subjectsArray.getJSONObject(i).getString("subject_name");
+                JSONObject jObj = subjectsArray.getJSONObject(i);
+                subjectNames[i] = jObj.getString("subject_name");
+                subjectIDs[i] = jObj.getInt("subject_id");
             }
         }
         catch(Exception e)
@@ -69,11 +86,40 @@ public class SearchNarrower extends Activity implements AdapterView.OnItemSelect
             e.printStackTrace();
         }
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,android.R.layout.simple_spinner_item, validSubjects);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,android.R.layout.simple_spinner_dropdown_item, subjectNames);
 
         subjectSpinner.setAdapter(adapter);
 
         subjectSpinner.setEnabled(true);
+    }
+
+    public void setCourseSpinnerAdapter(JSONArray subjectsArray)
+    {
+        Log.d("Subject Array",subjectsArray.toString());
+        Spinner courseSpinner = (Spinner) findViewById(R.id.course_spinner);
+
+        courseNames = new String[subjectsArray.length()];
+        courseIDs = new int[subjectsArray.length()];
+
+        try
+        {
+            for(int i = 0; i < subjectsArray.length(); i++)
+            {
+                JSONObject jObj = subjectsArray.getJSONObject(i);
+                courseNames[i] = jObj.getString("display_text");
+                courseIDs[i] = jObj.getInt("course_id");
+            }
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,android.R.layout.simple_spinner_dropdown_item, courseNames);
+
+        courseSpinner.setAdapter(adapter);
+
+        courseSpinner.setEnabled(true);
     }
 
     private class GetSubjectsTask extends AsyncTask<ApiConnector,Long,JSONArray>
@@ -96,18 +142,33 @@ public class SearchNarrower extends Activity implements AdapterView.OnItemSelect
         @Override
         protected void onPostExecute(JSONArray jsonArray)
         {
-            setSubjectSpinnerAdapter(jsonArray);
+            try
+            {
+                setSubjectSpinnerAdapter(jsonArray);
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
         }
     }
 
     private class GetCoursesTask extends AsyncTask<ApiConnector,Long,JSONArray>
     {
+        public int subjectID;
+
+        public GetCoursesTask(int id)
+        {
+            super();
+            subjectID = id;
+        }
+
         @Override
         protected JSONArray doInBackground(ApiConnector... params)
         {
             try
             {
-                return params[0].GetSubjects();
+                return params[0].GetCourses(subjectID);
             }
             catch(Exception e)
             {
@@ -120,7 +181,14 @@ public class SearchNarrower extends Activity implements AdapterView.OnItemSelect
         @Override
         protected void onPostExecute(JSONArray jsonArray)
         {
-            setSubjectSpinnerAdapter(jsonArray);
+            try
+            {
+                setCourseSpinnerAdapter(jsonArray);
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
         }
     }
 }

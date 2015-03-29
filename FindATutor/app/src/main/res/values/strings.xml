@@ -50,7 +50,8 @@
 
 
     <!-- Standard Tutor Search -->
-
+    <string name="subject_prompt">Subject</string>
+    <string name="course_prompt">Course</string>
 
     <!-- Tutor Profile -->
     <string name="tutor_name">Name: </string>

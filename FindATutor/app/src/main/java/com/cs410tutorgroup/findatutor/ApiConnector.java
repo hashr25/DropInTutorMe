@@ -316,6 +316,61 @@ public class ApiConnector {
         return results;
     }
 
+    public JSONArray GetCourses(int subject_id) throws MalformedURLException, IOException
+    {
+        JSONArray results = null;
+
+        URL u = new URL(url);
+
+        HttpURLConnection conn = (HttpURLConnection) u.openConnection();
+
+        try
+        {
+            conn.setDoInput(true);
+            conn.setDoOutput(true);
+            conn.setRequestMethod("POST");
+
+            List<NameValuePair> POSTList = new ArrayList<>();
+
+            POSTList.add(new BasicNameValuePair("tag","get_courses"));
+            Log.d("Current college",Globals.selectedCollegeName);
+            POSTList.add(new BasicNameValuePair("subject_id",new Integer(subject_id).toString()));
+
+            OutputStream out = new BufferedOutputStream(conn.getOutputStream());
+            writeStream(out,POSTList);
+            out.close();
+
+            conn.connect();
+
+            InputStream in = new BufferedInputStream(conn.getInputStream());
+
+            BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+            StringBuilder response = new StringBuilder();
+            while(true)
+            {
+                String s = reader.readLine();
+                if(s==null)
+                {
+                    break;
+                }
+                else
+                {
+                    response.append(s);
+                }
+            }
+
+            Log.d("Courses Response", response.toString());
+
+            results = new JSONArray(cleanString(response.toString()));
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+
+        return results;
+    }
+
     //Writes a request URL to the server connection's output stream
     private void writeStream(OutputStream out, List<NameValuePair> l) throws UnsupportedEncodingException, IOException
     {
