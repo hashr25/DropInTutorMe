@@ -66,5 +66,8 @@
     <string name="title_activity_list_of_tutors">ListOfTutors</string>
     <string name="title_activity_search_narrower">SearchNarrower</string>
 
+    <!-- Tutor Reviews -->
+    <string name="enter_review">Enter your review</string>
+
 
 </resources>

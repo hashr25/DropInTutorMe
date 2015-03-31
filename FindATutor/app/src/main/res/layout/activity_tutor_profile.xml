@@ -107,7 +107,7 @@
         android:textSize="@dimen/standard_font_size" />
 
     <Button
-        android:layout_width="100dp"
+        android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:text="@string/reviews"
         android:id="@+id/reviewButton"
@@ -115,18 +115,17 @@
         android:layout_marginLeft="50dp"
         android:layout_marginBottom="10dp"
         android:clickable="true"
-        android:nestedScrollingEnabled="false" />
+        android:onClick="onReviewButtonClicked" />
 
     <Button
-        android:layout_width="100dp"
+        android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:text="@string/open_map"
         android:id="@+id/mapButton"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:layout_marginRight="50dp"
-        android:layout_marginBottom="10dp"
-        android:nestedScrollingEnabled="false" />
+        android:layout_marginBottom="10dp" />
 
 
 </RelativeLayout>

@@ -380,9 +380,9 @@ public class ApiConnector {
     public JSONArray GetCourses(int subject_id) throws MalformedURLException, IOException
     {
         JSONArray results = null;
-
+        
         URL u = new URL(url);
-
+        
         HttpURLConnection conn = (HttpURLConnection) u.openConnection();
 
         try
@@ -390,21 +390,21 @@ public class ApiConnector {
             conn.setDoInput(true);
             conn.setDoOutput(true);
             conn.setRequestMethod("POST");
-
+            
             List<NameValuePair> POSTList = new ArrayList<>();
-
+            
             POSTList.add(new BasicNameValuePair("tag","get_courses"));
-            Log.d("Current college",Globals.selectedCollegeName);
-            POSTList.add(new BasicNameValuePair("subject_id",Integer.toString(subject_id)));
 
+            POSTList.add(new BasicNameValuePair("subject_id",Integer.toString(subject_id)));
+			
             OutputStream out = new BufferedOutputStream(conn.getOutputStream());
             writeStream(out,POSTList);
             out.close();
-
+            
             conn.connect();
-
+            
             InputStream in = new BufferedInputStream(conn.getInputStream());
-
+            
             BufferedReader reader = new BufferedReader(new InputStreamReader(in));
             StringBuilder response = new StringBuilder();
             while(true)
@@ -419,17 +419,70 @@ public class ApiConnector {
                     response.append(s);
                 }
             }
-
+            
             Log.d("Courses Response", response.toString());
-
+            
             results = new JSONArray(cleanString(response.toString()));
         }
         catch(Exception e)
         {
             e.printStackTrace();
         }
-
+        finally
+        {
+            conn.disconnect();
+        }
+        
         return results;
+    }
+    
+    public Boolean AddReview(int tutorID, int freelanceID, String reviewText, float stars) throws MalformedURLException, IOException
+    {
+        Boolean success = true;
+
+        URL u = new URL(url);
+
+        HttpURLConnection conn = (HttpURLConnection) u.openConnection();
+
+        try
+        {
+            if (tutorID > 0 || freelanceID > 0) {
+                conn.setDoOutput(true);
+                conn.setDoInput(true);
+                conn.setRequestMethod("POST");
+
+                StringBuilder sb1 = new StringBuilder();
+                sb1.append(tutorID);
+                String tutorIDStr = sb1.toString();
+
+                StringBuilder sb2 = new StringBuilder();
+                sb2.append(freelanceID);
+                String freelanceIDStr = sb2.toString();
+
+                StringBuilder sb3 = new StringBuilder();
+                sb3.append(stars);
+                String starsStr = sb3.toString();
+
+                List<NameValuePair> POSTlist = new ArrayList<NameValuePair>();
+
+                POSTlist.add(new BasicNameValuePair("tag", "add_review"));
+                POSTlist.add(new BasicNameValuePair("tutor_id", tutorIDStr));
+                POSTlist.add(new BasicNameValuePair("freelance_id", freelanceIDStr));
+                POSTlist.add(new BasicNameValuePair("review_text", reviewText));
+                POSTlist.add(new BasicNameValuePair("stars", starsStr));
+            }
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+            success = false;
+        }
+        finally
+        {
+            conn.disconnect();
+        }
+
+        return success;
     }
 
     //Writes a request URL to the server connection's output stream
