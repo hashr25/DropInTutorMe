@@ -14,10 +14,18 @@ import org.json.JSONObject;
 
 public class SearchNarrower extends Activity implements AdapterView.OnItemSelectedListener
 {
+    //Is a task currently running to fetch tutors from the database?
+    private boolean gettingTutors = false;
 
+    //Used to keep track of currently selected information
+    private int currentCourseID = -1;
+    private int currentSubjectID = -1;
+
+    //Holds the lists of subject names/ids returned from the database
     private int[] subjectIDs;
     private String[] subjectNames;
 
+    //Same as above, but for courses
     private int[] courseIDs;
     private String[] courseNames;
 
@@ -45,15 +53,41 @@ public class SearchNarrower extends Activity implements AdapterView.OnItemSelect
     //Called when an item in one of the spinners is selected
     public void onItemSelected(AdapterView<?> parent, View view, int pos, long id)
     {
-        Log.d("Item selected", view.toString());
+        //An item was selected in the subject spinner
         if(parent.getId() == R.id.subject_spinner)
         {
+            //Get the name of the selected subject
             String s = parent.getItemAtPosition(pos).toString();
+
+            //Search the list of subject names from the database to match the name to an ID
             for(int i = 0; i < subjectNames.length; i++)
             {
+                //If a match is found, pull the courses for that subject from the database
                 if(subjectNames[i].equals(s))
                 {
+                    currentSubjectID = subjectIDs[i];
+
+                    //Disable the cvourse spinner while the new courses are being obtained
+                    Spinner courseSpinner = (Spinner) findViewById(R.id.course_spinner);
+                    courseSpinner.setEnabled(false);
+
+                    //Start a thread to pull course information from the database
                     new GetCoursesTask(subjectIDs[i]).execute(new ApiConnector());
+                }
+            }
+        }
+        else if(parent.getId() == R.id.course_spinner)
+        {
+            //Get the name of the selected course
+            String s = parent.getItemAtPosition(pos).toString();
+
+            //Search the list of course names for a match
+            for(int i = 0; i < courseNames.length; i++)
+            {
+                //If found, mark that course as selected
+                if(courseNames[i].equals(s))
+                {
+                    currentCourseID = courseIDs[i];
                 }
             }
         }
@@ -64,9 +98,18 @@ public class SearchNarrower extends Activity implements AdapterView.OnItemSelect
 
     }
 
+    public void onSearchButtonClicked(View view)
+    {
+        if(!gettingTutors)
+        {
+            gettingTutors = true;
+            new GetNarrowedTutorsTask().execute(new ApiConnector());
+        }
+    }
+
+    //Builds and attaches an adapter to the subject spinner
     public void setSubjectSpinnerAdapter(JSONArray subjectsArray)
     {
-        Log.d("Subject Array",subjectsArray.toString());
         Spinner subjectSpinner = (Spinner) findViewById(R.id.subject_spinner);
 
         subjectNames = new String[subjectsArray.length()];
@@ -93,9 +136,9 @@ public class SearchNarrower extends Activity implements AdapterView.OnItemSelect
         subjectSpinner.setEnabled(true);
     }
 
+    //Builds and attaches an adapter to the course spinner
     public void setCourseSpinnerAdapter(JSONArray subjectsArray)
     {
-        Log.d("Subject Array",subjectsArray.toString());
         Spinner courseSpinner = (Spinner) findViewById(R.id.course_spinner);
 
         courseNames = new String[subjectsArray.length()];
@@ -150,6 +193,30 @@ public class SearchNarrower extends Activity implements AdapterView.OnItemSelect
             {
                 e.printStackTrace();
             }
+        }
+    }
+
+    private class GetNarrowedTutorsTask extends AsyncTask<ApiConnector,Long,JSONArray>
+    {
+        @Override
+        protected JSONArray doInBackground(ApiConnector... params)
+        {
+            try
+            {
+                return params[0].GetNarrowedTutors(Globals.selectedCollegeName, currentSubjectID, currentCourseID);
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(JSONArray jsonArray)
+        {
+            gettingTutors = false;
         }
     }
 

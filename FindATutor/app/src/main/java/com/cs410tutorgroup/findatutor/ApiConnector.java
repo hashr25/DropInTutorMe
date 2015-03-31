@@ -88,6 +88,67 @@ public class ApiConnector {
         return results;
     }
 
+    public JSONArray GetNarrowedTutors(String collegeName, int subjectID, int courseID) throws MalformedURLException, IOException
+    {
+
+        JSONArray results = null;
+
+        URL u = new URL(url);
+
+        HttpURLConnection conn = (HttpURLConnection) u.openConnection();
+
+        try
+        {
+            conn.setDoOutput(true);
+            conn.setDoInput(true);
+            conn.setRequestMethod("POST");
+
+            List<NameValuePair> POSTlist = new ArrayList<NameValuePair>();
+
+            POSTlist.add(new BasicNameValuePair("tag", "get_tutors_narrowed"));
+            POSTlist.add(new BasicNameValuePair("college_name", collegeName));
+            POSTlist.add(new BasicNameValuePair("subject_id", Integer.toString(subjectID)));
+            POSTlist.add(new BasicNameValuePair("course_id", Integer.toString(courseID)));
+
+            OutputStream out = new BufferedOutputStream(conn.getOutputStream());
+            writeStream(out, POSTlist);
+            out.close();
+
+            conn.connect();
+
+            InputStream in = new BufferedInputStream(conn.getInputStream());
+
+            BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+            StringBuilder response = new StringBuilder();
+            while(true)
+            {
+                String s = reader.readLine();
+                if(s==null)
+                {
+                    break;
+                }
+                else
+                {
+                    response.append(s);
+                }
+            }
+
+            Log.d("Get Narrowed Tutors Response", response.toString());
+
+            results = new JSONArray(cleanString(response.toString()));
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        finally
+        {
+            conn.disconnect();
+        }
+
+        return results;
+    }
+
     public Boolean AddTutor(String name, String email, String address) throws MalformedURLException, IOException
     {
         Boolean success = true;
@@ -334,7 +395,7 @@ public class ApiConnector {
 
             POSTList.add(new BasicNameValuePair("tag","get_courses"));
             Log.d("Current college",Globals.selectedCollegeName);
-            POSTList.add(new BasicNameValuePair("subject_id",new Integer(subject_id).toString()));
+            POSTList.add(new BasicNameValuePair("subject_id",Integer.toString(subject_id)));
 
             OutputStream out = new BufferedOutputStream(conn.getOutputStream());
             writeStream(out,POSTList);

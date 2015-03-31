@@ -7,10 +7,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 
-public class TutorReview extends Activity {
+public class TutorReview extends Activity
+{
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tutor_review);
     }

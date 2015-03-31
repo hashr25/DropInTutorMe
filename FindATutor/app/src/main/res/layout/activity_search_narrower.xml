@@ -32,5 +32,16 @@
         android:layout_toEndOf="@id/subject_spinner"
         android:prompt="@string/course_prompt" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Search"
+        android:textSize="24dp"
+        android:id="@+id/search_button"
+        android:layout_alignParentBottom="true"
+        android:layout_alignEnd="@+id/course_spinner"
+        android:layout_alignParentStart="true"
+        android:onClick="onSearchButtonClicked"/>
+
 
 </RelativeLayout>

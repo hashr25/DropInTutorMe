@@ -19,20 +19,7 @@ public class Globals
     //Information on the currently selected college
     public static String selectedCollegeName = "";
 
-    /*public static ArrayList<Pair<String, Integer>> selectedCollegeSubjects = new ArrayList<>();
 
-    public static int getSubjectID(String subjectName)
-    {
-        for(int i = 0; i < selectedCollegeSubjects.size(); i++)
-        {
-            if(selectedCollegeSubjects.get(i).first == subjectName)
-            {
-                return selectedCollegeSubjects.get(i).second;
-            }
-        }
-
-        return -1;
-    }*/
 
     public static class ErrorDialogFragment extends DialogFragment
     {
