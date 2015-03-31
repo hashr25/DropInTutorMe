@@ -6,6 +6,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
@@ -14,7 +15,7 @@ import org.w3c.dom.Text;
 public class TutorProfile extends Activity
 {
     //Attributes
-    private CollegeTutor tutorDisplayed;
+    private Tutor tutorDisplayed;
 
     //Methods
     @Override
@@ -31,28 +32,47 @@ public class TutorProfile extends Activity
         TextView textToChange = (TextView)findViewById(R.id.tutorName);
         textToChange.setText(textToChange.getText() + tutorDisplayed.firstName + " " + tutorDisplayed.lastName);
 
-        textToChange = (TextView)findViewById(R.id.tutorCourses);
-        textToChange.setText(textToChange.getText() + "\nMath623, Math302, Math32");
-
         textToChange = (TextView)findViewById(R.id.tutorBio);
         textToChange.setText(textToChange.getText() + " " + tutorDisplayed.bio);
-
-        textToChange = (TextView)findViewById(R.id.tutorCollege);
-        textToChange.setText(textToChange.getText() + " Concord University"); //THIS NEEDS TO BE FIXED
-
-        textToChange = (TextView)findViewById(R.id.tutorLocation);
-        textToChange.setText(textToChange.getText() + tutorDisplayed.building + " " + tutorDisplayed.room);
 
         textToChange = (TextView)findViewById(R.id.tutorSubject);
         textToChange.setText(textToChange.getText() + tutorDisplayed.subject);
 
         textToChange = (TextView)findViewById(R.id.tutorNameHeader);
         textToChange.setText(tutorDisplayed.firstName + " " + tutorDisplayed.lastName);
+
+        if(tutorDisplayed.getClass() == CollegeTutor.class)
+        {
+            textToChange = (TextView)findViewById(R.id.tutorCollege);
+            textToChange.setText(textToChange.getText() + " Concord University"); //THIS NEEDS TO BE FIXED
+
+            //textToChange = (TextView)findViewById(R.id.tutorLocation);
+            //textToChange.setText(textToChange.getText() + tutorDisplayed.building + " " + tutorDisplayed.room);
+
+            textToChange = (TextView)findViewById(R.id.tutorCourses);
+            textToChange.setText(textToChange.getText() + "\nMath623, Math302, Math325");
+        }
+        else if(tutorDisplayed.getClass() == FreelanceTutor.class)
+        {
+
+        }
     }
 
-    public void onReviewButtonClicked()
+    public void onReviewButtonClicked(View view)
     {
         Intent reviewsIntent = new Intent(this, TutorReview.class);
+
+        if(tutorDisplayed.getClass() == FreelanceTutor.class)
+        {
+            reviewsIntent.putExtra("freelance_id", tutorDisplayed.tutorID);
+        }
+        else if(tutorDisplayed.getClass() == CollegeTutor.class)
+        {
+            reviewsIntent.putExtra("tutor_id", tutorDisplayed.tutorID);
+        }
+
+
+        startActivity(reviewsIntent);
     }
 
     public void onMapButtonClicked()
@@ -62,12 +82,10 @@ public class TutorProfile extends Activity
 
     public void createTestTutor()
     {
-        tutorDisplayed = new CollegeTutor();
+        tutorDisplayed = new FreelanceTutor();
         tutorDisplayed.firstName = "Alex";
         tutorDisplayed.lastName = "Hudgins";
         tutorDisplayed.emailAddress = "none@none.com";
-        tutorDisplayed.building = "Marsh Hall";
-        tutorDisplayed.room = "101";
         tutorDisplayed.bio = "What am I doing on here? I am just in the second grade...";
         tutorDisplayed.subject = "Math";
     }

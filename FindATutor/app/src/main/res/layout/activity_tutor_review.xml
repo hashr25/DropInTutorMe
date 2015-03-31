@@ -1,12 +1,72 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="fill_parent"
+    android:layout_height="fill_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:background="@string/background_chosen"
-    tools:context="com.cs410tutorgroup.findatutor.tutorReview">
+    tools:context="com.cs410tutorgroup.findatutor.tutorReview"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:elegantTextHeight="true"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/app_name"
+        android:id="@+id/tutorNameHeader"
+        android:textColor="#FFF"
+        android:layout_gravity="top|center_horizontal" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tutor: "
+        android:id="@+id/tutorName"
+        android:textSize="@dimen/standard_font_size"
+        android:layout_marginTop="50dp" />
 
 
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textMultiLine"
+        android:id="@+id/reviewText"
+        android:layout_weight="0.09"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp"
+        android:maxLength="255"
+        android:hint="@string/enter_review"
+        android:textAlignment="textStart"
+        android:textSize="@dimen/standard_font_size"
+        android:selectAllOnFocus="true"
+        android:maxLines="8"
+        android:autoText="false"
+        android:editable="true"
+        android:height="50dp" />
 
-</RelativeLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="charsLeft"
+        android:id="@+id/charCount"
+        android:layout_gravity="right" />
+
+    <RatingBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ratingStars"
+        android:numStars="5"
+        android:stepSize="0.5"
+        android:rating="3"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="100dp"
+        android:layout_marginTop="100dp" />
+
+
+</LinearLayout>
