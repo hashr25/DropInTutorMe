@@ -133,7 +133,7 @@ public class ApiConnector {
                 }
             }
 
-            Log.d("Get Narrowed Tutors Response", response.toString());
+            Log.d("Get Narrowed Response", response.toString());
 
             results = new JSONArray(cleanString(response.toString()));
         }

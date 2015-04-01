@@ -1,6 +1,8 @@
 package com.cs410tutorgroup.findatutor;
 
 import android.app.Activity;
+import android.app.DialogFragment;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,7 +14,7 @@ import android.widget.TextView;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-public class SearchNarrower extends Activity implements AdapterView.OnItemSelectedListener
+public class CollegeSearchNarrower extends Activity implements AdapterView.OnItemSelectedListener
 {
     //Is a task currently running to fetch tutors from the database?
     private boolean gettingTutors = false;
@@ -165,6 +167,38 @@ public class SearchNarrower extends Activity implements AdapterView.OnItemSelect
         courseSpinner.setEnabled(true);
     }
 
+    public void startSearch()
+    {
+        if(Globals.tutorList != null)
+        {
+            Intent tutorSearchIntent = new Intent(this, CollegeTutorSearch.class);
+            startActivity(tutorSearchIntent);
+        }
+        else
+        {
+            showErrorDialog(R.string.college_search_error);
+        }
+    }
+
+    void showErrorDialog(int messageId)
+    {
+        DialogFragment newFragment = Globals.ErrorDialogFragment.newInstance(messageId);
+        newFragment.show(getFragmentManager(), "dialog");
+    }
+
+    public String findSubjectName(int id)
+    {
+        for(int i = 0; i < subjectIDs.length; i++)
+        {
+            if(subjectIDs[i] == id)
+            {
+                return subjectNames[i];
+            }
+        }
+
+        return "";
+    }
+
     private class GetSubjectsTask extends AsyncTask<ApiConnector,Long,JSONArray>
     {
         @Override
@@ -216,7 +250,27 @@ public class SearchNarrower extends Activity implements AdapterView.OnItemSelect
         @Override
         protected void onPostExecute(JSONArray jsonArray)
         {
+            //Done getting tutors
             gettingTutors = false;
+
+            //Assign the list of tutors in the Global class
+            try
+            {
+                Globals.tutorList = new Tutor[jsonArray.length()];
+                for (int i = 0; i < Globals.tutorList.length; i++)
+                {
+                    Globals.tutorList[i] = Tutor.loadFromJsonObject(jsonArray.getJSONObject(i));
+                    Globals.tutorList[i].subject = findSubjectName(jsonArray.getJSONObject(i).getInt("subject_id"));
+                }
+            }
+            catch(Exception e)
+            {
+                Globals.tutorList = null;
+                e.printStackTrace();
+            }
+
+            //If assigning the list was successful, start a new tutor search activity
+            startSearch();
         }
     }
 

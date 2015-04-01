@@ -28,7 +28,6 @@ public class Tutor
             tutor.firstName = jsonObj.getString("first_name");
             tutor.lastName = jsonObj.getString("last_name");
             tutor.emailAddress = jsonObj.getString("email");
-            tutor.subject = jsonObj.getString("subject");
             tutor.bio = jsonObj.getString("bio");
             //tutorToLoad.pictureLink = jsonObj.getString("picture");
         }

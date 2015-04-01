@@ -15,6 +15,7 @@
     <string name="address_error">What kind of address is that? Gimme a better one.</string>
     <string name="college_error">That ain\'t a valid college name playa. Try one of the suggestions next time fool.</string>
     <string name="registration_complete">Registration successful!</string>
+    <string name="college_search_error">No tutors found with those search parameters.</string>
 
     <!-- Dialog buttons -->
     <string name="alert_dialog_ok">OK</string>
@@ -32,7 +33,7 @@
 
     <!-- Activity Labels -->
     <string name="title_activity_online_resources">OnlineResources</string>
-    <string name="title_activity_standard_tutor_search">standardTutorSearch</string>
+    <string name="title_activity_standard_tutor_search">CollegeTutorSearch</string>
     <string name="title_activity_test_database">testDatabase</string>
 
     <!-- Main Menu -->
@@ -64,7 +65,7 @@
     <string name="reviews">Reviews</string>
     <string name="open_map">Open Map</string>
     <string name="title_activity_list_of_tutors">ListOfTutors</string>
-    <string name="title_activity_search_narrower">SearchNarrower</string>
+    <string name="title_activity_search_narrower">CollegeSearchNarrower</string>
 
     <!-- Tutor Reviews -->
     <string name="enter_review">Enter your review</string>

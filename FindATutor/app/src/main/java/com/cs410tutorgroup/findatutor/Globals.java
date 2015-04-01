@@ -19,7 +19,7 @@ public class Globals
     //Information on the currently selected college
     public static String selectedCollegeName = "";
 
-
+    public static Tutor[] tutorList = null;
 
     public static class ErrorDialogFragment extends DialogFragment
     {

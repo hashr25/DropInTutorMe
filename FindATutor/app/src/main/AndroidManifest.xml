@@ -31,7 +31,7 @@
             android:label="@string/title_activity_online_resources" >
         </activity>
         <activity
-            android:name=".StandardTutorSearch"
+            android:name=".CollegeTutorSearch"
             android:label="@string/title_activity_standard_tutor_search" >
         </activity>
         <activity
@@ -63,7 +63,7 @@
             android:label="@string/title_activity_list_of_tutors" >
         </activity>
         <activity
-            android:name=".SearchNarrower"
+            android:name=".CollegeSearchNarrower"
             android:label="@string/title_activity_search_narrower" >
         </activity>
     </application>
