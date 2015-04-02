@@ -445,8 +445,9 @@ public class ApiConnector {
         HttpURLConnection conn = (HttpURLConnection) u.openConnection();
 
         try
-        {
-            if (tutorID > 0 || freelanceID > 0) {
+        {Log.d("AddingReview", "Attempting to add review");
+            if (tutorID > 0 || freelanceID > 0)
+            {Log.d("Breakpoint0", "Breakpoint 0");
                 conn.setDoOutput(true);
                 conn.setDoInput(true);
                 conn.setRequestMethod("POST");
@@ -463,6 +464,8 @@ public class ApiConnector {
                 sb3.append(stars);
                 String starsStr = sb3.toString();
 
+                Log.d("Breakpoint1", "Breakpoint 1");
+
                 List<NameValuePair> POSTlist = new ArrayList<NameValuePair>();
 
                 POSTlist.add(new BasicNameValuePair("tag", "add_review"));
@@ -470,6 +473,35 @@ public class ApiConnector {
                 POSTlist.add(new BasicNameValuePair("freelance_id", freelanceIDStr));
                 POSTlist.add(new BasicNameValuePair("review_text", reviewText));
                 POSTlist.add(new BasicNameValuePair("stars", starsStr));
+
+                OutputStream out = new BufferedOutputStream(conn.getOutputStream());
+                writeStream(out, POSTlist);
+                out.close();
+
+                conn.connect();
+
+                Log.d("Breakpoint2", "Breakpoint 2");
+
+                //Retrieve data sent from the server for debugging
+                InputStream in = new BufferedInputStream(conn.getInputStream());
+
+                BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+                StringBuilder response = new StringBuilder();
+
+                Log.d("Breakpoint3", "Breakpoint 3");
+                while (true)
+                {
+                    String s = reader.readLine();
+                    if (s == null)
+                    {
+                        break;
+                    } else
+                    {
+                        response.append(s);
+                    }
+                }
+
+                Log.d("Add Review Response", response.toString());
             }
         }
         catch(Exception e)
@@ -478,7 +510,7 @@ public class ApiConnector {
             success = false;
         }
         finally
-        {
+        {Log.d("Breakpoint4", "Breakpoint 4");
             conn.disconnect();
         }
 

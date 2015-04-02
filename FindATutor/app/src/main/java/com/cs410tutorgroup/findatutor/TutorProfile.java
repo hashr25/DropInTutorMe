@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -64,12 +65,18 @@ public class TutorProfile extends Activity
 
         if(tutorDisplayed.getClass() == FreelanceTutor.class)
         {
+            Log.d("showFreelanceId", Integer.toString(tutorDisplayed.tutorID));
             reviewsIntent.putExtra("freelance_id", tutorDisplayed.tutorID);
+            reviewsIntent.putExtra("tutor_id", 0);
         }
         else if(tutorDisplayed.getClass() == CollegeTutor.class)
         {
+            Log.d("showTutorId", Integer.toString(tutorDisplayed.tutorID));
             reviewsIntent.putExtra("tutor_id", tutorDisplayed.tutorID);
+            reviewsIntent.putExtra("freelance_id", 0);
         }
+
+        reviewsIntent.putExtra("tutor_name", tutorDisplayed.firstName + " " + tutorDisplayed.lastName);
 
 
         startActivity(reviewsIntent);
@@ -82,9 +89,10 @@ public class TutorProfile extends Activity
 
     public void createTestTutor()
     {
-        tutorDisplayed = new FreelanceTutor();
+        tutorDisplayed = new CollegeTutor();
         tutorDisplayed.firstName = "Alex";
         tutorDisplayed.lastName = "Hudgins";
+        tutorDisplayed.tutorID = 4;
         tutorDisplayed.emailAddress = "none@none.com";
         tutorDisplayed.bio = "What am I doing on here? I am just in the second grade...";
         tutorDisplayed.subject = "Math";

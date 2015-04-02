@@ -32,28 +32,31 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textMultiLine"
+        android:inputType="textCapSentences|textMultiLine"
         android:id="@+id/reviewText"
         android:layout_weight="0.09"
-        android:layout_gravity="center_horizontal"
+        android:layout_gravity="bottom|center_horizontal"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:layout_marginTop="15dp"
         android:maxLength="255"
         android:hint="@string/enter_review"
-        android:textAlignment="textStart"
+        android:textAlignment="gravity"
         android:textSize="@dimen/standard_font_size"
         android:selectAllOnFocus="true"
         android:maxLines="8"
         android:autoText="false"
         android:editable="true"
-        android:height="50dp" />
+        android:height="50dp"
+        android:password="false"
+        android:capitalize="sentences"
+        android:gravity="bottom" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="charsLeft"
+        android:text="255 character(s) left"
         android:id="@+id/charCount"
         android:layout_gravity="right" />
 
@@ -65,8 +68,18 @@
         android:stepSize="0.5"
         android:rating="3"
         android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="100dp"
-        android:layout_marginTop="100dp" />
+        android:layout_marginBottom="40dp"
+        android:layout_marginTop="70dp"
+        android:progressTint="#ffa80011"
+        android:progressBackgroundTint="#ffe10000" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/submit_review"
+        android:id="@+id/submitReviewButton"
+        android:layout_gravity="center_horizontal"
+        android:onClick="onSubmitButtonClicked" />
 
 
 </LinearLayout>

@@ -16,6 +16,9 @@
     <string name="college_error">That ain\'t a valid college name playa. Try one of the suggestions next time fool.</string>
     <string name="registration_complete">Registration successful!</string>
     <string name="college_search_error">No tutors found with those search parameters.</string>
+    <string name="review_submitted">Congratulations! Your review was submitted.</string>
+    <string name="review_fail">Some shit went wrong. Try again.</string>
+    <string name="enter_text">You have to actually write something in your review...</string>
 
     <!-- Dialog buttons -->
     <string name="alert_dialog_ok">OK</string>
@@ -69,6 +72,7 @@
 
     <!-- Tutor Reviews -->
     <string name="enter_review">Enter your review</string>
+    <string name="submit_review">Submit Review</string>
 
 
 </resources>
