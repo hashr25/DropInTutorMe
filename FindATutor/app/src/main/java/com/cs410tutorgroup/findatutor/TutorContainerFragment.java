@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 /**
@@ -17,7 +18,7 @@ public class TutorContainerFragment extends Fragment
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState)
     {
-        LinearLayout l = (LinearLayout) inflater.inflate(R.layout.tutor_list_container, container, false);
+        RelativeLayout l = (RelativeLayout) inflater.inflate(R.layout.tutor_list_container, container, false);
 
         TextView tv = (TextView) l.getChildAt(0);
         tv.setText(getArguments().getString("tutor_name"));

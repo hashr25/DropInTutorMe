@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 
 
 public class CollegeTutorSearch extends Activity
@@ -28,6 +29,9 @@ public class CollegeTutorSearch extends Activity
             TutorContainerFragment newTutorFragment = new TutorContainerFragment();
             newTutorFragment.setArguments(args);
             getFragmentManager().beginTransaction().add(R.id.tutor_list, newTutorFragment).commit();
+
+            TextView v = (TextView) findViewById(R.id.college_name_text);
+            v.setText(Globals.selectedCollegeName);
         }
     }
 }

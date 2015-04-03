@@ -20,6 +20,7 @@
     <string name="review_fail">Some shit went wrong. Try again.</string>
     <string name="enter_text">You have to actually write something in your review...</string>
 
+
     <!-- Dialog buttons -->
     <string name="alert_dialog_ok">OK</string>
 
