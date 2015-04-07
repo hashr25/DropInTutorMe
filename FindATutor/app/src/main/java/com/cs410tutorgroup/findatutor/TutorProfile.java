@@ -24,7 +24,13 @@ public class TutorProfile extends Activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tutor_profile);
 
-        createTestTutor();
+        Intent thisIntent = getIntent();
+
+        int tutorIndex = thisIntent.getExtras().getInt("index");
+
+        tutorDisplayed = Globals.tutorList[tutorIndex];
+
+        //createTestTutor();
         displayTutorInfo();
     }
 

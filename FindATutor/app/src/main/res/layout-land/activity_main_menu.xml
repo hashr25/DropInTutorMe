@@ -19,17 +19,16 @@
         android:textColor="#FFF"
         android:layout_gravity="top|center_horizontal" />
 
-    <SearchView
-        android:layout_width="wrap_content"
+    <AutoCompleteTextView
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:id="@+id/collegeSearch"
         android:layout_gravity="center_horizontal"
-        android:hapticFeedbackEnabled="true"
-        android:iconifiedByDefault="false"
-        android:queryHint="@string/chose_college"
-        android:layout_marginTop="80dp"
+        android:hint="@string/chose_college"
+        android:layout_marginTop="20dp"
         android:layout_marginBottom="30dp"
-        android:contentDescription="@string/chose_college" />
+        android:imeOptions="actionSearch"
+        android:inputType="text|textAutoComplete" />
 
     <Button
         android:layout_width="wrap_content"
@@ -55,9 +54,4 @@
         android:layout_gravity="center_horizontal"
         android:onClick="freelanceSignupButtonClicked" />
 
-    <TextView android:text="@string/hello_world"
-        android:id="@+id/responseTextView"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-          />
 </LinearLayout>
