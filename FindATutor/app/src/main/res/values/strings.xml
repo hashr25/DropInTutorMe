@@ -25,13 +25,13 @@
     <string name="alert_dialog_ok">OK</string>
 
     <!-- General Use -->
-    <string name="app_name">FindATutor</string>
+    <string name="app_name">TutorMe</string>
     <string name="title_font_size">35dp</string>
     <string name="link_font_size">25dp</string>
     <string name="standard_font_size">15dp</string>
 
     <!-- This line is used to change the bar at the top. Currently there are backgrounds 1-9 -->
-    <string name="background_chosen">@drawable/background2</string>
+    <string name="background_chosen">@drawable/background7</string>
 
     <string name="action_settings">Settings</string>
 

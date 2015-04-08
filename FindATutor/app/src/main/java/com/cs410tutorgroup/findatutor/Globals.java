@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.DialogInterface;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Pair;
 
@@ -15,6 +16,8 @@ import java.util.ArrayList;
 public class Globals
 {
     public static final String API_KEY = "AIzaSyDbcrROWyAIVoYqXhaFW7lxi_KYxmoqWYY";
+
+    public static Drawable tempPic = null;
 
     //Information on the currently selected college
     public static String selectedCollegeName = "";

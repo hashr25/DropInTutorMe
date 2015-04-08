@@ -2,12 +2,14 @@ package com.cs410tutorgroup.findatutor;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
@@ -17,6 +19,7 @@ public class TutorProfile extends Activity
 {
     //Attributes
     private Tutor tutorDisplayed;
+    private int tutorIndex;
 
     //Methods
     @Override
@@ -26,7 +29,7 @@ public class TutorProfile extends Activity
 
         Intent thisIntent = getIntent();
 
-        int tutorIndex = thisIntent.getExtras().getInt("index");
+        tutorIndex = thisIntent.getExtras().getInt("index");
 
         tutorDisplayed = Globals.tutorList[tutorIndex];
 
@@ -48,13 +51,17 @@ public class TutorProfile extends Activity
         textToChange = (TextView)findViewById(R.id.tutorNameHeader);
         textToChange.setText(tutorDisplayed.firstName + " " + tutorDisplayed.lastName);
 
+        ImageView image = (ImageView) findViewById(R.id.tutorPhoto);
+        image.setImageDrawable(Globals.tutorList[tutorIndex].picture);
+
+
         if(tutorDisplayed.getClass() == CollegeTutor.class)
         {
             textToChange = (TextView)findViewById(R.id.tutorCollege);
             textToChange.setText(textToChange.getText() + " Concord University"); //THIS NEEDS TO BE FIXED
 
-            //textToChange = (TextView)findViewById(R.id.tutorLocation);
-            //textToChange.setText(textToChange.getText() + tutorDisplayed.building + " " + tutorDisplayed.room);
+            textToChange = (TextView)findViewById(R.id.tutorLocation);
+            //textToChange.setText(textToChange.getText() + Globals.building + " " + tutorDisplayed.room);
 
             textToChange = (TextView)findViewById(R.id.tutorCourses);
             textToChange.setText(textToChange.getText() + "\nMath623, Math302, Math325");
@@ -86,6 +93,13 @@ public class TutorProfile extends Activity
 
 
         startActivity(reviewsIntent);
+    }
+
+    public String getClassList()
+    {
+
+
+        return null;
     }
 
     public void onMapButtonClicked()

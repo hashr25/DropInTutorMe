@@ -1,5 +1,7 @@
 package com.cs410tutorgroup.findatutor;
 
+import android.util.Log;
+
 import org.json.JSONObject;
 
 /**
@@ -14,9 +16,16 @@ public class CollegeTutor extends Tutor
     public int scheduleID;
 
     //Methods
-    public static CollegeTutor loadFromJsonObject(JSONObject jsonObj)
+
+    /**
+     *
+     * @param jsonObj This JSON Object comes from the ApiConnector from querying for tutors
+     * @return  Returns the Tutor Object
+     */
+    public CollegeTutor loadCollegeTutorFromJsonObject(JSONObject jsonObj)
     {
-        CollegeTutor tutor = (CollegeTutor) Tutor.loadFromJsonObject(jsonObj);
+        CollegeTutor tutor = null;
+        tutor = (CollegeTutor) Tutor.loadFromJsonObject(jsonObj);
 
         try
         {
@@ -27,6 +36,7 @@ public class CollegeTutor extends Tutor
         }
         catch(Exception e)
         {
+            Log.d("CollegeTutorFail", "Failed loading at college tutor level");
             e.printStackTrace();
         }
 

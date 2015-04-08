@@ -11,9 +11,16 @@ public class FreelanceTutor extends Tutor
     public double latitude, longitude;
 
     //Methods
-    public static FreelanceTutor loadFromJSONObject(JSONObject jsonObj)
+
+    /**
+     *
+     * @param jsonObj This JSON Object comes from the ApiConnector from querying for tutors
+     * @return  Returns the Tutor Object
+     */
+    public static FreelanceTutor loadFreelanceTutorFromJSONObject(JSONObject jsonObj)
     {
-        FreelanceTutor tutor = (FreelanceTutor) Tutor.loadFromJsonObject(jsonObj);
+        FreelanceTutor tutor = null;
+        tutor = (FreelanceTutor) Tutor.loadFromJsonObject(jsonObj);
 
         try
         {

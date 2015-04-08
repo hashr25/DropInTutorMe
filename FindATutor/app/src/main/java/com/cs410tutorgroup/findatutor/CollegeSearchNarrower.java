@@ -259,7 +259,7 @@ public class CollegeSearchNarrower extends Activity implements AdapterView.OnIte
                 Globals.tutorList = new Tutor[jsonArray.length()];
                 for (int i = 0; i < Globals.tutorList.length; i++)
                 {
-                    Globals.tutorList[i] = Tutor.loadFromJsonObject(jsonArray.getJSONObject(i));
+                    Globals.tutorList[i] = Globals.tutorList[i].loadFromJsonObject(jsonArray.getJSONObject(i));
                     Globals.tutorList[i].subject = findSubjectName(jsonArray.getJSONObject(i).getInt("subject_id"));
                 }
             }
