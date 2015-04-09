@@ -88,7 +88,7 @@ public class ApiConnector {
         return results;
     }
 
-    public JSONArray GetNarrowedTutors(String collegeName, int subjectID, int courseID) throws MalformedURLException, IOException
+    public JSONArray GetNarrowedTutors(String collegeName, int subjectID, int courseID) throws IOException
     {
 
         JSONArray results = null;

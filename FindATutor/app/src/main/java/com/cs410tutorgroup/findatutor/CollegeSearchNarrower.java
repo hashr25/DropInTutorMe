@@ -49,6 +49,22 @@ public class CollegeSearchNarrower extends Activity implements AdapterView.OnIte
         subjectSpinner.setEnabled(false);
         courseSpinner.setEnabled(false);
 
+        //Setup default adapters for the spinners until data is retrieved from the database
+        subjectNames = new String[1];
+        subjectIDs = new int[1];
+
+        subjectNames[0] = "All";
+        subjectIDs[0] = -1;
+
+        courseNames = new String[1];
+        courseIDs = new int[1];
+
+        courseNames[0] = "All";
+        courseIDs[0] = -1;
+
+        courseSpinner.setAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item, courseNames));
+        subjectSpinner.setAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item, subjectNames));
+
         new GetSubjectsTask().execute(new ApiConnector());
     }
 
@@ -114,16 +130,20 @@ public class CollegeSearchNarrower extends Activity implements AdapterView.OnIte
     {
         Spinner subjectSpinner = (Spinner) findViewById(R.id.subject_spinner);
 
-        subjectNames = new String[subjectsArray.length()];
-        subjectIDs = new int[subjectsArray.length()];
+        subjectNames = new String[subjectsArray.length()+1];
+        subjectIDs = new int[subjectsArray.length()+1];
+
+        //All subjects setup
+        subjectNames[0] = "All";
+        subjectIDs[0] = -1;
 
         try
         {
             for(int i = 0; i < subjectsArray.length(); i++)
             {
                 JSONObject jObj = subjectsArray.getJSONObject(i);
-                subjectNames[i] = jObj.getString("subject_name");
-                subjectIDs[i] = jObj.getInt("subject_id");
+                subjectNames[i+1] = jObj.getString("subject_name");
+                subjectIDs[i+1] = jObj.getInt("subject_id");
             }
         }
         catch(Exception e)
@@ -145,6 +165,10 @@ public class CollegeSearchNarrower extends Activity implements AdapterView.OnIte
 
         courseNames = new String[subjectsArray.length()];
         courseIDs = new int[subjectsArray.length()];
+
+        //All courses setup
+        courseNames[0] = "All";
+        courseIDs[0] = -1;
 
         try
         {
