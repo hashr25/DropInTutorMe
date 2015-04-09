@@ -1,12 +1,11 @@
-package com.cs410tutorgroup.findatutor;
+package com.cs410tutorgroup.tutorme;
 
 import android.app.Activity;
 import android.os.AsyncTask;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.TextView;
+
+import com.cs410tutorgroup.findatutor.R;
 
 import org.json.JSONArray;
 import org.json.JSONObject;

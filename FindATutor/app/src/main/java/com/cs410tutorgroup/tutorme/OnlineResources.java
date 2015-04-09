@@ -1,4 +1,4 @@
-package com.cs410tutorgroup.findatutor;
+package com.cs410tutorgroup.tutorme;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -6,6 +6,8 @@ import android.text.method.LinkMovementMethod;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
+
+import com.cs410tutorgroup.findatutor.R;
 
 
 public class OnlineResources extends Activity {

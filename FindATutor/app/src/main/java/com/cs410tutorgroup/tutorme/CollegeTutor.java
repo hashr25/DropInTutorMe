@@ -1,4 +1,4 @@
-package com.cs410tutorgroup.findatutor;
+package com.cs410tutorgroup.tutorme;
 
 import android.util.Log;
 
@@ -13,6 +13,7 @@ public class CollegeTutor extends Tutor
     public int collegeID;
     public String building;
     public String room;
+    public String tutorCourses;
     public int scheduleID;
 
     //Methods
@@ -42,4 +43,6 @@ public class CollegeTutor extends Tutor
 
         return tutor;
     }
+
+
 }

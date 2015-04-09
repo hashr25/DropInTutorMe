@@ -1,29 +1,31 @@
-package com.cs410tutorgroup.findatutor;
+package com.cs410tutorgroup.tutorme;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
+import com.cs410tutorgroup.findatutor.R;
+
+import org.json.JSONArray;
+
+import java.io.IOException;
+import java.net.MalformedURLException;
 
 
 public class TutorProfile extends Activity
 {
     //Attributes
-    private Tutor tutorDisplayed;
+    private CollegeTutor tutorDisplayed;
     private int tutorIndex;
 
     //Methods
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tutor_profile);
 
@@ -34,7 +36,8 @@ public class TutorProfile extends Activity
         tutorDisplayed = Globals.tutorList[tutorIndex];
 
         //createTestTutor();
-        displayTutorInfo();
+        try{ displayTutorInfo(); }
+        catch(Exception e) {e.printStackTrace();}
     }
 
     private void displayTutorInfo()
@@ -48,58 +51,58 @@ public class TutorProfile extends Activity
         textToChange = (TextView)findViewById(R.id.tutorSubject);
         textToChange.setText(textToChange.getText() + tutorDisplayed.subject);
 
+        textToChange = (TextView)findViewById(R.id.tutorCollege);
+        textToChange.setText(textToChange.getText() + Globals.selectedCollegeName);
+
         textToChange = (TextView)findViewById(R.id.tutorNameHeader);
         textToChange.setText(tutorDisplayed.firstName + " " + tutorDisplayed.lastName);
 
         ImageView image = (ImageView) findViewById(R.id.tutorPhoto);
         image.setImageDrawable(Globals.tutorList[tutorIndex].picture);
 
+        textToChange = (TextView)findViewById(R.id.tutorCollege);
+        textToChange.setText(textToChange.getText() + " Concord University"); //THIS NEEDS TO BE FIXED
 
-        if(tutorDisplayed.getClass() == CollegeTutor.class)
+        textToChange = (TextView)findViewById(R.id.tutorLocation);
+        textToChange.setText(textToChange.getText() + tutorDisplayed.building + " " + tutorDisplayed.room);
+
+        textToChange = (TextView) findViewById(R.id.tutorCourses);
+        textToChange.setText(textToChange.getText() + getCourses(tutorDisplayed.tutorID));
+    }
+
+    private String getCourses(int tutorID)
+    {
+        String result = "";
+
+        try
         {
-            textToChange = (TextView)findViewById(R.id.tutorCollege);
-            textToChange.setText(textToChange.getText() + " Concord University"); //THIS NEEDS TO BE FIXED
+            JSONArray rawTutorCourses = new ApiConnector().getTutorCourses(tutorID);
 
-            textToChange = (TextView)findViewById(R.id.tutorLocation);
-            //textToChange.setText(textToChange.getText() + Globals.building + " " + tutorDisplayed.room);
-
-            textToChange = (TextView)findViewById(R.id.tutorCourses);
-            textToChange.setText(textToChange.getText() + "\nMath623, Math302, Math325");
+            for( int i = 0; i < rawTutorCourses.length(); i++ )
+            {
+                result = result + ", " + rawTutorCourses.getString(i);
+            }
         }
-        else if(tutorDisplayed.getClass() == FreelanceTutor.class)
+        catch(Exception e)
         {
-
+            e.printStackTrace();
         }
+
+        return result;
     }
 
     public void onReviewButtonClicked(View view)
     {
         Intent reviewsIntent = new Intent(this, TutorReview.class);
 
-        if(tutorDisplayed.getClass() == FreelanceTutor.class)
-        {
-            Log.d("showFreelanceId", Integer.toString(tutorDisplayed.tutorID));
-            reviewsIntent.putExtra("freelance_id", tutorDisplayed.tutorID);
-            reviewsIntent.putExtra("tutor_id", 0);
-        }
-        else if(tutorDisplayed.getClass() == CollegeTutor.class)
-        {
-            Log.d("showTutorId", Integer.toString(tutorDisplayed.tutorID));
-            reviewsIntent.putExtra("tutor_id", tutorDisplayed.tutorID);
-            reviewsIntent.putExtra("freelance_id", 0);
-        }
+        Log.d("showTutorId", Integer.toString(tutorDisplayed.tutorID));
+        reviewsIntent.putExtra("tutor_id", tutorDisplayed.tutorID);
+        reviewsIntent.putExtra("freelance_id", 0);
 
         reviewsIntent.putExtra("tutor_name", tutorDisplayed.firstName + " " + tutorDisplayed.lastName);
 
 
         startActivity(reviewsIntent);
-    }
-
-    public String getClassList()
-    {
-
-
-        return null;
     }
 
     public void onMapButtonClicked()

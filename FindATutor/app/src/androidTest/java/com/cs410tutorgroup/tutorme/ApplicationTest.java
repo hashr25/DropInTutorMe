@@ -1,4 +1,4 @@
-package com.cs410tutorgroup.findatutor;
+package com.cs410tutorgroup.tutorme;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
