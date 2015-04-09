@@ -18,7 +18,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.cs410tutorgroup.tutorme.MainMenu"
+            android:name=".MainMenu"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,15 +27,15 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.cs410tutorgroup.tutorme.OnlineResources"
+            android:name=".OnlineResources"
             android:label="@string/title_activity_online_resources" >
         </activity>
         <activity
-            android:name="com.cs410tutorgroup.tutorme.CollegeTutorSearch"
+            android:name=".CollegeTutorSearch"
             android:label="@string/title_activity_standard_tutor_search" >
         </activity>
         <activity
-            android:name="com.cs410tutorgroup.tutorme.testDatabase"
+            android:name=".testDatabase"
             android:label="@string/title_activity_test_database" >
         </activity>
 
@@ -47,19 +47,19 @@
             android:value="AIzaSyDbcrROWyAIVoYqXhaFW7lxi_KYxmoqWYY" />
 
         <activity
-            android:name="com.cs410tutorgroup.tutorme.TutorRegistration"
+            android:name=".TutorRegistration"
             android:label="@string/title_activity_tutor_registration" >
         </activity>
         <activity
-            android:name="com.cs410tutorgroup.tutorme.TutorReview"
+            android:name=".TutorReview"
             android:label="@string/title_activity_tutor_review" >
         </activity>
         <activity
-            android:name="com.cs410tutorgroup.tutorme.TutorProfile"
+            android:name=".TutorProfile"
             android:label="@string/title_activity_tutor_profile" >
         </activity>
         <activity
-            android:name="com.cs410tutorgroup.tutorme.CollegeSearchNarrower"
+            android:name=".CollegeSearchNarrower"
             android:label="@string/title_activity_search_narrower" >
         </activity>
     </application>

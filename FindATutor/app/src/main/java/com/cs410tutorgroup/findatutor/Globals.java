@@ -1,4 +1,4 @@
-package com.cs410tutorgroup.tutorme;
+package com.cs410tutorgroup.findatutor;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -6,8 +6,9 @@ import android.app.DialogFragment;
 import android.content.DialogInterface;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.util.Pair;
 
-import com.cs410tutorgroup.findatutor.R;
+import java.util.ArrayList;
 
 /**
  * Created by Conor on 3/21/2015.
@@ -21,7 +22,7 @@ public class Globals
     //Information on the currently selected college
     public static String selectedCollegeName = "";
 
-    public static CollegeTutor[] tutorList = null;
+    public static Tutor[] tutorList = null;
 
     public static class ErrorDialogFragment extends DialogFragment
     {

@@ -1,10 +1,14 @@
-package com.cs410tutorgroup.tutorme;
+package com.cs410tutorgroup.findatutor;
 
+import android.app.ActionBar;
 import android.app.Activity;
+import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
-
-import com.cs410tutorgroup.findatutor.R;
 
 
 public class CollegeTutorSearch extends Activity
