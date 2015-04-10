@@ -42,7 +42,11 @@ public class CollegeSearchNarrower extends Activity implements AdapterView.OnIte
         TextView v = (TextView) findViewById(R.id.college_name_text);
 
         //Restore from previous instance of the activity, if there was one
-        String collegeName = savedInstanceState.getString("college_name");
+        String collegeName = null;
+        if(savedInstanceState != null)
+        {
+            collegeName = savedInstanceState.getString("college_name");
+        }
         collegeName = collegeName == null ? Globals.selectedCollegeName : collegeName;
 
         v.setText(collegeName);
