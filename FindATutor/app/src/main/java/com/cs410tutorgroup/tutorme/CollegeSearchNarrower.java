@@ -1,4 +1,4 @@
-package com.cs410tutorgroup.findatutor;
+package com.cs410tutorgroup.tutorme;
 
 import android.app.Activity;
 import android.app.DialogFragment;
@@ -11,6 +11,9 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
+
+import com.cs410tutorgroup.findatutor.R;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -280,10 +283,10 @@ public class CollegeSearchNarrower extends Activity implements AdapterView.OnIte
             //Assign the list of tutors in the Global class
             try
             {
-                Globals.tutorList = new Tutor[jsonArray.length()];
+                Globals.tutorList = new CollegeTutor[jsonArray.length()];
                 for (int i = 0; i < Globals.tutorList.length; i++)
                 {
-                    Globals.tutorList[i] = Globals.tutorList[i].loadFromJsonObject(jsonArray.getJSONObject(i));
+                    Globals.tutorList[i] = Globals.tutorList[i].loadCollegeTutorFromJsonObject(jsonArray.getJSONObject(i));
                     Globals.tutorList[i].subject = findSubjectName(jsonArray.getJSONObject(i).getInt("subject_id"));
                 }
             }
