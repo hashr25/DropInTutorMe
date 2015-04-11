@@ -51,14 +51,25 @@ public class CollegeSearchNarrower extends Activity implements AdapterView.OnIte
 
         v.setText(collegeName);
 
+        //Setup spinners
         Spinner subjectSpinner = (Spinner) findViewById(R.id.subject_spinner);
         Spinner courseSpinner = (Spinner) findViewById(R.id.course_spinner);
+        Spinner daySpinner = (Spinner) findViewById(R.id.day_spinner);
+        Spinner timeSpinner = (Spinner) findViewById(R.id.time_spinner);
 
         subjectSpinner.setOnItemSelectedListener(this);
         courseSpinner.setOnItemSelectedListener(this);
+        daySpinner.setOnItemSelectedListener(this);
+        timeSpinner.setOnItemSelectedListener(this);
 
         subjectSpinner.setEnabled(false);
         courseSpinner.setEnabled(false);
+
+        daySpinner.setAdapter(ArrayAdapter.createFromResource(this,
+                R.array.days_array, android.R.layout.simple_spinner_item));
+
+        timeSpinner.setAdapter(ArrayAdapter.createFromResource(this,
+                R.array.times_array, android.R.layout.simple_spinner_item));
 
         //Setup default adapters for the spinners until data is retrieved from the database
         subjectNames = new String[1];
@@ -267,7 +278,7 @@ public class CollegeSearchNarrower extends Activity implements AdapterView.OnIte
 
     public void startSearch()
     {
-        if(Globals.tutorList != null)
+        if(Globals.tutorList != null && Globals.tutorList.length > 0)
         {
             Intent tutorSearchIntent = new Intent(this, CollegeTutorSearch.class);
             startActivity(tutorSearchIntent);
@@ -354,11 +365,29 @@ public class CollegeSearchNarrower extends Activity implements AdapterView.OnIte
             //Assign the list of tutors in the Global class
             try
             {
-                Globals.tutorList = new Tutor[jsonArray.length()];
-                for (int i = 0; i < Globals.tutorList.length; i++)
+                ArrayList<Tutor> tutors = new ArrayList<>();
+                for (int i = 0; i < jsonArray.length(); i++)
                 {
-                    Globals.tutorList[i] = Globals.tutorList[i].loadFromJsonObject(jsonArray.getJSONObject(i));
-                    Globals.tutorList[i].subject = findSubjectName(jsonArray.getJSONObject(i).getInt("subject_id"));
+                    Tutor newTutor = Tutor.loadFromJsonObject(jsonArray.getJSONObject(i));
+                    newTutor.subject = findSubjectName(jsonArray.getJSONObject(i).getInt("subject_id"));
+
+                    Spinner timeSpinner = (Spinner) findViewById(R.id.time_spinner);
+                    Spinner daySpinner = (Spinner) findViewById(R.id.day_spinner);
+
+                    Log.d("Day spinner", daySpinner.getSelectedItem().toString());
+                    int checkTime = Globals.Utils.timeToInt(daySpinner.getSelectedItem().toString(), timeSpinner.getSelectedItem().toString());
+
+                    if(newTutor.isTimeInSchedule(checkTime))
+                    {
+                        tutors.add(newTutor);
+                    }
+                }
+
+                Globals.tutorList = new Tutor[tutors.size()];
+
+                for(int i = 0; i < tutors.size(); i++)
+                {
+                    Globals.tutorList[i] = tutors.get(i);
                 }
             }
             catch(Exception e)

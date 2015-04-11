@@ -18,7 +18,7 @@
     <string name="college_search_error">No tutors found with those search parameters.</string>
     <string name="review_submitted">Congratulations! Your review was submitted.</string>
     <string name="review_fail">Some shit went wrong. Try again.</string>
-    <string name="enter_text">You have to actually write something in your review...</string>
+    <string name="enter_text">You have to actually write something in your review…</string>
 
 
     <!-- Dialog buttons -->
@@ -75,5 +75,66 @@
     <string name="enter_review">Enter your review</string>
     <string name="submit_review">Submit Review</string>
 
+    <!-- Search narrower adapter arrays -->
+
+    <string-array name="days_array">
+        <item>Monday</item>
+        <item>Tuesday</item>
+        <item>Wednesday</item>
+        <item>Thursday</item>
+        <item>Friday</item>
+        <item>Saturday</item>
+    </string-array>
+
+    <string-array name="times_array">
+        <item>"00:00"</item>
+        <item>"00:30"</item>
+        <item>"01:00"</item>
+        <item>"01:30"</item>
+        <item>"02:00"</item>
+        <item>"02:30"</item>
+        <item>"03:00"</item>
+        <item>"03:30"</item>
+        <item>"04:00"</item>
+        <item>"04:30"</item>
+        <item>"05:00"</item>
+        <item>"05:30"</item>
+        <item>"06:00"</item>
+        <item>"06:30"</item>
+        <item>"07:00"</item>
+        <item>"07:30"</item>
+        <item>"08:00"</item>
+        <item>"08:30"</item>
+        <item>"09:00"</item>
+        <item>"09:30"</item>
+        <item>"10:00"</item>
+        <item>"10:30"</item>
+        <item>"11:00"</item>
+        <item>"11:30"</item>
+        <item>"12:00"</item>
+        <item>"12:30"</item>
+        <item>"13:00"</item>
+        <item>"13:30"</item>
+        <item>"14:00"</item>
+        <item>"14:30"</item>
+        <item>"15:00"</item>
+        <item>"15:30"</item>
+        <item>"16:00"</item>
+        <item>"16:30"</item>
+        <item>"17:00"</item>
+        <item>"17:30"</item>
+        <item>"18:00"</item>
+        <item>"18:30"</item>
+        <item>"19:00"</item>
+        <item>"19:30"</item>
+        <item>"20:00"</item>
+        <item>"20:30"</item>
+        <item>"21:00"</item>
+        <item>"21:30"</item>
+        <item>"22:00"</item>
+        <item>"22:30"</item>
+        <item>"23:00"</item>
+        <item>"23:30"</item>
+    </string-array>
 
 </resources>

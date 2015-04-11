@@ -6,6 +6,7 @@ import android.app.DialogFragment;
 import android.content.DialogInterface;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Pair;
 
 import java.util.ArrayList;
@@ -49,6 +50,62 @@ public class Globals
                             }
                     )
                     .create();
+        }
+    }
+
+    public static class InvalidTimeException extends Exception {}
+
+    //Utils provides functions used application-wide
+    public static class Utils
+    {
+        public static int timeToInt(String day, String time) throws InvalidTimeException
+        {
+            int dayNum = 0;
+
+            switch(day)
+            {
+                case "Monday":
+                    dayNum = 10000;
+                    break;
+
+                case "Tuesday":
+                    dayNum = 20000;
+                    break;
+
+                case "Wednesday":
+                    dayNum = 30000;
+                    break;
+
+                case "Thursday":
+                    dayNum = 40000;
+                    break;
+
+                case "Friday":
+                    dayNum = 50000;
+                    break;
+
+                default:
+                    throw(new InvalidTimeException());
+            }
+
+            //Extract the hour information(first 2 characters) from the time string
+            int hourNum = Integer.valueOf(time.substring(0,1));
+
+            //Hour must be between 0 and 23 to be part of the 24 hour clock
+            if(hourNum < 0 || hourNum > 23)
+            {
+                throw(new InvalidTimeException());
+            }
+
+            hourNum = hourNum * 100;
+
+            //Extract minute information
+            int minuteNum = Integer.valueOf(time.substring(4,5));
+
+            Log.d("Time", Integer.toString(dayNum + hourNum + minuteNum));
+
+            //Return the combined time integer
+            return dayNum + hourNum + minuteNum;
         }
     }
 }
