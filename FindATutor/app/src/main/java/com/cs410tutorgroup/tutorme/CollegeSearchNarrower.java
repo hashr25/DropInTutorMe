@@ -1,4 +1,4 @@
-package com.cs410tutorgroup.findatutor;
+package com.cs410tutorgroup.tutorme;
 
 import android.app.Activity;
 import android.app.DialogFragment;
@@ -11,6 +11,9 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
+
+import com.cs410tutorgroup.findatutor.R;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 

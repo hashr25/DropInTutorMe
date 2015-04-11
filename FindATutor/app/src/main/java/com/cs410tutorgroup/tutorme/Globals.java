@@ -1,4 +1,4 @@
-package com.cs410tutorgroup.findatutor;
+package com.cs410tutorgroup.tutorme;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -9,7 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.util.Pair;
 
-import java.util.ArrayList;
+import com.cs410tutorgroup.findatutor.R;
 
 /**
  * Created by Conor on 3/21/2015.
@@ -23,7 +23,7 @@ public class Globals
     //Information on the currently selected college
     public static String selectedCollegeName = "";
 
-    public static Tutor[] tutorList = null;
+    public static CollegeTutor[] tutorList = null;
 
     public static class ErrorDialogFragment extends DialogFragment
     {
@@ -101,8 +101,6 @@ public class Globals
 
             //Extract minute information
             int minuteNum = Integer.valueOf(time.substring(4,5));
-
-            Log.d("Time", Integer.toString(dayNum + hourNum + minuteNum));
 
             //Return the combined time integer
             return dayNum + hourNum + minuteNum;

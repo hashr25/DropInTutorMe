@@ -1,9 +1,6 @@
-package com.cs410tutorgroup.findatutor;
+package com.cs410tutorgroup.tutorme;
 
 import android.app.Activity;
-import android.app.Dialog;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.os.AsyncTask;
 import android.app.DialogFragment;
 import android.os.Bundle;
@@ -12,6 +9,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+
+import com.cs410tutorgroup.findatutor.R;
 
 public class TutorRegistration extends Activity
 {

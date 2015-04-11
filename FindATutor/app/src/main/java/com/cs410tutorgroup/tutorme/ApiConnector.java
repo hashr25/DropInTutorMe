@@ -1,4 +1,4 @@
-package com.cs410tutorgroup.findatutor;
+package com.cs410tutorgroup.tutorme;
 
 /**
  * Created by Conor on 3/16/2015.
@@ -515,6 +515,65 @@ public class ApiConnector {
         }
 
         return success;
+    }
+
+    public JSONArray getTutorCourses(int tutorID) throws MalformedURLException, IOException
+    {
+        JSONArray results = null;
+
+        URL u = new URL(url);
+
+        HttpURLConnection conn = (HttpURLConnection) u.openConnection();
+
+        try
+        {
+            conn.setDoInput(true);
+            conn.setDoOutput(true);
+            conn.setRequestMethod("POST");
+
+            List<NameValuePair> POSTList = new ArrayList<>();
+
+            POSTList.add(new BasicNameValuePair("tag","get_tutor_courses"));
+
+            POSTList.add(new BasicNameValuePair("tutor_id",Integer.toString(tutorID)));
+
+            OutputStream out = new BufferedOutputStream(conn.getOutputStream());
+            writeStream(out,POSTList);
+            out.close();
+
+            conn.connect();
+
+            InputStream in = new BufferedInputStream(conn.getInputStream());
+
+            BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+            StringBuilder response = new StringBuilder();
+            while(true)
+            {
+                String s = reader.readLine();
+                if(s==null)
+                {
+                    break;
+                }
+                else
+                {
+                    response.append(s);
+                }
+            }
+
+            Log.d("Tutor Courses Response", response.toString());
+
+            results = new JSONArray(cleanString(response.toString()));
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        finally
+        {
+            conn.disconnect();
+        }
+
+        return results;
     }
 
     //Writes a request URL to the server connection's output stream
