@@ -91,7 +91,6 @@ public class Globals
             String[] timePieces = time.split(":");
 
             //Extract the hour information(first 2 characters) from the time string
-            Log.d("Hour string", Integer.toString(Integer.valueOf(time.substring(0,2))));
             int hourNum = Integer.valueOf(timePieces[0]);
 
             //Hour must be between 0 and 23 to be part of the 24 hour clock
@@ -104,8 +103,6 @@ public class Globals
 
             //Extract minute information
             int minuteNum = Integer.valueOf(timePieces[1]);
-
-            Log.d("Time", Integer.toString(dayNum+hourNum+minuteNum));
 
             //Return the combined time integer
             return dayNum + hourNum + minuteNum;

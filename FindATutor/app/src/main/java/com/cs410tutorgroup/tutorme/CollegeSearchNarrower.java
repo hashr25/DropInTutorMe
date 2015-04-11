@@ -393,12 +393,17 @@ public class CollegeSearchNarrower extends Activity implements AdapterView.OnIte
                     Spinner timeSpinner = (Spinner) findViewById(R.id.time_spinner);
                     Spinner daySpinner = (Spinner) findViewById(R.id.day_spinner);
 
-                    Log.d("Day spinner", daySpinner.getSelectedItem().toString());
-                    int checkTime = Globals.Utils.timeToInt(daySpinner.getSelectedItem().toString(), timeSpinner.getSelectedItem().toString());
-
-                    if(newTutor.isTimeInSchedule(checkTime))
+                    if(daySpinner.getSelectedItem().toString().equals("Any"))
                     {
                         tutors.add(newTutor);
+                    }
+                    else
+                    {
+                        int checkTime = Globals.Utils.timeToInt(daySpinner.getSelectedItem().toString(), timeSpinner.getSelectedItem().toString());
+
+                        if (newTutor.isTimeInSchedule(checkTime)) {
+                            tutors.add(newTutor);
+                        }
                     }
                 }
 
