@@ -3,6 +3,7 @@ package com.cs410tutorgroup.tutorme;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Html;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -42,32 +43,36 @@ public class TutorProfile extends Activity
 
     private void displayTutorInfo()
     {
-        TextView textToChange = (TextView)findViewById(R.id.tutorName);
-        textToChange.setText(textToChange.getText() + tutorDisplayed.firstName + " " + tutorDisplayed.lastName);
 
-        textToChange = (TextView)findViewById(R.id.tutorBio);
-        textToChange.setText(textToChange.getText() + " " + tutorDisplayed.bio);
+        TextView textToChange = (TextView)findViewById(R.id.tutorNameHeader);
+        textToChange.setText(tutorDisplayed.firstName + " " + tutorDisplayed.lastName);
 
-        textToChange = (TextView)findViewById(R.id.tutorSubject);
-        textToChange.setText(textToChange.getText() + tutorDisplayed.subject);
+        textToChange = (TextView)findViewById(R.id.tutorName);
+        textToChange.setText(Html.fromHtml("<b>" + (String)textToChange.getText()
+                            + "</b>" + " " + tutorDisplayed.firstName + " " + tutorDisplayed.lastName));
 
         textToChange = (TextView)findViewById(R.id.tutorCollege);
-        textToChange.setText(textToChange.getText() + Globals.selectedCollegeName);
+        textToChange.setText(Html.fromHtml("<b>" + (String)textToChange.getText()
+                            + "</b>" + " " + tutorDisplayed.college));
 
-        textToChange = (TextView)findViewById(R.id.tutorNameHeader);
-        textToChange.setText(tutorDisplayed.firstName + " " + tutorDisplayed.lastName);
+        textToChange = (TextView)findViewById(R.id.tutorLocation);
+        textToChange.setText(Html.fromHtml("<b>" + (String)textToChange.getText()
+                            + "</b>" + " " + tutorDisplayed.building + " " + tutorDisplayed.room));
+
+        textToChange = (TextView)findViewById(R.id.tutorSubject);
+        textToChange.setText(Html.fromHtml("<b>" + (String)textToChange.getText()
+                            + "</b>" + " " + tutorDisplayed.subject));
+
+        textToChange = (TextView)findViewById(R.id.tutorBio);
+        textToChange.setText(Html.fromHtml("<b>" + (String)textToChange.getText()
+                            + "</b>"+ " " + tutorDisplayed.bio));
+
+        textToChange = (TextView) findViewById(R.id.tutorCourses);
+        textToChange.setText(Html.fromHtml("<b>" + (String)textToChange.getText()
+                            + "</b>" + " " + getCourses(tutorDisplayed.tutorID)));
 
         ImageView image = (ImageView) findViewById(R.id.tutorPhoto);
         image.setImageDrawable(Globals.tutorList[tutorIndex].picture);
-
-        textToChange = (TextView)findViewById(R.id.tutorCollege);
-        textToChange.setText(textToChange.getText() + " Concord University"); //THIS NEEDS TO BE FIXED
-
-        textToChange = (TextView)findViewById(R.id.tutorLocation);
-        textToChange.setText(textToChange.getText() + tutorDisplayed.building + " " + tutorDisplayed.room);
-
-        textToChange = (TextView) findViewById(R.id.tutorCourses);
-        textToChange.setText(textToChange.getText() + getCourses(tutorDisplayed.tutorID));
     }
 
     private String getCourses(int tutorID)

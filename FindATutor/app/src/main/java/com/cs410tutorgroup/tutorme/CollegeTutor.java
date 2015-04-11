@@ -2,6 +2,8 @@ package com.cs410tutorgroup.tutorme;
 
 import android.util.Log;
 
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
@@ -10,11 +12,10 @@ import org.json.JSONObject;
 public class CollegeTutor extends Tutor
 {
     //Attributes
-    public int collegeID;
+    public String college;
     public String building;
     public String room;
     public String tutorCourses;
-    public int scheduleID;
 
     //Methods
 
@@ -23,17 +24,24 @@ public class CollegeTutor extends Tutor
      * @param jsonObj This JSON Object comes from the ApiConnector from querying for tutors
      * @return  Returns the Tutor Object
      */
-    public CollegeTutor loadCollegeTutorFromJsonObject(JSONObject jsonObj)
+    public static CollegeTutor loadFromJsonObject(JSONObject jsonObj)
     {
-        CollegeTutor tutor = null;
-        tutor = (CollegeTutor) Tutor.loadFromJsonObject(jsonObj);
+        CollegeTutor tutor = new CollegeTutor();
+        Tutor baseTutor = Tutor.loadFromJsonObject(jsonObj);
+
+        tutor = copyTutor( baseTutor );
 
         try
         {
-            tutor.collegeID = jsonObj.getInt("college_id");
+            tutor.college = Globals.selectedCollegeName;
             tutor.building = jsonObj.getString("building");
             tutor.room = jsonObj.getString("room");
-            tutor.scheduleID = jsonObj.getInt("schedule_id");
+            tutor.tutorCourses = getTutorCourses(new ApiConnector().getTutorCourses(tutor.tutorID));
+
+            while(tutor.tutorCourses == "")
+            {
+
+            }
         }
         catch(Exception e)
         {
@@ -42,6 +50,33 @@ public class CollegeTutor extends Tutor
         }
 
         return tutor;
+    }
+
+    private static CollegeTutor copyTutor(Tutor tutor)
+    {
+        CollegeTutor copiedTutor = new CollegeTutor();
+
+        copiedTutor.tutorID = tutor.tutorID;
+        copiedTutor.pictureURL = tutor.pictureURL;
+        copiedTutor.picture = tutor.picture;
+        copiedTutor.firstName = tutor.firstName;
+        copiedTutor.lastName = tutor.lastName;
+        copiedTutor.bio = tutor.bio;
+        copiedTutor.emailAddress = tutor.emailAddress;
+
+        return copiedTutor;
+    }
+
+    private static String getTutorCourses(JSONArray jsonArray) throws JSONException
+    {
+        String tutorCourses = "";
+
+        for(int i = 0; i < jsonArray.length(); i++)
+        {
+            tutorCourses = tutorCourses + ", " + jsonArray.getString(i);
+        }
+
+        return tutorCourses;
     }
 
 

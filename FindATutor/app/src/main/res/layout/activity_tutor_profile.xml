@@ -24,14 +24,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/tutorPhoto"
-        android:maxWidth="140dp"
-        android:minHeight="140dp"
-        android:minWidth="140dp"
-        android:maxHeight="140dp"
+        android:maxWidth="100dp"
+        android:minHeight="100dp"
+        android:minWidth="100dp"
+        android:maxHeight="100dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="110dp"
-        android:layout_marginLeft="20dp"
+        android:layout_marginLeft="15dp"
         android:src="@drawable/test_face"
         android:scaleType="fitCenter"
         android:visibility="visible" />
@@ -47,7 +47,8 @@
         android:layout_alignParentLeft="false"
         android:textSize="@dimen/standard_font_size"
         android:layout_toEndOf="@id/tutorPhoto"
-        android:layout_marginLeft="15dp" />
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -57,7 +58,8 @@
         android:layout_below="@+id/tutorName"
         android:layout_toEndOf="@+id/tutorPhoto"
         android:textSize="@dimen/standard_font_size"
-        android:layout_marginLeft="15dp" />
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -67,7 +69,8 @@
         android:layout_below="@+id/tutorCollege"
         android:layout_toEndOf="@+id/tutorPhoto"
         android:textSize="@dimen/standard_font_size"
-        android:layout_marginLeft="15dp" />
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -77,26 +80,31 @@
         android:layout_below="@+id/tutorLocation"
         android:layout_toEndOf="@+id/tutorPhoto"
         android:textSize="@dimen/standard_font_size"
-        android:layout_marginLeft="15dp" />
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/bio"
         android:id="@+id/tutorBio"
-        android:layout_below="@+id/tutorSubject"
+        android:layout_below="@+id/tutorPhoto"
         android:layout_toEndOf="@+id/tutorPhoto"
         android:textSize="@dimen/standard_font_size"
-        android:layout_marginLeft="15dp" />
+        android:layout_alignLeft="@+id/tutorPhoto"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="15dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/courses"
         android:id="@+id/tutorCourses"
-        android:layout_below="@+id/tutorPhoto"
+        android:layout_below="@+id/tutorBio"
         android:layout_alignStart="@+id/tutorPhoto"
-        android:textSize="@dimen/standard_font_size" />
+        android:textSize="@dimen/standard_font_size"
+        android:layout_marginTop="45dp"
+        android:layout_marginRight="20dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -106,7 +114,8 @@
         android:layout_below="@+id/tutorCourses"
         android:layout_alignLeft="@+id/tutorPhoto"
         android:layout_marginTop="45dp"
-        android:textSize="@dimen/standard_font_size" />
+        android:textSize="@dimen/standard_font_size"
+        android:layout_marginRight="15dp" />
 
     <Button
         android:layout_width="wrap_content"
@@ -127,7 +136,8 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:layout_marginRight="50dp"
-        android:layout_marginBottom="10dp" />
+        android:layout_marginBottom="10dp"
+        android:visibility="invisible" />
 
 
 </RelativeLayout>
