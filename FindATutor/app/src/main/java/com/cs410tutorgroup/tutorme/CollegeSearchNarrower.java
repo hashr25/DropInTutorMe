@@ -17,6 +17,8 @@ import com.cs410tutorgroup.findatutor.R;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+
 public class CollegeSearchNarrower extends Activity implements AdapterView.OnItemSelectedListener
 {
     //Is a task currently running to fetch tutors from the database?
@@ -41,7 +43,16 @@ public class CollegeSearchNarrower extends Activity implements AdapterView.OnIte
         setContentView(R.layout.activity_search_narrower);
 
         TextView v = (TextView) findViewById(R.id.college_name_text);
-        v.setText(Globals.selectedCollegeName);
+
+        //Restore from previous instance of the activity, if there was one
+        String collegeName = null;
+        if(savedInstanceState != null)
+        {
+            collegeName = savedInstanceState.getString("college_name");
+        }
+        collegeName = collegeName == null ? Globals.selectedCollegeName : collegeName;
+
+        v.setText(collegeName);
 
         Spinner subjectSpinner = (Spinner) findViewById(R.id.subject_spinner);
         Spinner courseSpinner = (Spinner) findViewById(R.id.course_spinner);
@@ -70,6 +81,69 @@ public class CollegeSearchNarrower extends Activity implements AdapterView.OnIte
 
         new GetSubjectsTask().execute(new ApiConnector());
     }
+
+    public void onResume()
+    {
+        super.onResume();
+    }
+
+    public void onPause()
+    {
+        super.onPause();
+    }
+
+    public void onSaveInstanceState(Bundle outState)
+    {
+        super.onSaveInstanceState(outState);
+
+        /*ArrayList<String> savedSubjectNames = new ArrayList<>();
+        ArrayList<Integer> savedSubjectIDs = new ArrayList<>();
+
+        for(int i = 0; i < subjectNames.length; i++)
+        {
+            savedSubjectIDs.add(new Integer(subjectIDs[i]));
+            savedSubjectNames.add(subjectNames[i]);
+        }
+
+        ArrayList<String> savedCourseNames = new ArrayList<>();
+        ArrayList<Integer> savedCourseIDs = new ArrayList<>();
+
+        for(int i = 0; i < subjectNames.length; i++)
+        {
+            savedCourseIDs.add(new Integer(courseIDs[i]));
+            savedCourseNames.add(courseNames[i]);
+        }
+
+        outState.putIntegerArrayList("subject_ids",savedSubjectIDs);
+        outState.putIntegerArrayList("course_ids",savedCourseIDs);
+        outState.putStringArrayList("subject_names",savedSubjectNames);
+        outState.putStringArrayList("course_names",savedCourseNames);*/
+        outState.putString("college_name", Globals.selectedCollegeName);
+    }
+
+    /*public void onRestoreInstanceState(Bundle savedInstanceState)
+    {
+        super.onRestoreInstanceState(savedInstanceState);
+
+        String collegeName = savedInstanceState.getString("college_name");
+        Globals.selectedCollegeName = collegeName;
+        TextView tv = (TextView) findViewById(R.id.college_name_text);
+        tv.setText(collegeName);
+
+        new GetSubjectsTask().execute(new ApiConnector());*/
+
+        /*ArrayList<Integer> savedSubjectIDs = inState.getIntegerArrayList("subject_ids");
+        ArrayList<Integer> savedCourseIDs = inState.getIntegerArrayList("course_ids");
+
+        ArrayList<String> savedSubjectNames = inState.getStringArrayList("subject_names");
+        ArrayList<String> savedCourseNames = inState.getStringArrayList("course_names");
+
+        for(int i = 0; i < savedSubjectIDs.size(); i++)
+        {
+
+        }
+
+    }*/
 
     //Called when an item in one of the spinners is selected
     public void onItemSelected(AdapterView<?> parent, View view, int pos, long id)

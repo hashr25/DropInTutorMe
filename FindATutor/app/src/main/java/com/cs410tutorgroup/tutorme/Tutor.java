@@ -6,7 +6,8 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.util.Log;
-
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
@@ -29,6 +30,10 @@ public class Tutor
     public String pictureURL;
     public Drawable picture;
 
+    //Schedule info
+    int[] startTimes;
+    int[] endTimes;
+
     //Methods
 
     /**
@@ -50,6 +55,9 @@ public class Tutor
             tutor.pictureURL = jsonObj.getString("picture");
             Log.d("PictureURL", tutor.pictureURL);
             tutor.new LoadPictureTask().execute(tutor.pictureURL);
+
+            String dayString = jsonObj.getString("GROUP_CONCAT(day_times.day)");
+            Log.d("Day string", dayString);
 
             while(tutor.picture == null)
             {
