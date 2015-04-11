@@ -88,8 +88,11 @@ public class Globals
                     throw(new InvalidTimeException());
             }
 
+            String[] timePieces = time.split(":");
+
             //Extract the hour information(first 2 characters) from the time string
-            int hourNum = Integer.valueOf(time.substring(0,1));
+            Log.d("Hour string", Integer.toString(Integer.valueOf(time.substring(0,2))));
+            int hourNum = Integer.valueOf(timePieces[0]);
 
             //Hour must be between 0 and 23 to be part of the 24 hour clock
             if(hourNum < 0 || hourNum > 23)
@@ -97,10 +100,12 @@ public class Globals
                 throw(new InvalidTimeException());
             }
 
-            hourNum = hourNum * 100;
+            hourNum = 100 * hourNum;
 
             //Extract minute information
-            int minuteNum = Integer.valueOf(time.substring(4,5));
+            int minuteNum = Integer.valueOf(timePieces[1]);
+
+            Log.d("Time", Integer.toString(dayNum+hourNum+minuteNum));
 
             //Return the combined time integer
             return dayNum + hourNum + minuteNum;

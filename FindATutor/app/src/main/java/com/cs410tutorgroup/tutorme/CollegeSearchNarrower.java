@@ -67,6 +67,7 @@ public class CollegeSearchNarrower extends Activity implements AdapterView.OnIte
 
         subjectSpinner.setEnabled(false);
         courseSpinner.setEnabled(false);
+        timeSpinner.setEnabled(false);
 
         daySpinner.setAdapter(ArrayAdapter.createFromResource(this,
                 R.array.days_array, android.R.layout.simple_spinner_item));
@@ -196,6 +197,21 @@ public class CollegeSearchNarrower extends Activity implements AdapterView.OnIte
                     currentCourseID = courseIDs[i];
                 }
             }
+        }
+        else if(parent.getId() == R.id.day_spinner)
+        {
+            String s = parent.getItemAtPosition(pos).toString();
+
+            //No particular day is selected; disable the time spinner
+            findViewById(R.id.time_spinner).setEnabled(!s.equals("Any"));
+            /*if(s.equals("Any"))
+            {
+                findViewById(R.id.time_spinner).setEnabled(false);
+            }
+            else
+            {
+                findViewById(R.id.time_spinner).setEnabled(true);
+            }*/
         }
     }
 
@@ -368,10 +384,10 @@ public class CollegeSearchNarrower extends Activity implements AdapterView.OnIte
             //Assign the list of tutors in the Global class
             try
             {
-                ArrayList<Tutor> tutors = new ArrayList<>();
+                ArrayList<CollegeTutor> tutors = new ArrayList<>();
                 for (int i = 0; i < jsonArray.length(); i++)
                 {
-                    Tutor newTutor = Tutor.loadFromJsonObject(jsonArray.getJSONObject(i));
+                    CollegeTutor newTutor = CollegeTutor.loadFromJsonObject(jsonArray.getJSONObject(i));
                     newTutor.subject = findSubjectName(jsonArray.getJSONObject(i).getInt("subject_id"));
 
                     Spinner timeSpinner = (Spinner) findViewById(R.id.time_spinner);
@@ -386,7 +402,7 @@ public class CollegeSearchNarrower extends Activity implements AdapterView.OnIte
                     }
                 }
 
-                Globals.tutorList = new Tutor[tutors.size()];
+                Globals.tutorList = new CollegeTutor[tutors.size()];
 
                 for(int i = 0; i < tutors.size(); i++)
                 {

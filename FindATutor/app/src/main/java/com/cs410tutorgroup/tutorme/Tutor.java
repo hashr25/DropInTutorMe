@@ -30,16 +30,6 @@ public class Tutor
     public String pictureURL;
     public Drawable picture;
 
-    //Schedule info
-    private int MONDAY = 10000;
-    private int TUESDAY = 20000;
-    private int WEDNESDAY = 30000;
-    private int THURSDAY = 40000;
-    private int FRIDAY = 50000;
-
-    private int[] startTimes;
-    private int[] endTimes;
-
     //Methods
 
     /**
@@ -62,30 +52,6 @@ public class Tutor
             Log.d("PictureURL", tutor.pictureURL);
             tutor.new LoadPictureTask().execute(tutor.pictureURL);
 
-            //Extract and format the schedule information
-            //Day/time format:
-            //Time stored as 5 digit integer,
-            //Day denoted by adding:
-            //Monday: 10000
-            //Tuesday: 20000
-            //Wednesday: 30000
-            //Thursday: 40000
-            //Friday: 50000
-            //i.e Tuesday at 2:30 p.m. = 21430
-
-            String[] dayStrings = jsonObj.getString("GROUP_CONCAT(day_times.day)").split(",");
-            String[] startStrings = jsonObj.getString("GROUP_CONCAT(day_times.start_time)").split(",");
-            String[] endStrings = jsonObj.getString("GROUP_CONCAT(day_times.end_time)").split(",");
-
-            //build the lists of start and end times
-            tutor.startTimes = new int[dayStrings.length];
-            tutor.endTimes = new int[dayStrings.length];
-            for(int i = 0; i < dayStrings.length; i++)
-            {
-                tutor.startTimes[i] = Globals.Utils.timeToInt(dayStrings[i], startStrings[i]);
-                tutor.endTimes[i] = Globals.Utils.timeToInt(dayStrings[i], endStrings[i]);
-            }
-
             while(tutor.picture == null)
             {
                 if(Globals.tempPic != null)
@@ -105,20 +71,6 @@ public class Tutor
         }
 
         return tutor;
-    }
-
-    //Checks to see if a time is in this tutor's schedule
-    public boolean isTimeInSchedule(int time)
-    {
-        for(int i = 0; i < startTimes.length; i++)
-        {
-            if(time >= startTimes[i] && time <= endTimes[i])
-            {
-                return true;
-            }
-        }
-
-        return false;
     }
 
     /**
