@@ -2,6 +2,7 @@ package com.cs410tutorgroup.tutorme;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Html;
 import android.util.Log;
@@ -68,8 +69,20 @@ public class TutorProfile extends Activity
                             + "</b>"+ " " + tutorDisplayed.bio));
 
         textToChange = (TextView) findViewById(R.id.tutorCourses);
+        /*textToChange.setText(Html.fromHtml("<b>" + (String)textToChange.getText()
+                            + "</b>" + " " + getCourses(tutorDisplayed.tutorID)));*/
+
+        ///REMOVE THIS AFTER PICTURE///
         textToChange.setText(Html.fromHtml("<b>" + (String)textToChange.getText()
-                            + "</b>" + " " + getCourses(tutorDisplayed.tutorID)));
+                + "</b>" + " PSY101, PSY205, PSY215, PSY350, PSY370, SOC101, SOWK161"));
+
+        textToChange = (TextView) findViewById(R.id.tutorSchedule);
+        /*textToChange.setText(Html.fromHtml("<b>" + (String)textToChange.getText()
+                + "</b>" + " " + tutorDisplayed.tutorSchedule));*/
+
+        ///REMOVE THIS AFTER PICTURE///
+        textToChange.setText(Html.fromHtml("<b>" + (String)textToChange.getText()
+                + "</b>" + " <br>Monday: 12:00 PM - 3:00 PM<br>Tuesday: 1:00 PM - 2:00 PM<br>Wednesday: 12:00 PM - 2:00 PM"));
 
         ImageView image = (ImageView) findViewById(R.id.tutorPhoto);
         image.setImageDrawable(Globals.tutorList[tutorIndex].picture);
@@ -77,23 +90,26 @@ public class TutorProfile extends Activity
 
     private String getCourses(int tutorID)
     {
-        String result = "";
+        return null;
+    }
 
-        try
-        {
-            JSONArray rawTutorCourses = new ApiConnector().getTutorCourses(tutorID);
-
-            for( int i = 0; i < rawTutorCourses.length(); i++ )
+    private class getCoursesTask extends AsyncTask<ApiConnector, Long, JSONArray>
+    {
+        @Override
+        protected JSONArray doInBackground(ApiConnector... params) {
             {
-                result = result + ", " + rawTutorCourses.getString(i);
+                try
+                {
+                    return params[0].getTutorCourses(tutorDisplayed.tutorID);
+                }
+                catch(Exception e)
+                {
+                    e.printStackTrace();
+                }
+
+                return null;
             }
         }
-        catch(Exception e)
-        {
-            e.printStackTrace();
-        }
-
-        return result;
     }
 
     public void onReviewButtonClicked(View view)

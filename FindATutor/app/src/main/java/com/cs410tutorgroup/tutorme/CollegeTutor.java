@@ -16,6 +16,7 @@ public class CollegeTutor extends Tutor
     public String building;
     public String room;
     public String tutorCourses;
+    public String tutorSchedule;
 
     //Schedule info
     private int MONDAY = 10000;
@@ -36,7 +37,7 @@ public class CollegeTutor extends Tutor
      */
     public static CollegeTutor loadFromJsonObject(JSONObject jsonObj)
     {
-        CollegeTutor tutor = new CollegeTutor();
+        CollegeTutor tutor;
         Tutor baseTutor = Tutor.loadFromJsonObject(jsonObj);
 
         tutor = copyTutor( baseTutor );

@@ -6,6 +6,9 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.util.Log;
+
+import com.google.android.gms.common.api.Api;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -49,6 +52,7 @@ public class Tutor
             tutor.emailAddress = jsonObj.getString("email");
             tutor.bio = jsonObj.getString("bio");
             tutor.pictureURL = jsonObj.getString("picture");
+            Globals.tempPicURL = tutor.pictureURL;
             Log.d("PictureURL", tutor.pictureURL);
             tutor.new LoadPictureTask().execute(tutor.pictureURL);
 
@@ -134,6 +138,19 @@ public class Tutor
             }
 
             return new BitmapDrawable(x);
+        }
+    }
+
+    private class LoadPhotoTask extends AsyncTask<ApiConnector, Long, Drawable>
+    {
+
+        @Override
+        protected Drawable doInBackground(ApiConnector... params)
+        {
+
+
+
+            return null;
         }
     }
 }

@@ -174,7 +174,7 @@ public class CollegeSearchNarrower extends Activity implements AdapterView.OnIte
                 {
                     currentSubjectID = subjectIDs[i];
 
-                    //Disable the cvourse spinner while the new courses are being obtained
+                    //Disable the course spinner while the new courses are being obtained
                     Spinner courseSpinner = (Spinner) findViewById(R.id.course_spinner);
                     courseSpinner.setEnabled(false);
 

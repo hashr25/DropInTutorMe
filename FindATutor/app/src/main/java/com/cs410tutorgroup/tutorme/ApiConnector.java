@@ -3,6 +3,10 @@ package com.cs410tutorgroup.tutorme;
 /**
  * Created by Conor on 3/16/2015.
  */
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.util.Log;
 
 import org.apache.http.NameValuePair;
@@ -576,6 +580,39 @@ public class ApiConnector {
         return results;
     }
 
+    public Drawable getTutorPhoto(String photoURL)
+    {
+        Drawable image = null;
+        Log.d("LoadingFrom: ", photoURL);
+
+        try
+        {
+            Log.d("Breakpoint1", "Passing by first attempt at loading image" );
+
+            Bitmap x = null;
+
+            HttpURLConnection connection = (HttpURLConnection) new URL(photoURL).openConnection();
+            connection.connect();
+            InputStream input = connection.getInputStream();
+
+            x = BitmapFactory.decodeStream(input);
+
+            image = new BitmapDrawable(x);
+
+            if(image == null)
+            {
+                Log.d("TutorImage", "The image is null");
+            }
+
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+
+        return image;
+    }
+
     //Writes a request URL to the server connection's output stream
     private void writeStream(OutputStream out, List<NameValuePair> l) throws UnsupportedEncodingException, IOException
     {
@@ -665,4 +702,6 @@ public class ApiConnector {
 
         return baseURL;
     }
+
+
 }
