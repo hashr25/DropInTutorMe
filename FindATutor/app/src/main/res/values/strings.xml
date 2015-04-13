@@ -31,7 +31,7 @@
     <string name="standard_font_size">15dp</string>
 
     <!-- This line is used to change the bar at the top. Currently there are backgrounds 1-9 -->
-    <string name="background_chosen">@drawable/background7</string>
+    <string name="background_chosen">@drawable/background2</string>
 
     <string name="action_settings">Settings</string>
 

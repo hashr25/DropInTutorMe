@@ -8,7 +8,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/title_font_size"
+        android:textSize="@dimen/large_title_font_size"
         android:textStyle="bold"
         android:elegantTextHeight="true"
         android:textAppearance="?android:attr/textAppearanceLarge"
@@ -18,15 +18,15 @@
         android:layout_gravity="top|center_horizontal"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="25dp" />
+        android:layout_marginTop="50dp" />
 
     <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
         android:id="@+id/tutorPhoto"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="110dp"
+        android:layout_marginTop="225dp"
         android:layout_marginLeft="15dp"
         android:src="@drawable/test_face"
         android:scaleType="fitXY"
@@ -41,7 +41,7 @@
         android:layout_alignParentEnd="false"
         android:layout_alignParentStart="false"
         android:layout_alignParentLeft="false"
-        android:textSize="@dimen/standard_font_size"
+        android:textSize="@dimen/large_standard_font_size"
         android:layout_toEndOf="@id/tutorPhoto"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp" />
@@ -53,9 +53,10 @@
         android:id="@+id/tutorCollege"
         android:layout_below="@+id/tutorName"
         android:layout_toEndOf="@+id/tutorPhoto"
-        android:textSize="@dimen/standard_font_size"
+        android:textSize="@dimen/large_standard_font_size"
         android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp" />
+        android:layout_marginRight="15dp"
+        android:textIsSelectable="false" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -64,7 +65,7 @@
         android:id="@+id/tutorLocation"
         android:layout_below="@+id/tutorCollege"
         android:layout_toEndOf="@+id/tutorPhoto"
-        android:textSize="@dimen/standard_font_size"
+        android:textSize="@dimen/large_standard_font_size"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp" />
 
@@ -75,7 +76,7 @@
         android:id="@+id/tutorSubject"
         android:layout_below="@+id/tutorLocation"
         android:layout_toEndOf="@+id/tutorPhoto"
-        android:textSize="@dimen/standard_font_size"
+        android:textSize="@dimen/large_standard_font_size"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp" />
 
@@ -86,7 +87,7 @@
         android:id="@+id/tutorBio"
         android:layout_below="@+id/tutorPhoto"
         android:layout_toEndOf="@+id/tutorPhoto"
-        android:textSize="@dimen/standard_font_size"
+        android:textSize="@dimen/large_standard_font_size"
         android:layout_alignLeft="@+id/tutorPhoto"
         android:layout_marginTop="15dp"
         android:layout_marginRight="15dp" />
@@ -98,7 +99,7 @@
         android:id="@+id/tutorCourses"
         android:layout_below="@+id/tutorBio"
         android:layout_alignStart="@+id/tutorPhoto"
-        android:textSize="@dimen/standard_font_size"
+        android:textSize="@dimen/large_standard_font_size"
         android:layout_marginTop="45dp"
         android:layout_marginRight="20dp" />
 
@@ -110,30 +111,37 @@
         android:layout_below="@+id/tutorCourses"
         android:layout_alignLeft="@+id/tutorPhoto"
         android:layout_marginTop="45dp"
-        android:textSize="@dimen/standard_font_size"
+        android:textSize="@dimen/large_standard_font_size"
         android:layout_marginRight="15dp" />
 
     <Button
         android:layout_width="wrap_content"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:text="@string/reviews"
         android:id="@+id/reviewButton"
         android:layout_alignParentBottom="true"
-        android:layout_marginLeft="50dp"
+        android:layout_marginLeft="150dp"
         android:layout_marginBottom="10dp"
         android:clickable="true"
-        android:onClick="onReviewButtonClicked" />
+        android:onClick="onReviewButtonClicked"
+        android:textSize="@dimen/large_button_font_size"
+        android:maxLines="1"
+        android:paddingEnd="25dp"
+        android:paddingStart="25dp" />
 
     <Button
         android:layout_width="wrap_content"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:text="@string/open_map"
         android:id="@+id/mapButton"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginRight="50dp"
-        android:layout_marginBottom="10dp" />
+        android:layout_marginRight="150dp"
+        android:layout_marginBottom="10dp"
+        android:textSize="@dimen/large_button_font_size"
+        android:maxLines="1"
+        android:paddingStart="25dp"
+        android:paddingEnd="25dp" />
 
 
 </RelativeLayout>
-

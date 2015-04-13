@@ -1,4 +1,4 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="fill_parent"
     android:layout_height="fill_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
@@ -12,22 +12,29 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="30dp"
+        android:textSize="@dimen/large_title_font_size"
         android:textStyle="bold"
         android:elegantTextHeight="true"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/app_name"
         android:id="@+id/tutorNameHeader"
         android:textColor="#FFF"
-        android:layout_gravity="top|center_horizontal" />
+        android:layout_gravity="top|center_horizontal"
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Tutor: "
         android:id="@+id/tutorName"
-        android:textSize="@dimen/standard_font_size"
-        android:layout_marginTop="50dp" />
+        android:textSize="@dimen/large_standard_font_size"
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentTop="false"
+        android:layout_below="@+id/tutorNameHeader"
+        android:layout_marginTop="70dp" />
 
 
     <EditText
@@ -36,13 +43,11 @@
         android:inputType="textCapSentences|textMultiLine"
         android:id="@+id/reviewText"
         android:layout_weight="0.09"
-        android:layout_gravity="bottom|center_horizontal"
-        android:layout_marginRight="5dp"
-        android:layout_marginTop="15dp"
+        android:layout_gravity="center_horizontal"
         android:maxLength="255"
         android:hint="@string/enter_review"
         android:textAlignment="gravity"
-        android:textSize="@dimen/standard_font_size"
+        android:textSize="@dimen/large_standard_font_size"
         android:selectAllOnFocus="true"
         android:maxLines="8"
         android:autoText="false"
@@ -51,7 +56,13 @@
         android:password="false"
         android:capitalize="sentences"
         android:gravity="bottom"
-        android:layout_marginLeft="5dp" />
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentTop="false"
+        android:layout_below="@+id/tutorName"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="300dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -59,7 +70,12 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="255 character(s) left"
         android:id="@+id/charCount"
-        android:layout_gravity="right" />
+        android:layout_gravity="right"
+        android:textSize="25sp"
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentTop="false"
+        android:layout_alignRight="@+id/reviewText"
+        android:layout_below="@+id/reviewText" />
 
     <RatingBar
         android:layout_width="wrap_content"
@@ -69,11 +85,14 @@
         android:stepSize="0.5"
         android:rating="2.5"
         android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="40dp"
-        android:layout_marginTop="70dp"
         android:progressTint="#ffa80011"
         android:progressBackgroundTint="#ffe10000"
-        android:secondaryProgressTint="#ffe10000" />
+        android:secondaryProgressTint="#ffe10000"
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentTop="false"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/reviewText"
+        android:layout_marginTop="150dp" />
 
     <Button
         android:layout_width="wrap_content"
@@ -81,7 +100,14 @@
         android:text="@string/submit_review"
         android:id="@+id/submitReviewButton"
         android:layout_gravity="center_horizontal"
-        android:onClick="onSubmitButtonClicked" />
+        android:onClick="onSubmitButtonClicked"
+        android:textSize="@dimen/large_button_font_size"
+        android:maxLines="1"
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentTop="false"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="15dp" />
 
 
-</LinearLayout>
+</RelativeLayout>

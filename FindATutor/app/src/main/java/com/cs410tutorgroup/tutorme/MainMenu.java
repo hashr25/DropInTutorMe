@@ -23,11 +23,6 @@ public class MainMenu extends Activity
 
     private TextView responseTextView;
 
-    private AutoCompleteTextView collegeSearch;
-    private Button onlineResourcesButton;
-    private Button freelanceSearchButton;
-    private Button freelanceSignUpButton;
-
     //Used to hold the list of valid college names returned from the database
     private String[] validColleges = null;
 
@@ -38,26 +33,19 @@ public class MainMenu extends Activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
 
-        this.collegeSearch = (AutoCompleteTextView) this.findViewById(R.id.collegeSearch);
+        AutoCompleteTextView collegeSearch = (AutoCompleteTextView) this.findViewById(R.id.collegeSearch);
 
-        collegeSearch.setOnEditorActionListener(new TextView.OnEditorActionListener()
-        {
+        collegeSearch.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
-            public boolean onEditorAction(TextView v, int actionId, KeyEvent event)
-            {
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 boolean handled = false;
-                if (actionId == EditorInfo.IME_ACTION_SEARCH)
-                {
+                if (actionId == EditorInfo.IME_ACTION_SEARCH) {
                     checkQuery((AutoCompleteTextView) v);
                     handled = true;
                 }
                 return handled;
             }
         });
-
-        this.onlineResourcesButton = (Button) this.findViewById(R.id.onlineResourcesButton);
-        this.freelanceSearchButton = (Button) this.findViewById(R.id.freelanceTutorSearchButton);
-        this.freelanceSignUpButton = (Button) this.findViewById(R.id.freelanceSignupButton);
 
         this.responseTextView = (TextView) this.findViewById(R.id.responseTextView);
         new GetCollegesTask().execute(new ApiConnector());
@@ -72,8 +60,8 @@ public class MainMenu extends Activity
     public void freelanceSearchButtonClicked(View view)
     {
         //This needs to be changed to correct activity. This was used for testing.
-        Intent freelanceSearchIntent = new Intent(this, TutorProfile.class);
-        startActivity(freelanceSearchIntent);
+        //Intent freelanceSearchIntent = new Intent(this, TutorProfile.class);
+        //startActivity(freelanceSearchIntent);
     }
 
     public void freelanceSignupButtonClicked(View view)

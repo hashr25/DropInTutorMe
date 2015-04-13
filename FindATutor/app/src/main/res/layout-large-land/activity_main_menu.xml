@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@string/background_chosen"
+    android:focusableInTouchMode="true" >
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/large_land_title_font_size"
+        android:textStyle="bold"
+        android:elegantTextHeight="true"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/app_name"
+        android:id="@+id/tutorNameHeader"
+        android:textColor="#FFF"
+        android:layout_gravity="top|center_horizontal"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp" />
+
+    <AutoCompleteTextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/collegeSearch"
+        android:layout_gravity="center"
+        android:hint="@string/chose_college"
+        android:imeOptions="actionSearch"
+        android:inputType="text|textAutoComplete"
+        android:layout_marginLeft="50dp"
+        android:layout_above="@+id/onlineResourcesButton"
+        android:layout_alignParentStart="true"
+        android:layout_marginRight="50dp"
+        android:textSize="@dimen/large_standard_font_size" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/online_resources"
+        android:id="@+id/onlineResourcesButton"
+        android:layout_gravity="center_horizontal"
+        android:onClick="onlineResourcesButtonClicked"
+        android:layout_above="@+id/freelanceTutorSearchButton"
+        android:layout_centerHorizontal="true"
+        android:textSize="@dimen/large_button_font_size"
+        android:maxLines="1"
+        android:paddingLeft="25dp"
+        android:paddingRight="25dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/freelance_tutor_search"
+        android:id="@+id/freelanceTutorSearchButton"
+        android:layout_gravity="center_horizontal"
+        android:onClick="freelanceSearchButtonClicked"
+        android:layout_above="@+id/freelanceSignupButton"
+        android:layout_centerHorizontal="true"
+        android:textSize="@dimen/large_button_font_size"
+        android:maxLines="1"
+        android:paddingRight="25dp"
+        android:paddingLeft="25dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/freelance_sign_up"
+        android:id="@+id/freelanceSignupButton"
+        android:layout_gravity="center_horizontal"
+        android:onClick="freelanceSignupButtonClicked"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:textSize="@dimen/large_button_font_size"
+        android:layout_alignParentEnd="false"
+        android:layout_marginBottom="10dp"
+        android:maxLines="1"
+        android:paddingLeft="25dp"
+        android:paddingRight="25dp" />
+
+</RelativeLayout>

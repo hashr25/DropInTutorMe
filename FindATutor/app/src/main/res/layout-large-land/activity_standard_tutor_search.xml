@@ -8,7 +8,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/title_font_size"
+        android:textSize="@dimen/large_land_title_font_size"
         android:textStyle="bold"
         android:elegantTextHeight="true"
         android:textAppearance="?android:attr/textAppearanceLarge"
@@ -19,12 +19,12 @@
         android:hint="college name"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="5dp" />
+        android:layout_marginTop="15dp" />
 
     <ScrollView
         android:layout_width="fill_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="5dp">
+        android:layout_marginTop="25dp">
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="fill_parent"

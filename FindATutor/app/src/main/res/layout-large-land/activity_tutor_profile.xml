@@ -1,5 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@string/background_chosen"
@@ -8,7 +10,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/title_font_size"
+        android:textSize="@dimen/large_land_title_font_size"
         android:textStyle="bold"
         android:elegantTextHeight="true"
         android:textAppearance="?android:attr/textAppearanceLarge"
@@ -18,19 +20,18 @@
         android:layout_gravity="top|center_horizontal"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="25dp" />
+        android:layout_marginTop="15dp" />
 
     <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="255dp"
+        android:layout_height="255dp"
         android:id="@+id/tutorPhoto"
+        android:scaleType="fitXY"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="110dp"
-        android:layout_marginLeft="15dp"
-        android:src="@drawable/test_face"
-        android:scaleType="fitXY"
-        android:visibility="visible" />
+        android:layout_marginTop="125dp"
+        android:layout_marginLeft="20dp"
+        android:src="@drawable/test_face" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -38,102 +39,91 @@
         android:text="@string/tutor_name"
         android:id="@+id/tutorName"
         android:layout_alignTop="@+id/tutorPhoto"
-        android:layout_alignParentEnd="false"
-        android:layout_alignParentStart="false"
-        android:layout_alignParentLeft="false"
-        android:textSize="@dimen/standard_font_size"
+        android:textSize="@dimen/large_standard_font_size"
         android:layout_toEndOf="@id/tutorPhoto"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp" />
+        android:layout_toRightOf="@+id/tutorPhoto" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/college_name"
         android:id="@+id/tutorCollege"
+        android:textSize="@dimen/large_standard_font_size"
         android:layout_below="@+id/tutorName"
-        android:layout_toEndOf="@+id/tutorPhoto"
-        android:textSize="@dimen/standard_font_size"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp" />
+        android:layout_alignLeft="@+id/tutorName" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/location"
         android:id="@+id/tutorLocation"
-        android:layout_below="@+id/tutorCollege"
-        android:layout_toEndOf="@+id/tutorPhoto"
-        android:textSize="@dimen/standard_font_size"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp" />
+        android:textSize="@dimen/large_standard_font_size"
+        android:layout_alignLeft="@+id/tutorCollege"
+        android:layout_below="@+id/tutorCollege" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/subject"
         android:id="@+id/tutorSubject"
+        android:textSize="@dimen/large_standard_font_size"
         android:layout_below="@+id/tutorLocation"
-        android:layout_toEndOf="@+id/tutorPhoto"
-        android:textSize="@dimen/standard_font_size"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp" />
+        android:layout_alignLeft="@+id/tutorLocation" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/bio"
         android:id="@+id/tutorBio"
-        android:layout_below="@+id/tutorPhoto"
-        android:layout_toEndOf="@+id/tutorPhoto"
-        android:textSize="@dimen/standard_font_size"
-        android:layout_alignLeft="@+id/tutorPhoto"
-        android:layout_marginTop="15dp"
-        android:layout_marginRight="15dp" />
+        android:textSize="@dimen/large_standard_font_size"
+        android:layout_alignLeft="@+id/tutorSubject"
+        android:layout_below="@+id/tutorSubject" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/courses"
         android:id="@+id/tutorCourses"
-        android:layout_below="@+id/tutorBio"
-        android:layout_alignStart="@+id/tutorPhoto"
-        android:textSize="@dimen/standard_font_size"
-        android:layout_marginTop="45dp"
-        android:layout_marginRight="20dp" />
+        android:textSize="@dimen/large_standard_font_size"
+        android:layout_alignTop="@+id/tutorSchedule"
+        android:layout_toRightOf="@+id/tutorSchedule"
+        android:layout_marginLeft="100dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/schedule"
         android:id="@+id/tutorSchedule"
-        android:layout_below="@+id/tutorCourses"
+        android:textSize="@dimen/large_standard_font_size"
+        android:layout_below="@+id/tutorPhoto"
         android:layout_alignLeft="@+id/tutorPhoto"
-        android:layout_marginTop="45dp"
-        android:textSize="@dimen/standard_font_size"
-        android:layout_marginRight="15dp" />
+        android:layout_marginTop="10dp" />
 
     <Button
         android:layout_width="wrap_content"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:text="@string/reviews"
         android:id="@+id/reviewButton"
         android:layout_alignParentBottom="true"
-        android:layout_marginLeft="50dp"
+        android:layout_marginLeft="200dp"
         android:layout_marginBottom="10dp"
-        android:clickable="true"
-        android:onClick="onReviewButtonClicked" />
+        android:textSize="@dimen/large_button_font_size"
+        android:maxLines="1"
+        android:paddingEnd="25dp"
+        android:paddingStart="25dp" />
 
     <Button
         android:layout_width="wrap_content"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:text="@string/open_map"
         android:id="@+id/mapButton"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginRight="50dp"
-        android:layout_marginBottom="10dp" />
-
+        android:layout_marginRight="200dp"
+        android:layout_marginBottom="10dp"
+        android:textSize="@dimen/large_button_font_size"
+        android:maxLines="1"
+        android:paddingEnd="25dp"
+        android:paddingStart="25dp" />
 
 </RelativeLayout>
-
