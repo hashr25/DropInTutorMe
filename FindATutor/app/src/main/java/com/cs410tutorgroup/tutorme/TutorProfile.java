@@ -38,6 +38,8 @@ public class TutorProfile extends Activity
 
         tutorDisplayed = Globals.tutorList[tutorIndex];
 
+        new getCoursesTask().execute(new ApiConnector());
+
         //createTestTutor();
         try{ displayTutorInfo(); }
         catch(Exception e) {e.printStackTrace();}
@@ -111,4 +113,33 @@ public class TutorProfile extends Activity
         tutorDisplayed.subject = "Math";
     }
 
+    private class getCoursesTask extends AsyncTask<ApiConnector, Long, String>
+    {
+        @Override
+        protected String doInBackground(ApiConnector... params)
+        {
+            {
+                try
+                {
+                    JSONArray array = params[0].getTutorCourses(tutorDisplayed.tutorID);
+                    String tutorCourses = params[0].getCourses(array);
+                    //tutorDisplayed.tutorCourses = tutorCourses;
+                    return tutorCourses;
+                }
+                catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+                return null;
+            }
+        }
+
+        @Override
+        protected void onPostExecute(String result)
+        {
+            tutorDisplayed.tutorCourses = result;
+            TextView textToChange = (TextView) findViewById(R.id.tutorCourses);
+            textToChange.setText(Html.fromHtml("<b>Courses: </b>" + tutorDisplayed.tutorCourses));
+        }
+    }
 }

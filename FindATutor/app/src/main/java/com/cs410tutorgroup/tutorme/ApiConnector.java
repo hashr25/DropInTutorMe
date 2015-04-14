@@ -570,7 +570,7 @@ public class ApiConnector {
             results = new JSONArray(cleanString(response.toString()));
         }
         catch(Exception e)
-        {
+        {Log.d("FailFirst", "Failing in the loading of JSON");
             e.printStackTrace();
         }
         finally

@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -224,6 +225,8 @@ public class CollegeSearchNarrower extends Activity implements AdapterView.OnIte
     {
         if(!gettingTutors)
         {
+            ProgressBar loading = (ProgressBar)findViewById(R.id.LoadingSpinner);
+            loading.setVisibility(ProgressBar.VISIBLE);
             gettingTutors = true;
             new GetNarrowedTutorsTask().execute(new ApiConnector());
         }
