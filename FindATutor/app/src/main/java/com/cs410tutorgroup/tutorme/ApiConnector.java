@@ -12,6 +12,7 @@ import android.util.Log;
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONArray;
+import org.json.JSONException;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -578,6 +579,18 @@ public class ApiConnector {
         }
 
         return results;
+    }
+
+    public String getCourses(JSONArray jsonArray) throws JSONException
+    {
+        String tutorCourses = jsonArray.getString(0);
+
+        for(int i = 1; i < jsonArray.length(); i++)
+        {
+            tutorCourses = tutorCourses + ", " + jsonArray.get(i);
+        }
+
+        return tutorCourses;
     }
 
     public Drawable getTutorPhoto(String photoURL)

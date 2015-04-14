@@ -1,5 +1,6 @@
 package com.cs410tutorgroup.tutorme;
 
+import android.os.AsyncTask;
 import android.util.Log;
 
 import org.json.JSONArray;
@@ -44,10 +45,14 @@ public class CollegeTutor extends Tutor
 
         try
         {
+            //ApiTutorPair pair = new ApiTutorPair(tutor);
+            //tutor.tutorCourses = "";
+            //new getCoursesTask().execute(pair);
+
             tutor.college = Globals.selectedCollegeName;
             tutor.building = jsonObj.getString("building");
             tutor.room = jsonObj.getString("room");
-            //tutor.tutorCourses = getTutorCourses(new ApiConnector().getTutorCourses(tutor.tutorID));
+
 
             //Extract and format the schedule information
             //Day/time format:
@@ -72,11 +77,10 @@ public class CollegeTutor extends Tutor
                 tutor.startTimes[i] = Globals.Utils.timeToInt(dayStrings[i], startStrings[i]);
                 tutor.endTimes[i] = Globals.Utils.timeToInt(dayStrings[i], endStrings[i]);
             }
+            tutor.startTimes = sortSchedule(tutor.startTimes);
+            tutor.endTimes = sortSchedule(tutor.endTimes);
 
-            while(tutor.tutorCourses == "")
-            {
-
-            }
+            tutor.tutorSchedule = makeSchedule(tutor);
         }
         catch(Exception e)
         {
@@ -99,6 +103,94 @@ public class CollegeTutor extends Tutor
         }
 
         return false;
+    }
+
+    private static String makeSchedule(CollegeTutor tutor)
+    {
+        String days[] = {"", "Monday","Tuesday","Wednesday","Thursday","Friday"};
+
+        String tutorSchedule = "";
+
+        for(int i = 0; i < tutor.startTimes.length; i++)
+        {
+            String timeSlot = "<br>";
+
+            timeSlot = timeSlot + days[tutor.startTimes[i]/10000];
+
+            int startTime = tutor.startTimes[i]%10000;
+            int endTime = tutor.endTimes[i]%10000;
+
+            String startAmOrPm = "AM";
+            String endAmOrPm = "AM";
+
+            if(startTime > 1200)
+            {
+                startAmOrPm = "PM";
+                if(startTime >= 1300)
+                {
+                    startTime = startTime - 1200;
+                }
+            }
+            if(endTime >= 1200)
+            {
+                endAmOrPm = "PM";
+                if(endTime >= 1300)
+                {
+                    endTime = endTime - 1200;
+                }
+            }
+
+            String startHourString = Integer.toString(startTime/100);
+            String endHourString = Integer.toString(endTime/100);
+            String startMinuteString = Integer.toString(startTime%100);
+            String endMinuteString = Integer.toString(endTime%100);
+
+            if(startMinuteString.equals("0"))
+            {
+                startMinuteString = "00";
+            }
+            if(endMinuteString.equals("0"))
+            {
+                endMinuteString = "00";
+            }
+
+            String startTimeStr = startHourString + ":" + startMinuteString;
+            String endTimeStr = endHourString  + ":" + endMinuteString;
+
+            startTimeStr = startTimeStr + " " + startAmOrPm;
+            endTimeStr = endTimeStr + " " + endAmOrPm;
+
+            timeSlot = timeSlot + ": " + startTimeStr + " - " + endTimeStr;
+
+            tutorSchedule = tutorSchedule + timeSlot;
+        }
+
+        Log.d("TutorSchedule", tutorSchedule);
+
+        return tutorSchedule;
+    }
+
+    private static int[] sortSchedule(int[] scheduleTimes)
+    {//Yes, I seriously did a bubblesort. Its all I could remember off the top of my head.
+        int[] sortedArray = scheduleTimes;
+        boolean sorted = false;
+
+        while(!sorted)
+        {
+            sorted = true;
+            for(int i = 0; i < sortedArray.length-1; i++)
+            {
+                if(sortedArray[i] > sortedArray[i+1])
+                {
+                    int temp = sortedArray[i];
+                    sortedArray[i] = sortedArray[i+1];
+                    sortedArray[i+1] = temp;
+                    sorted = false;
+                }
+            }
+        }
+
+        return sortedArray;
     }
 
     private static CollegeTutor copyTutor(Tutor tutor)
@@ -128,5 +220,38 @@ public class CollegeTutor extends Tutor
         return tutorCourses;
     }
 
+    public static class ApiTutorPair
+    {
+        ApiConnector api;
+        CollegeTutor tutor;
+
+        ApiTutorPair(CollegeTutor tutor)
+        {
+            api = new ApiConnector();
+            this.tutor = tutor;
+        }
+    }
+
+    private static class getCoursesTask extends AsyncTask<ApiTutorPair, Long, String>
+    {
+        @Override
+        protected String doInBackground(ApiTutorPair... params)
+        {
+            {
+                try
+                {
+                    JSONArray array = params[0].api.getTutorCourses(params[0].tutor.tutorID);
+                    String tutorCourses = params[0].api.getCourses(array);
+                    params[0].tutor.tutorCourses = tutorCourses;
+                    return tutorCourses;
+                }
+                catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+                return null;
+            }
+        }
+    }
 
 }

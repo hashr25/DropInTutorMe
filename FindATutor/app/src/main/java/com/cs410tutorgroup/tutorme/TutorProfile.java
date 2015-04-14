@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.cs410tutorgroup.findatutor.R;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -69,47 +70,15 @@ public class TutorProfile extends Activity
                             + "</b>"+ " " + tutorDisplayed.bio));
 
         textToChange = (TextView) findViewById(R.id.tutorCourses);
-        /*textToChange.setText(Html.fromHtml("<b>" + (String)textToChange.getText()
-                            + "</b>" + " " + getCourses(tutorDisplayed.tutorID)));*/
-
-        ///REMOVE THIS AFTER PICTURE///
         textToChange.setText(Html.fromHtml("<b>" + (String)textToChange.getText()
-                + "</b>" + " PSY101, PSY205, PSY215, PSY350, PSY370, SOC101, SOWK161"));
+                            + "</b>" + " " + tutorDisplayed.tutorCourses));
 
         textToChange = (TextView) findViewById(R.id.tutorSchedule);
-        /*textToChange.setText(Html.fromHtml("<b>" + (String)textToChange.getText()
-                + "</b>" + " " + tutorDisplayed.tutorSchedule));*/
-
-        ///REMOVE THIS AFTER PICTURE///
         textToChange.setText(Html.fromHtml("<b>" + (String)textToChange.getText()
-                + "</b>" + " <br>Monday: 12:00 PM - 3:00 PM<br>Tuesday: 1:00 PM - 2:00 PM<br>Wednesday: 12:00 PM - 2:00 PM"));
+                            + "</b>" + " " + tutorDisplayed.tutorSchedule));
 
         ImageView image = (ImageView) findViewById(R.id.tutorPhoto);
         image.setImageDrawable(Globals.tutorList[tutorIndex].picture);
-    }
-
-    private String getCourses(int tutorID)
-    {
-        return null;
-    }
-
-    private class getCoursesTask extends AsyncTask<ApiConnector, Long, JSONArray>
-    {
-        @Override
-        protected JSONArray doInBackground(ApiConnector... params) {
-            {
-                try
-                {
-                    return params[0].getTutorCourses(tutorDisplayed.tutorID);
-                }
-                catch(Exception e)
-                {
-                    e.printStackTrace();
-                }
-
-                return null;
-            }
-        }
     }
 
     public void onReviewButtonClicked(View view)
