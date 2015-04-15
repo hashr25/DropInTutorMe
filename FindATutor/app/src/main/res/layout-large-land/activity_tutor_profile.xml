@@ -79,26 +79,6 @@
         android:layout_alignLeft="@+id/tutorSubject"
         android:layout_below="@+id/tutorSubject" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/courses"
-        android:id="@+id/tutorCourses"
-        android:textSize="@dimen/large_standard_font_size"
-        android:layout_alignTop="@+id/tutorSchedule"
-        android:layout_toRightOf="@+id/tutorSchedule"
-        android:layout_marginLeft="100dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/schedule"
-        android:id="@+id/tutorSchedule"
-        android:textSize="@dimen/large_standard_font_size"
-        android:layout_below="@+id/tutorPhoto"
-        android:layout_alignLeft="@+id/tutorPhoto"
-        android:layout_marginTop="10dp" />
-
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -125,5 +105,47 @@
         android:maxLines="1"
         android:paddingEnd="25dp"
         android:paddingStart="25dp" />
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/CourseScroll"
+        android:fillViewport="false"
+        android:layout_alignTop="@+id/ScheduleScroll"
+        android:layout_alignStart="@+id/ScheduleScroll"
+        android:layout_marginLeft="550dp"
+        android:layout_above="@+id/mapButton">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/courses"
+            android:id="@+id/tutorCourses"
+            android:textSize="@dimen/large_standard_font_size"
+            android:layout_marginLeft="100dp"
+            android:layout_below="@+id/tutorPhoto"
+            android:layout_toEndOf="@+id/ScheduleScroll" />
+    </ScrollView>
+
+    <ScrollView
+        android:layout_width="500dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/ScheduleScroll"
+        android:layout_below="@+id/tutorPhoto"
+        android:layout_alignLeft="@+id/tutorPhoto"
+        android:layout_above="@+id/reviewButton">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/schedule"
+            android:id="@+id/tutorSchedule"
+            android:textSize="@dimen/large_standard_font_size"
+            android:layout_below="@+id/tutorPhoto"
+            android:layout_marginTop="10dp"
+            android:layout_above="@+id/reviewButton"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true" />
+    </ScrollView>
 
 </RelativeLayout>

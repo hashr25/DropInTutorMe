@@ -539,7 +539,7 @@ public class ApiConnector {
             List<NameValuePair> POSTList = new ArrayList<>();
 
             POSTList.add(new BasicNameValuePair("tag","get_tutor_courses"));
-
+Log.d("Print tutorID", Integer.toString(tutorID));
             POSTList.add(new BasicNameValuePair("tutor_id",Integer.toString(tutorID)));
 
             OutputStream out = new BufferedOutputStream(conn.getOutputStream());
@@ -579,18 +579,6 @@ public class ApiConnector {
         }
 
         return results;
-    }
-
-    public String getCourses(JSONArray jsonArray) throws JSONException
-    {
-        String tutorCourses = jsonArray.getString(0);
-
-        for(int i = 1; i < jsonArray.length(); i++)
-        {
-            tutorCourses = tutorCourses + ", " + jsonArray.get(i);
-        }
-
-        return tutorCourses;
     }
 
     public Drawable getTutorPhoto(String photoURL)

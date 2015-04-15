@@ -113,6 +113,18 @@ public class TutorProfile extends Activity
         tutorDisplayed.subject = "Math";
     }
 
+    public String getCourses(JSONArray jsonArray) throws JSONException
+    {
+        String tutorCourses = jsonArray.getJSONObject(0).getString("display_text");
+
+        for(int i = 1; i < jsonArray.length(); i++)
+        {
+            tutorCourses = tutorCourses + ", " + jsonArray.getJSONObject(i).getString("display_text");
+        }
+
+        return tutorCourses;
+    }
+
     private class getCoursesTask extends AsyncTask<ApiConnector, Long, String>
     {
         @Override
@@ -122,11 +134,13 @@ public class TutorProfile extends Activity
                 try
                 {
                     JSONArray array = params[0].getTutorCourses(tutorDisplayed.tutorID);
-                    String tutorCourses = params[0].getCourses(array);
+                    Log.d("PrintJson", array.toString());
+                    String tutorCourses = getCourses(array);
                     //tutorDisplayed.tutorCourses = tutorCourses;
                     return tutorCourses;
                 }
-                catch (Exception e) {
+                catch (Exception e)
+                {
                     e.printStackTrace();
                 }
 
@@ -136,7 +150,7 @@ public class TutorProfile extends Activity
 
         @Override
         protected void onPostExecute(String result)
-        {
+        {Log.d("PrintCourses", result);
             tutorDisplayed.tutorCourses = result;
             TextView textToChange = (TextView) findViewById(R.id.tutorCourses);
             textToChange.setText(Html.fromHtml("<b>Courses: </b>" + tutorDisplayed.tutorCourses));

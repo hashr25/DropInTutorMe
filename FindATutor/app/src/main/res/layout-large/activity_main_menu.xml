@@ -37,7 +37,7 @@
             android:id="@+id/collegeSearch"
             android:layout_gravity="center"
             android:hint="@string/chose_college"
-            android:layout_marginBottom="30dp"
+            android:layout_marginBottom="200dp"
             android:imeOptions="actionSearch"
             android:inputType="text|textAutoComplete"
             android:layout_alignParentLeft="false"
