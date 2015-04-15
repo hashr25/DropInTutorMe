@@ -85,14 +85,13 @@ public class TutorProfile extends Activity
 
     public void onReviewButtonClicked(View view)
     {
-        Intent reviewsIntent = new Intent(this, TutorReview.class);
+        Intent reviewsIntent = new Intent(this, ReviewList.class);
 
-        Log.d("showTutorId", Integer.toString(tutorDisplayed.tutorID));
+        /*Log.d("showTutorId", Integer.toString(tutorDisplayed.tutorID));
         reviewsIntent.putExtra("tutor_id", tutorDisplayed.tutorID);
         reviewsIntent.putExtra("freelance_id", 0);
 
-        reviewsIntent.putExtra("tutor_name", tutorDisplayed.firstName + " " + tutorDisplayed.lastName);
-
+        reviewsIntent.putExtra("tutor_name", tutorDisplayed.firstName + " " + tutorDisplayed.lastName);*/
 
         startActivity(reviewsIntent);
     }

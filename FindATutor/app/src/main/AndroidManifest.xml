@@ -62,6 +62,10 @@
             android:name="com.cs410tutorgroup.tutorme.CollegeSearchNarrower"
             android:label="@string/title_activity_search_narrower" >
         </activity>
+        <activity
+            android:name="com.cs410tutorgroup.tutorme.ReviewList"
+            android:label="@string/title_activity_review_list" >
+        </activity>
     </application>
 
 </manifest>

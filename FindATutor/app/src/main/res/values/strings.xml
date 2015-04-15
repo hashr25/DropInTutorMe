@@ -137,5 +137,6 @@
         <item>"23:00"</item>
         <item>"23:30"</item>
     </string-array>
+    <string name="title_activity_review_list">ReviewList</string>
 
 </resources>

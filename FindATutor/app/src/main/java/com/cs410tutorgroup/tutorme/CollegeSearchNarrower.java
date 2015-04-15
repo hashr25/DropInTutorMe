@@ -226,7 +226,9 @@ public class CollegeSearchNarrower extends Activity implements AdapterView.OnIte
         if(!gettingTutors)
         {
             ProgressBar loading = (ProgressBar)findViewById(R.id.LoadingSpinner);
+            loading.setIndeterminate(true);
             loading.setVisibility(ProgressBar.VISIBLE);
+
             gettingTutors = true;
             new GetNarrowedTutorsTask().execute(new ApiConnector());
         }
