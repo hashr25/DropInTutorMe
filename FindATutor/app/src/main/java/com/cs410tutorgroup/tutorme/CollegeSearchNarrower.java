@@ -306,6 +306,8 @@ public class CollegeSearchNarrower extends Activity implements AdapterView.OnIte
         {
             Intent tutorSearchIntent = new Intent(this, CollegeTutorSearch.class);
             startActivity(tutorSearchIntent);
+            ProgressBar pb = (ProgressBar)findViewById(R.id.LoadingSpinner);
+            pb.setVisibility(ProgressBar.INVISIBLE);
         }
         else
         {

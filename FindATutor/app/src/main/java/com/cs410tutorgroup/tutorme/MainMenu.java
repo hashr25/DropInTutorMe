@@ -33,6 +33,8 @@ public class MainMenu extends Activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
 
+        Globals.noPhoto = getResources().getDrawable(R.drawable.nophoto);
+
         AutoCompleteTextView collegeSearch = (AutoCompleteTextView) this.findViewById(R.id.collegeSearch);
 
         collegeSearch.setOnEditorActionListener(new TextView.OnEditorActionListener() {

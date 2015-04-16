@@ -1,5 +1,7 @@
 package com.cs410tutorgroup.tutorme;
 
+import android.app.Activity;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
@@ -7,6 +9,7 @@ import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.util.Log;
 
+import com.cs410tutorgroup.findatutor.R;
 import com.google.android.gms.common.api.Api;
 
 import org.json.JSONArray;
@@ -52,9 +55,13 @@ public class Tutor
             tutor.emailAddress = jsonObj.getString("email");
             tutor.bio = jsonObj.getString("bio");
             tutor.pictureURL = jsonObj.getString("picture");
-            Globals.tempPicURL = tutor.pictureURL;
-            Log.d("PictureURL", tutor.pictureURL);
-            tutor.new LoadPictureTask().execute(tutor.pictureURL);
+            tutor.picture = Globals.noPhoto;
+
+
+
+            /*tutor.new LoadPictureTask().execute(tutor.pictureURL);
+
+
 
             while(tutor.picture == null)
             {
@@ -63,7 +70,7 @@ public class Tutor
                     //This is to wait for the background process from the LoadPictureTask
                     tutor.picture = Globals.tempPic;
                 }
-            }
+            }*/
 
             Globals.tempPic = null;
 
@@ -141,16 +148,5 @@ public class Tutor
         }
     }
 
-    private class LoadPhotoTask extends AsyncTask<ApiConnector, Long, Drawable>
-    {
 
-        @Override
-        protected Drawable doInBackground(ApiConnector... params)
-        {
-
-
-
-            return null;
-        }
-    }
 }

@@ -18,8 +18,7 @@ public class Globals
 {
     public static final String API_KEY = "AIzaSyDbcrROWyAIVoYqXhaFW7lxi_KYxmoqWYY";
 
-    public static Drawable tempPic = null;
-    public static String tempPicURL = null;
+    public static Drawable noPhoto = null;
 
     //Information on the currently selected college
     public static String selectedCollegeName = "";
