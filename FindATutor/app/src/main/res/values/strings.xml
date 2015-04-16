@@ -9,15 +9,15 @@
     <string name="email_regex">^[:alpha:]*\Q@\E[:alpha:]*\Q.\E[:alpha:]{2,3}</string>
 
     <!-- Error messages -->
-    <string name="name_error">Nah, can\'t take that name dawg.</string>
-    <string name="email_error">You done messed up your email homie.</string>
-    <string name="name_email_error">Dang fool, you got both your name and your email wrong. Wassup with dat homie?</string>
-    <string name="address_error">What kind of address is that? Gimme a better one.</string>
-    <string name="college_error">That ain\'t a valid college name playa. Try one of the suggestions next time fool.</string>
+    <string name="name_error">Please enter your first and last names.</string>
+    <string name="email_error">Please enter a valid email address.</string>
+    <string name="name_email_error">Name and email both invalid.</string>
+    <string name="address_error">You must enter a valid address.</string>
+    <string name="college_error">Invalid college name.</string>
     <string name="registration_complete">Registration successful!</string>
     <string name="college_search_error">No tutors found with those search parameters.</string>
     <string name="review_submitted">Congratulations! Your review was submitted.</string>
-    <string name="review_fail">Some shit went wrong. Try again.</string>
+    <string name="review_fail">Unable to connect to the server.</string>
     <string name="enter_text">You have to actually write something in your review…</string>
 
 
