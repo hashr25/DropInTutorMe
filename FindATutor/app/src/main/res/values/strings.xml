@@ -20,7 +20,6 @@
     <string name="review_fail">Unable to connect to the server.</string>
     <string name="enter_text">You have to actually write something in your review…</string>
 
-
     <!-- Dialog buttons -->
     <string name="alert_dialog_ok">OK</string>
 
@@ -32,7 +31,6 @@
 
     <!-- This line is used to change the bar at the top. Currently there are backgrounds 1-9 -->
     <string name="background_chosen">@drawable/background2</string>
-
     <string name="action_settings">Settings</string>
 
     <!-- Activity Labels -->
@@ -52,7 +50,6 @@
     <string name="mit_open_courseware"><a href="http://ocw.mit.edu/index.htm">MIT OpenCourseWare</a></string>
     <string name="title_activity_tutor_review">tutorReview</string>
     <string name="title_activity_tutor_profile">tutorProfile</string>
-
 
     <!-- Standard Tutor Search -->
     <string name="subject_prompt">Subject</string>
@@ -86,7 +83,6 @@
         <item>Friday</item>
         <item>Saturday</item>
     </string-array>
-
     <string-array name="times_array">
         <item>"00:00"</item>
         <item>"00:30"</item>
@@ -137,6 +133,8 @@
         <item>"23:00"</item>
         <item>"23:30"</item>
     </string-array>
+
     <string name="title_activity_review_list">ReviewList</string>
+    <string name="title_activity_freelance_search_narrower">FreelanceSearchNarrower</string>
 
 </resources>

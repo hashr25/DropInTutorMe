@@ -66,6 +66,10 @@
             android:name="com.cs410tutorgroup.tutorme.ReviewList"
             android:label="@string/title_activity_review_list" >
         </activity>
+        <activity
+            android:name="com.cs410tutorgroup.tutorme.FreelanceSearchNarrower"
+            android:label="@string/title_activity_freelance_search_narrower" >
+        </activity>
     </application>
 
 </manifest>

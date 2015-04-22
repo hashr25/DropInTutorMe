@@ -12,7 +12,6 @@ import android.util.Log;
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONArray;
-import org.json.JSONException;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -35,7 +34,7 @@ public class ApiConnector {
 
     String url = "http://tutorapp.net76.net/application_api.php";
 
-    public JSONArray GetTutors() throws MalformedURLException, IOException
+    public JSONArray GetTutors() throws IOException
     {
 
         JSONArray results = null;
@@ -50,7 +49,7 @@ public class ApiConnector {
             conn.setDoInput(true);
             conn.setRequestMethod("POST");
 
-            List<NameValuePair> POSTlist = new ArrayList<NameValuePair>();
+            List<NameValuePair> POSTlist = new ArrayList<>();
 
             POSTlist.add(new BasicNameValuePair("tag","get_tutors"));
 
@@ -108,7 +107,7 @@ public class ApiConnector {
             conn.setDoInput(true);
             conn.setRequestMethod("POST");
 
-            List<NameValuePair> POSTlist = new ArrayList<NameValuePair>();
+            List<NameValuePair> POSTlist = new ArrayList<>();
 
             POSTlist.add(new BasicNameValuePair("tag", "get_tutors_narrowed"));
             POSTlist.add(new BasicNameValuePair("college_name", collegeName));
@@ -154,7 +153,7 @@ public class ApiConnector {
         return results;
     }
 
-    public Boolean AddTutor(String name, String email, String address) throws MalformedURLException, IOException
+    public Boolean AddTutor(String name, String email, String address) throws IOException
     {
         Boolean success = true;
 
@@ -195,8 +194,8 @@ public class ApiConnector {
 
             JSONArray geocodeResults = new JSONArray(cleanString(response.toString()));
 
-            latitude = new Double(geocodeResults.getJSONObject(0).getJSONObject("geometry").getJSONObject("location").getDouble("lat")).toString();
-            longitude = new Double(geocodeResults.getJSONObject(0).getJSONObject("geometry").getJSONObject("location").getDouble("lng")).toString();
+            latitude = Double.toString(geocodeResults.getJSONObject(0).getJSONObject("geometry").getJSONObject("location").getDouble("lat"));
+            longitude = Double.toString(geocodeResults.getJSONObject(0).getJSONObject("geometry").getJSONObject("location").getDouble("lng"));
         }
         catch(Exception e)
         {
@@ -216,13 +215,13 @@ public class ApiConnector {
 
         try
         {
-            if(latitude != "" && longitude != "")
+            if(!latitude.equals("") && !longitude.equals(""))
             {
                 conn.setDoOutput(true);
                 conn.setDoInput(true);
                 conn.setRequestMethod("POST");
 
-                List<NameValuePair> POSTlist = new ArrayList<NameValuePair>();
+                List<NameValuePair> POSTlist = new ArrayList<>();
 
                 POSTlist.add(new BasicNameValuePair("tag", "add_tutor"));
                 POSTlist.add(new BasicNameValuePair("first_name", name.substring(0, name.indexOf(" "))));
@@ -270,7 +269,7 @@ public class ApiConnector {
         return success;
     }
 
-    public JSONArray GetAllColleges() throws MalformedURLException, IOException
+    public JSONArray GetAllColleges() throws IOException
     {
         JSONArray results = null;
 
@@ -327,7 +326,7 @@ public class ApiConnector {
         return results;
     }
 
-    public JSONArray GetSubjects() throws MalformedURLException, IOException
+    public JSONArray GetSubjects() throws IOException
     {
         JSONArray results = null;
 
@@ -382,7 +381,7 @@ public class ApiConnector {
         return results;
     }
 
-    public JSONArray GetReviews() throws MalformedURLException, IOException
+    public JSONArray GetReviews() throws IOException
     {
         JSONArray results = null;
 
@@ -436,7 +435,7 @@ public class ApiConnector {
         return results;
     }
 
-    public JSONArray GetCourses(int subject_id) throws MalformedURLException, IOException
+    public JSONArray GetCourses(int subject_id) throws IOException
     {
         JSONArray results = null;
         
@@ -525,7 +524,7 @@ public class ApiConnector {
 
                 Log.d("Breakpoint1", "Breakpoint 1");
 
-                List<NameValuePair> POSTlist = new ArrayList<NameValuePair>();
+                List<NameValuePair> POSTlist = new ArrayList<>();
 
                 POSTlist.add(new BasicNameValuePair("tag", "add_review"));
                 POSTlist.add(new BasicNameValuePair("tutor_id", tutorIDStr));
@@ -576,7 +575,7 @@ public class ApiConnector {
         return success;
     }
 
-    public JSONArray getTutorCourses(int tutorID) throws MalformedURLException, IOException
+    public JSONArray getTutorCourses(int tutorID) throws IOException
     {
         JSONArray results = null;
 
@@ -644,13 +643,11 @@ Log.d("Print tutorID", Integer.toString(tutorID));
         {
             Log.d("Breakpoint1", "Passing by first attempt at loading image" );
 
-            Bitmap x = null;
-
             HttpURLConnection connection = (HttpURLConnection) new URL(photoURL).openConnection();
             connection.connect();
             InputStream input = connection.getInputStream();
 
-            x = BitmapFactory.decodeStream(input);
+            Bitmap x = BitmapFactory.decodeStream(input);
 
             image = new BitmapDrawable(x);
 
