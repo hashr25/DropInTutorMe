@@ -49,24 +49,13 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/location"
-        android:id="@+id/tutorLocation"
+        android:text="@string/subject"
+        android:id="@+id/tutorSubject"
         android:layout_toEndOf="@+id/tutorPhoto"
         android:textSize="@dimen/large_standard_font_size"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:layout_below="@+id/tutorName" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/subject"
-        android:id="@+id/tutorSubject"
-        android:layout_below="@+id/tutorLocation"
-        android:layout_toEndOf="@+id/tutorPhoto"
-        android:textSize="@dimen/large_standard_font_size"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp" />
 
     <ScrollView
         android:layout_width="wrap_content"

@@ -46,20 +46,11 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/location"
-        android:id="@+id/tutorLocation"
-        android:textSize="@dimen/standard_font_size"
-        android:layout_alignLeft="@+id/tutorName"
-        android:layout_below="@+id/tutorName" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:text="@string/subject"
         android:id="@+id/tutorSubject"
         android:textSize="@dimen/standard_font_size"
-        android:layout_below="@+id/tutorLocation"
-        android:layout_toEndOf="@+id/tutorPhoto" />
+        android:layout_toEndOf="@+id/tutorPhoto"
+        android:layout_below="@+id/tutorName" />
 
     <Button
         android:layout_width="150dp"

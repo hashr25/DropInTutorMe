@@ -54,10 +54,6 @@ public class FreelanceProfile extends Activity {
         textToChange.setText(Html.fromHtml("<b>" + (String) textToChange.getText()
                 + "</b>" + " " + tutorDisplayed.firstName + " " + tutorDisplayed.lastName));
 
-        textToChange = (TextView)findViewById(R.id.tutorLocation);
-        textToChange.setText(Html.fromHtml("<b>" + (String)textToChange.getText()
-                + "</b>" + " " /* Add the location here */ ));
-
         textToChange = (TextView)findViewById(R.id.tutorSubject);
         textToChange.setText(Html.fromHtml("<b>" + (String)textToChange.getText()
                 + "</b>" + " " + tutorDisplayed.subject));
