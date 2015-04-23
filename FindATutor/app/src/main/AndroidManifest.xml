@@ -34,10 +34,6 @@
             android:name="com.cs410tutorgroup.tutorme.CollegeTutorSearch"
             android:label="@string/title_activity_standard_tutor_search" >
         </activity>
-        <activity
-            android:name="com.cs410tutorgroup.tutorme.testDatabase"
-            android:label="@string/title_activity_test_database" >
-        </activity>
 
         <meta-data
             android:name="com.google.android.gms.version"
@@ -69,6 +65,10 @@
         <activity
             android:name="com.cs410tutorgroup.tutorme.FreelanceSearchNarrower"
             android:label="@string/title_activity_freelance_search_narrower" >
+        </activity>
+        <activity
+            android:name="com.cs410tutorgroup.tutorme.FreelanceProfile"
+            android:label="@string/title_activity_freelance_profile" >
         </activity>
     </application>
 

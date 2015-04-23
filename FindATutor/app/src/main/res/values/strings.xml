@@ -63,6 +63,7 @@
     <string name="bio">Bio: </string>
     <string name="courses">Courses: </string>
     <string name="schedule">Schedule: </string>
+    <string name="email">Email: </string>
     <string name="reviews">Reviews</string>
     <string name="open_map">Open Map</string>
     <string name="title_activity_list_of_tutors">ListOfTutors</string>
@@ -84,14 +85,14 @@
         <item>Saturday</item>
     </string-array>
     <string-array name="times_array">
-        <item>"00:00"</item>
+        <!--<item>"00:00"</item>
         <item>"00:30"</item>
         <item>"01:00"</item>
         <item>"01:30"</item>
         <item>"02:00"</item>
         <item>"02:30"</item>
         <item>"03:00"</item>
-        <item>"03:30"</item>
+        <item>"03:30"</item>        Commented out. Not sure we need AM hours
         <item>"04:00"</item>
         <item>"04:30"</item>
         <item>"05:00"</item>
@@ -99,7 +100,7 @@
         <item>"06:00"</item>
         <item>"06:30"</item>
         <item>"07:00"</item>
-        <item>"07:30"</item>
+        <item>"07:30"</item>-->
         <item>"08:00"</item>
         <item>"08:30"</item>
         <item>"09:00"</item>
@@ -136,5 +137,6 @@
 
     <string name="title_activity_review_list">ReviewList</string>
     <string name="title_activity_freelance_search_narrower">FreelanceSearchNarrower</string>
+    <string name="title_activity_freelance_profile">FreelanceProfile</string>
 
 </resources>

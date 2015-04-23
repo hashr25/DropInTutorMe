@@ -20,13 +20,10 @@ public class TutorReview extends Activity
     //Data
     private int tutorID;
     private int freelanceID;
-    private String tutorName;
     private String reviewText;
     private float stars;
 
-    private TextView pageHeader;
     private TextView charCounter;
-    private TextView tutorNameField;
     private EditText reviewTextField;
     private RatingBar ratingStars;
 
@@ -42,12 +39,12 @@ public class TutorReview extends Activity
         Intent intent = getIntent();
         tutorID = intent.getExtras().getInt("tutor_id");
         freelanceID = intent.getExtras().getInt("freelance_id");
-        tutorName = intent.getStringExtra("tutor_name");
+        String tutorName = intent.getStringExtra("tutor_name");
 
         this.charCounter = (TextView) this.findViewById(R.id.charCount);
         this.reviewTextField = (EditText) this.findViewById(R.id.reviewText);
-        this.tutorNameField = (TextView) this.findViewById(R.id.tutorName);
-        this.pageHeader = (TextView) this.findViewById(R.id.tutorNameHeader);
+        TextView tutorNameField = (TextView) this.findViewById(R.id.tutorName);
+        TextView pageHeader = (TextView) this.findViewById(R.id.tutorNameHeader);
         this.ratingStars = (RatingBar) this.findViewById(R.id.ratingStars);
 
         tutorNameField.setText(tutorNameField.getText() + " " + tutorName);

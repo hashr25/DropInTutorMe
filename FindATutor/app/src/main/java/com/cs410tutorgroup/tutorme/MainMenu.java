@@ -21,8 +21,6 @@ import org.json.JSONObject;
 public class MainMenu extends Activity
 {
 
-    private TextView responseTextView;
-
     //Used to hold the list of valid college names returned from the database
     private String[] validColleges = null;
 
@@ -49,7 +47,6 @@ public class MainMenu extends Activity
             }
         });
 
-        this.responseTextView = (TextView) this.findViewById(R.id.responseTextView);
         new GetCollegesTask().execute(new ApiConnector());
     }
 
@@ -72,30 +69,6 @@ public class MainMenu extends Activity
         startActivity(freelanceSignupIntent);
     }
 
-
-    public void setTextToTextView(JSONArray jsonArray)
-    {
-        String s  = "";
-
-        if(jsonArray != null)
-        {
-            for (int i = 0; i < jsonArray.length(); i++)
-            {
-                JSONObject json = null;
-                try
-                {
-                    json = jsonArray.getJSONObject(i);
-                    s = s + "Name : " + json.getString("college_name") + "\n\n";
-                }
-                catch (Exception e)
-                {
-                    e.printStackTrace();
-                }
-            }
-        }
-
-        this.responseTextView.setText(s);
-    }
 
     public void setAutoCompleteList(JSONArray listArray)
     {
@@ -161,30 +134,6 @@ public class MainMenu extends Activity
     {
         DialogFragment newFragment = Globals.ErrorDialogFragment.newInstance(messageId);
         newFragment.show(getFragmentManager(), "dialog");
-    }
-
-    private class GetTutorsTask extends AsyncTask<ApiConnector,Long,JSONArray>
-    {
-        @Override
-        protected JSONArray doInBackground(ApiConnector... params)
-        {
-            try
-            {
-                return params[0].GetTutors();
-            }
-            catch(Exception e)
-            {
-                e.printStackTrace();
-            }
-
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(JSONArray jsonArray)
-        {
-            setTextToTextView(jsonArray);
-        }
     }
 
     private class GetCollegesTask extends AsyncTask<ApiConnector,Long,JSONArray>

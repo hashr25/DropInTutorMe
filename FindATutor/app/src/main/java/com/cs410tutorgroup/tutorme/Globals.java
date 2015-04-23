@@ -24,6 +24,7 @@ public class Globals
     public static String selectedCollegeName = "";
 
     public static CollegeTutor[] tutorList = null;
+    public static FreelanceTutor[] freelanceList = null;
 
     public static class ErrorDialogFragment extends DialogFragment
     {

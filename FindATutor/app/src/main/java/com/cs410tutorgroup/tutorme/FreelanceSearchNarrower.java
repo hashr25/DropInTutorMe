@@ -8,7 +8,8 @@ import android.view.MenuItem;
 
 import com.cs410tutorgroup.findatutor.R;
 
-public class FreelanceSearchNarrower extends Activity {
+public class FreelanceSearchNarrower extends Activity
+{
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
