@@ -149,7 +149,8 @@ public class TutorProfile extends Activity
 
         @Override
         protected void onPostExecute(String result)
-        {Log.d("PrintCourses", result);
+        {
+            Log.d("PrintCourses", result);
             tutorDisplayed.tutorCourses = result;
             TextView textToChange = (TextView) findViewById(R.id.tutorCourses);
             textToChange.setText(Html.fromHtml("<b>Courses: </b>" + tutorDisplayed.tutorCourses));

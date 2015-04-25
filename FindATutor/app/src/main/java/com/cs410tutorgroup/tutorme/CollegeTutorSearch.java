@@ -30,12 +30,6 @@ public class CollegeTutorSearch extends Activity
             newTutorFragment.setArguments(args);
             getFragmentManager().beginTransaction().add(R.id.tutor_list, newTutorFragment).commit();
         }
-
-
     }
-
-
 }
-
-
 

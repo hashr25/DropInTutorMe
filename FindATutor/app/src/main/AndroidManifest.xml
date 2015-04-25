@@ -70,6 +70,10 @@
             android:name="com.cs410tutorgroup.tutorme.FreelanceProfile"
             android:label="@string/title_activity_freelance_profile" >
         </activity>
+        <activity
+            android:name="com.cs410tutorgroup.tutorme.FreelanceTutorSearch"
+            android:label="@string/title_activity_freelance_profile" >
+        </activity>
     </application>
 
 </manifest>

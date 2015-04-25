@@ -32,8 +32,6 @@ public class FreelanceProfile extends Activity {
         tutorDisplayed = Globals.freelanceList[tutorIndex];
 
         //new getCoursesTask().execute(new ApiConnector());
-
-        createTestTutor();
         try
         {
             displayTutorInfo();
@@ -87,18 +85,4 @@ public class FreelanceProfile extends Activity {
     {
 
     }
-
-    public void createTestTutor()
-    {
-        tutorDisplayed = new FreelanceTutor();
-        tutorDisplayed.firstName = "Alex";
-        tutorDisplayed.lastName = "Hudgins";
-        tutorDisplayed.tutorID = 4;
-        tutorDisplayed.emailAddress = "none@none.com";
-        tutorDisplayed.bio = "What am I doing on here? I am just in the second grade...";
-        tutorDisplayed.subject = "Math";
-    }
-
-
-
 }
