@@ -7,7 +7,7 @@
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/title_font_size"
+        android:textSize="@dimen/large_land_title_font_size"
         android:textStyle="bold"
         android:elegantTextHeight="true"
         android:textAppearance="?android:attr/textAppearanceLarge"
@@ -20,7 +20,8 @@
         android:layout_alignParentEnd="true"
         android:gravity="center_vertical|center_horizontal"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:padding="18dp" />
 
     <Spinner
         android:layout_width="wrap_content"
@@ -34,13 +35,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Search"
-        android:textSize="@dimen/button_font_size"
+        android:textSize="@dimen/large_button_font_size"
         android:id="@+id/search_button"
         android:onClick="onSearchButtonClicked"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
         android:layout_marginBottom="5dp"
         android:layout_alignParentEnd="true"
-        android:layout_margin="5dp" />
+        android:layout_margin="10dp" />
 
 </RelativeLayout>

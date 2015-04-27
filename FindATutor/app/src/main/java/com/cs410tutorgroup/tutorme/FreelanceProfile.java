@@ -23,7 +23,7 @@ public class FreelanceProfile extends Activity {
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tutor_profile);
+        setContentView(R.layout.activity_freelance_profile);
 
         Intent thisIntent = getIntent();
 
