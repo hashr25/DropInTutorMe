@@ -20,16 +20,11 @@ public class FreelanceTutor extends Tutor
     public static FreelanceTutor loadFreelanceTutorFromJSONObject(JSONObject jsonObj)
     {
         FreelanceTutor tutor = new FreelanceTutor();
+        Tutor baseTutor = Tutor.loadFromJsonObject(jsonObj);
+        tutor = copyTutor(baseTutor);
 
         try
         {
-            tutor.tutorID = jsonObj.getInt("tutor_id");
-            tutor.firstName = jsonObj.getString("first_name");
-            tutor.lastName = jsonObj.getString("last_name");
-            tutor.emailAddress = jsonObj.getString("email");
-            tutor.bio = jsonObj.getString("bio");
-            tutor.pictureURL = jsonObj.getString("picture");
-            tutor.picture = Globals.noPhoto;
             tutor.latitude = jsonObj.getDouble("lat_cord");
             tutor.longitude = jsonObj.getDouble("long_cord");
         }
@@ -39,5 +34,20 @@ public class FreelanceTutor extends Tutor
         }
 
         return tutor;
+    }
+
+    private static FreelanceTutor copyTutor(Tutor tutor)
+    {
+        FreelanceTutor copiedTutor = new FreelanceTutor();
+
+        copiedTutor.tutorID = tutor.tutorID;
+        copiedTutor.pictureURL = tutor.pictureURL;
+        copiedTutor.picture = tutor.picture;
+        copiedTutor.firstName = tutor.firstName;
+        copiedTutor.lastName = tutor.lastName;
+        copiedTutor.bio = tutor.bio;
+        copiedTutor.emailAddress = tutor.emailAddress;
+
+        return copiedTutor;
     }
 }

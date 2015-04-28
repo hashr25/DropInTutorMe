@@ -45,10 +45,6 @@ public class CollegeTutor extends Tutor
 
         try
         {
-            //ApiTutorPair pair = new ApiTutorPair(tutor);
-            //tutor.tutorCourses = "";
-            //new getCoursesTask().execute(pair);
-
             tutor.college = Globals.selectedCollegeName;
             tutor.building = jsonObj.getString("building");
             tutor.room = jsonObj.getString("room");
