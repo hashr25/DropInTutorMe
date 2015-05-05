@@ -47,7 +47,7 @@
             android:label="@string/title_activity_tutor_registration" >
         </activity>
         <activity
-            android:name="com.cs410tutorgroup.tutorme.TutorReview"
+            android:name="com.cs410tutorgroup.tutorme.AddReview"
             android:label="@string/title_activity_tutor_review" >
         </activity>
         <activity

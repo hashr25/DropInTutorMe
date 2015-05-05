@@ -1,0 +1,45 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center_horizontal"
+    android:paddingTop="10dp"
+    android:clickable="true">
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/TextView_review_text"
+        android:hint="review text"
+        android:paddingLeft="10dp"
+        android:textSize="@dimen/large_standard_font_size"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp" />
+
+    <RatingBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/RatingBar_review_rating"
+        android:stepSize="0.5"
+        android:numStars="5"
+        android:nestedScrollingEnabled="false"
+        android:layout_marginLeft="400dp"
+        android:progressTint="#fffff723"
+        android:rating="5"
+        android:layout_below="@+id/TextView_review_text"
+        android:layout_alignStart="@+id/TextView_review_text" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/report_review"
+        android:id="@+id/report_review_button"
+        android:textSize="@dimen/button_font_size"
+        android:minLines="1"
+        android:layout_alignTop="@+id/RatingBar_review_rating"
+        android:layout_alignEnd="@+id/TextView_review_text"
+        android:layout_marginRight="400dp"
+        android:maxLines="1" />
+
+</RelativeLayout>

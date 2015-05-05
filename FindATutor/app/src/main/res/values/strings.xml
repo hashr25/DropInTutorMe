@@ -19,6 +19,7 @@
     <string name="review_submitted">Congratulations! Your review was submitted.</string>
     <string name="review_fail">Unable to connect to the server.</string>
     <string name="enter_text">You have to actually write something in your review…</string>
+    <string name="review_reported">This review has been reported for administrative review.</string>
 
     <!-- Dialog buttons -->
     <string name="alert_dialog_ok">OK</string>
@@ -65,12 +66,14 @@
     <string name="schedule">Schedule: </string>
     <string name="email">Email: </string>
     <string name="reviews">Reviews</string>
+    <string name="add_review">Add Review</string>
     <string name="open_map">Open Map</string>
     <string name="title_activity_list_of_tutors">ListOfTutors</string>
     <string name="title_activity_search_narrower">CollegeSearchNarrower</string>
 
     <!-- Tutor Reviews -->
     <string name="enter_review">Enter your review</string>
+    <string name="report_review">Report Review</string>
     <string name="submit_review">Submit Review</string>
 
     <!-- Search narrower adapter arrays -->

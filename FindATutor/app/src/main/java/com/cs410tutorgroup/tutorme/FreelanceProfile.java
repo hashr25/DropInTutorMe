@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.text.Html;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -31,7 +32,6 @@ public class FreelanceProfile extends Activity {
 
         tutorDisplayed = Globals.freelanceList[tutorIndex];
 
-        //new getCoursesTask().execute(new ApiConnector());
         try
         {
             displayTutorInfo();
@@ -72,11 +72,11 @@ public class FreelanceProfile extends Activity {
     {
         Intent reviewsIntent = new Intent(this, ReviewList.class);
 
-        /*Log.d("showTutorId", Integer.toString(tutorDisplayed.tutorID));
-        reviewsIntent.putExtra("tutor_id", tutorDisplayed.tutorID);
-        reviewsIntent.putExtra("freelance_id", 0);
+        Log.d("showFreelanceId", Integer.toString(tutorDisplayed.tutorID));
+        reviewsIntent.putExtra("freelance_id", tutorDisplayed.tutorID);
+        reviewsIntent.putExtra("tutor_id", -1);
 
-        reviewsIntent.putExtra("tutor_name", tutorDisplayed.firstName + " " + tutorDisplayed.lastName);*/
+        reviewsIntent.putExtra("tutor_name", tutorDisplayed.firstName + " " + tutorDisplayed.lastName);
 
         startActivity(reviewsIntent);
     }

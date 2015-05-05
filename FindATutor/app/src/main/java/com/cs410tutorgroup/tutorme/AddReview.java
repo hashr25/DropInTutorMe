@@ -7,6 +7,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RatingBar;
@@ -15,7 +16,7 @@ import android.widget.TextView;
 import com.cs410tutorgroup.findatutor.R;
 
 
-public class TutorReview extends Activity
+public class AddReview extends Activity
 {
     //Data
     private int tutorID;
@@ -50,6 +51,7 @@ public class TutorReview extends Activity
         tutorNameField.setText(tutorNameField.getText() + " " + tutorName);
         pageHeader.setText(tutorName);
 
+        //Allows tracking of characters
         final TextWatcher textWatcher = new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -95,10 +97,12 @@ public class TutorReview extends Activity
             {
                 showErrorDialog(R.string.review_submitted);
                 finish();
+                finish();
             }
             else
             {
                 showErrorDialog(R.string.review_fail);
+                finish();
                 finish();
             }
         }

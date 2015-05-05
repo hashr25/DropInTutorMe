@@ -8,7 +8,7 @@
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/TextView_tutor_name"
+        android:id="@+id/TextView_review_text"
         android:hint="tutor name"
         android:layout_toRightOf="@+id/ImageView_tutor_picture"
         android:paddingLeft="10dp"
@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/TextView_tutor_subject"
         android:hint="tutor subject"
-        android:layout_below="@+id/TextView_tutor_name"
+        android:layout_below="@+id/TextView_review_text"
         android:layout_toRightOf="@+id/ImageView_tutor_picture"
         android:paddingLeft="10dp"
         android:text="Primary Subject: "

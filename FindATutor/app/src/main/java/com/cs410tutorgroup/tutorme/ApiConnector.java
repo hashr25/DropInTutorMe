@@ -493,7 +493,7 @@ public class ApiConnector {
         return results;
     }
 
-    public JSONArray GetReviews() throws IOException
+    public JSONArray GetReviews(int tutorID, int freelanceID) throws IOException
     {
         JSONArray results = null;
 
@@ -510,7 +510,8 @@ public class ApiConnector {
             List<NameValuePair> POSTList = new ArrayList<>();
 
             POSTList.add(new BasicNameValuePair("tag","get_reviews"));
-            POSTList.add(new BasicNameValuePair("tutor_id",Integer.toString(Globals.tutorList[0].tutorID)));
+            POSTList.add(new BasicNameValuePair("tutor_id", Integer.toString(tutorID)));
+            POSTList.add(new BasicNameValuePair("freelance_id", Integer.toString(freelanceID)));
 
             OutputStream out = new BufferedOutputStream(conn.getOutputStream());
             writeStream(out,POSTList);
@@ -681,6 +682,68 @@ public class ApiConnector {
         }
         finally
         {Log.d("Breakpoint4", "Breakpoint 4");
+            conn.disconnect();
+        }
+
+        return success;
+    }
+
+    public Boolean ReportReview(int reviewID, int numOfReports) throws MalformedURLException, IOException
+    {
+        Boolean success = true;
+
+        URL u = new URL(url);
+
+        HttpURLConnection conn = (HttpURLConnection) u.openConnection();
+
+        try
+        {Log.d("ReportingReview", "Attempting to report review");
+            if (reviewID > 0)
+            {
+                conn.setDoOutput(true);
+                conn.setDoInput(true);
+                conn.setRequestMethod("POST");
+
+                List<NameValuePair> POSTlist = new ArrayList<>();
+
+                POSTlist.add(new BasicNameValuePair("tag", "report_review"));
+                POSTlist.add(new BasicNameValuePair("review_id", Integer.toString(reviewID)));
+                POSTlist.add(new BasicNameValuePair("num_of_reports", Integer.toString(numOfReports)));
+
+                OutputStream out = new BufferedOutputStream(conn.getOutputStream());
+                writeStream(out, POSTlist);
+                out.close();
+
+                conn.connect();
+
+                //Retrieve data sent from the server for debugging
+                InputStream in = new BufferedInputStream(conn.getInputStream());
+
+                BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+                StringBuilder response = new StringBuilder();
+
+                while (true)
+                {
+                    String s = reader.readLine();
+                    if (s == null)
+                    {
+                        break;
+                    } else
+                    {
+                        response.append(s);
+                    }
+                }
+
+                Log.d("Report Review Response", response.toString());
+            }
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+            success = false;
+        }
+        finally
+        {
             conn.disconnect();
         }
 
