@@ -25,7 +25,7 @@
     <string name="alert_dialog_ok">OK</string>
 
     <!-- General Use -->
-    <string name="app_name">TutorMe</string>
+    <string name="app_name">Drop In Tutor Me</string>
     <string name="title_font_size">35dp</string>
     <string name="link_font_size">25dp</string>
     <string name="standard_font_size">15dp</string>

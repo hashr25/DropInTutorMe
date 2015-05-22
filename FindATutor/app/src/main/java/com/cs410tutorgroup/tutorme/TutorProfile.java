@@ -15,9 +15,6 @@ import com.cs410tutorgroup.findatutor.R;
 import org.json.JSONArray;
 import org.json.JSONException;
 
-import java.io.IOException;
-import java.net.MalformedURLException;
-
 
 public class TutorProfile extends Activity
 {

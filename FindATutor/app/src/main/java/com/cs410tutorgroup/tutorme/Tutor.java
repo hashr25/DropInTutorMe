@@ -1,25 +1,9 @@
 package com.cs410tutorgroup.tutorme;
 
-import android.app.Activity;
-import android.content.res.Resources;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
-import android.os.AsyncTask;
 import android.util.Log;
 
-import com.cs410tutorgroup.findatutor.R;
-import com.google.android.gms.common.api.Api;
-
-import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
 
 /**
  * Created by hashr25 on 3/24/15.

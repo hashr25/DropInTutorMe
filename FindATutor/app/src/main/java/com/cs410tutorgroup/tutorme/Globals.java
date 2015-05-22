@@ -6,8 +6,6 @@ import android.app.DialogFragment;
 import android.content.DialogInterface;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.util.Log;
-import android.util.Pair;
 
 import com.cs410tutorgroup.findatutor.R;
 

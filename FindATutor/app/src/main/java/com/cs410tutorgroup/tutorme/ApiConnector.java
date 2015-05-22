@@ -32,7 +32,7 @@ import java.util.List;
 
 public class ApiConnector {
 
-    String url = "http://tutorapp.net76.net/application_api.php";
+    String url = "http://dropintutorme.web44.net/application_api.php";
 
     public JSONArray GetTutors() throws IOException
     {
