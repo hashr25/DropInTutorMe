@@ -1,0 +1,177 @@
+/*
+
+	Global Color Codes
+	
+	Base Maroon		#7B1B1F
+		Background
+		Header Text
+		
+	Lighter Maroon	#CD392F
+		Links
+		
+	Orange			#E06604
+		Links:hover
+		
+	Dark Grey		#545454
+		Footer Copyright
+		
+	Light Grey		#C4C7CE
+		Footer Emailer
+		Navigation
+		
+	Lightest Grey	#E7E7E7
+		Footer Text
+		
+	White			#FFF;
+		Background of body
+		
+
+*/
+
+@charset "UTF-8";
+
+/* Global Content Formatting and Styles */
+
+html, body {
+	height: 100%;
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizelegibility;
+}
+
+body {
+	color: #555;
+	font-family: Arial;
+	font-size: 14px;
+	background: #7b1b1f url(../images/background_gradient.jpg) repeat-x 0px 0px;
+}
+
+.page {
+	max-width: 980px;
+	margin: 0px auto -30px auto;
+	position: relative;
+	background-color: #fff;
+}
+
+
+
+/*=============================
+		Typography
+=============================*/
+
+h1, h2, h3 {
+	color: #7b1b1f;
+}
+
+h1 {
+	margin: 0em 0em 0.75em 0em;
+}
+
+h2 {
+	margin: 0em 0em 1em 0em;
+}
+
+h3 {
+	margin: 0em 0em 0.5em 0em;
+}
+
+p {
+	margin: 0em 0em 0.75em 0em;
+	line-height: 1.4em;
+}
+
+a {
+	color: #CD392F;
+}
+
+a:hover {
+	color: #e06604;
+}
+
+footer {
+	font-size: 0.85em;
+	color: #000;	
+	background-color: #7b1b1f;
+	padding: 10px 10px 0px 10px;
+}
+
+
+/*********************
+		Article
+*********************/
+
+article h1 {
+	font-size: 2.4em;
+	color: #d6121f;
+}
+
+/*********************
+		Promos
+*********************/
+
+.promo {
+	background-repeat: no-repeat;
+}
+
+.promo h3 {
+	font-size: 1.1em;
+	margin: 0;
+}
+
+.promo p {
+	line-height: 1.2em;
+	font-size: 0.9em;
+	margin-bottom: 0.5em;
+}
+
+.promo.one {
+	background-image: url(../images/promo_1.jpg);
+}
+
+.promo.two {
+	background-image: url(../images/promo_2.jpg);
+}
+
+.promo.three {
+	background-image: url(../images/promo_3.jpg);
+}
+
+/*********************
+		CTA
+*********************/
+
+a.cta {
+	text-transform: uppercase;
+	font-size: 0.9em;
+	font-weight: bold;
+	text-decoration: none;
+	padding: 0px 12px 0px 0px;
+	background: url(../images/cta_arrow.png) no-repeat right 0px;
+}
+
+a.cta:hover {
+	background-position: right -50px;
+}
+
+/*********************
+		GLOBAL
+*********************/
+
+
+input {
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizelegibility;
+}
+
+input[type="text"], input[type="email"] {
+	position: relative;
+	padding: 7px 3px 8px;
+	border: solid 1px #ccc;
+	width: 220px;
+	margin: 0 -5px 0 0 ;
+}
+
+
+.clear-fix {
+	clear: both;
+	line-height: 1px;
+}

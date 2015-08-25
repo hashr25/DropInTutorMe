@@ -1,0 +1,149 @@
+/*
+
+	Global Color Codes
+	
+	Base Maroon		#7B1B1F
+		Background
+		Header Text
+		
+	Lighter Maroon	#CD392F
+		Links
+		
+	Orange			#E06604
+		Links:hover
+		
+	Dark Grey		#545454
+		Footer Copyright
+		
+	Light Grey		#C4C7CE
+		Footer Emailer
+		Navigation
+		
+	Lightest Grey	#E7E7E7
+		Footer Text
+		
+	White			#FFF;
+		Background of body
+		
+
+*/
+
+
+@charset "UTF-8";
+
+/* Layout Small Screens */
+
+/*********************
+		General
+*********************/
+
+body {
+	background-image: none;
+}
+
+/*********************
+		Header
+*********************/
+
+header {
+	height: 70px;
+	background: url(../images/banner_small.jpg) no-repeat right 0px; 
+}
+
+header a.logo {
+	width: 110px;
+	height: 40px;
+	top: 20px;
+	left: 10px;
+	background-image: url(../images/logo_small.png);
+}
+
+article {
+	padding: 20px 20px 10px 20px;
+}
+
+/*********************
+		Promo Container
+*********************/
+
+.promo_container {
+	padding: 0px;
+}
+
+.promo_container .promo {
+	float: none;
+	width: auto;
+	padding: 10px 0px 0px 0px;
+	background-position: 20px 13px;
+	border-top: 1px solid #ccc;
+}
+
+.promo_container .promo .content {
+	padding: 0px 20px 5px 90px;
+}
+
+/*********************
+		Photo Content Left
+*********************/
+
+.photo_content_left #photo {
+	width: 90%;
+}
+
+.photo_content_left .content {
+	width: 100%;
+}
+
+/*********************
+		Footer
+*********************/
+
+footer {
+	border-top: 1px solid #ccc;
+	position: inherit;
+	width: 100%;
+	height: 80px;
+	margin: 0;
+}
+
+footer a {
+	visibility: hidden;
+	margin-bottom: 0;
+}
+
+footer .emailer form {
+	margin-top: 8px;
+}
+
+footer input[type="text"], input[type="email"] {
+	width: 180px;
+}
+
+
+/*********************
+		Nav
+*********************/
+
+nav {
+	position: static;
+	padding: 10px 0px;
+	background-color: #7b1b1f;
+}
+
+nav a {
+	color: #c4c7ce;
+	display: block;
+	margin: 15px;
+	padding: 9px;
+	border: 1px solid #9c81b1;
+	background: url(../images/mobile_link_arrow.png) no-repeat right center;
+	
+	-webkit-border-radius: 12px;
+	   -moz-border-radius: 12px;
+	        border-radius: 12px;
+}
+
+nav a:hover {
+	color: #dce7ec;
+	background-color: rgba(255, 255, 255, 0.15);	
+}
