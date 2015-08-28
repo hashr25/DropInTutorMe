@@ -19,7 +19,10 @@ if(isset($_POST['tag']))
 {
 	if($_POST['tag'] == "get_tutors")
 	{
-		$result = mysql_query("SELECT * FROM tutors");
+		$query = "SELECT * FROM tutors";
+	
+		$result = mysql_query($query) or trigger_error(mysql_error()." in ".$query);
+		print mysql_error();
 
 		while($row = mysql_fetch_assoc($result))
 		{
@@ -36,12 +39,16 @@ if(isset($_POST['tag']))
 		$longitude = mysql_real_escape_string($_POST['longitude']);
 		$latitude = mysql_real_escape_string($_POST['latitude']);
 		
-		$id_results = mysql_query("SELECT freelance_id FROM freelancers ORDER BY freelance_id DESC");
-
-		$result = mysql_query("INSERT INTO freelancers (first_name, last_name, email, lat_cord, long_cord)
-							   VALUES ('$first_name', '$last_name', '$email', '$latitude', '$longitude')");
+		$id_query = "SELECT freelance_id FROM freelancers ORDER BY freelance_id DESC";
+		$query = "INSERT INTO freelancers (first_name, last_name, email, lat_cord, long_cord)
+							   VALUES ('$first_name', '$last_name', '$email', '$latitude', '$longitude')";
 		
-                while($row = mysql_fetch_assoc($id_results))
+		$id_results = mysql_query($id_query) or trigger_error(mysql_error()." in ".$id_query);
+
+		$result = mysql_query($query) or trigger_error(mysql_error()." in ".$query);
+		print mysql_error();
+		
+        while($row = mysql_fetch_assoc($id_results))
 		{
 			$output[]=$row;
 		}
@@ -55,30 +62,66 @@ if(isset($_POST['tag']))
 		$course_id = mysql_real_escape_string($_POST['course_id']);
 		
 		
+		$query = "";
+		
+		if($subject_id > 0 && $course_id > 0)
+		{
+			$query = "SELECT tutors.*, day_times.*
+						FROM tutors 
+						JOIN day_times
+						ON tutors.schedule_id = day_times.schedule_id
+						WHERE tutor_id IN 
+						( SELECT tutor_id FROM tutors_courses WHERE course_id = $course_id )";
+		}
+		else
+		{
+			$query = "SELECT * 
+						FROM tutors 
+						JOIN day_times
+						ON tutors.schedule_id = day_times.schedule_id 
+						WHERE college_id = (SELECT college_id FROM colleges WHERE college_name LIKE '$college_name')";
+		}
+		
+		$result = mysql_query($query) or trigger_error(mysql_error()." in ".$query);
+		print mysql_error();
+
+		
+		while($row = mysql_fetch_assoc($result))
+		{
+			$output[]=$row;
+		}
+
+		print(json_encode($output)); 
 	}
 	else if($_POST['tag'] == "get_colleges")
 	{
-		$result = mysql_query("SELECT * FROM colleges");
+		$query = "SELECT * FROM colleges";
+	
+		$result = mysql_query($query) or trigger_error(mysql_error()." in ".$query);
+		print mysql_error();
 		
 		while($row = mysql_fetch_assoc($result))
 		{
 			$output[] = $row;
 		}
 		
-		print(json_encode($output);
+		print(json_encode($output));
 	}
 	else if($_POST['tag'] == "get_subjects")
 	{
 		$college_name = mysql_real_escape_string($_POST['college_name']);
 		
-		$result = mysql_query("SELECT * FROM subjects WHERE college_id = (SELECT * WHERE college_name = $college_name");
+		$query = "SELECT * FROM subjects WHERE college_id IN (SELECT college_id FROM colleges WHERE college_name LIKE '$college_name' )";
+		
+		$result = mysql_query($query) or trigger_error(mysql_error()." in ".$query);
+		print mysql_error();
 		
 		while($row = mysql_fetch_assoc($result))
 		{
 			$output[] = $row;
 		}
 		
-		print(json_encode($output);
+		print(json_encode($output));
 	}
 	else if($_POST['tag'] == "get_freelance_subjects")
 	{
@@ -86,11 +129,45 @@ if(isset($_POST['tag']))
 	}
 	else if($_POST['tag'] == "get_reviews")
 	{
+		$freelance_id = mysql_real_escape_string($_POST['freelance_id']);
+		$tutor_id = mysql_real_escape_string($_POST['tutor_id']);
 		
+		$query = "";
+		
+		if(isset($tutor_id))
+		{
+			$query = "SELECT * FROM reviews WHERE tutor_id = '$tutor_id'";
+		}
+		else
+		{
+			$query = "SELECT * FROM reviews WHERE freelance_id = '$freelance_id'";
+		}
+		
+		$result = mysql_query($query) or trigger_error(mysql_error()." in ".$query);
+		print mysql_error();
+		
+		while($row = mysql_fetch_assoc($result))
+		{
+			$output[] = $row;
+		}
+		
+		print(json_encode($output));
 	}
 	else if($_POST['tag'] == "get_courses")
 	{
+		$subject_id = mysql_real_escape_string($_POST['subject_id']);
 		
+		$query = "SELECT * FROM courses WHERE subject_id = '$subject_id'";
+		
+		$result = mysql_query($query) or trigger_error(mysql_error()." in ".$query);
+		print mysql_error();
+		
+		while($row = mysql_fetch_assoc($result))
+		{
+			$output[] = $row;
+		}
+		 
+		print(json_encode($output));
 	}
 	else if($_POST['tag'] == "add_review")
 	{
@@ -102,8 +179,22 @@ if(isset($_POST['tag']))
 	}
 	else if($_POST['tag'] == "get_tutor_courses")
 	{
+		$tutor_id = mysql_real_escape_string($_POST['tutor_id']);
 		
+		$query = "SELECT * FROM courses WHERE course_id IN (SELECT course_id FROM tutors_courses WHERE tutor_id = '$tutor_id')";
+		
+		$result = mysql_query($query) or trigger_error(mysql_error()." in ".$query);
+		print mysql_error();
+		
+		while($row = mysql_fetch_assoc($result))
+		{
+			$output[] = $row;
+		}
+		
+		print(json_encode($output));
 	}
+	
+	
 }
 
 mysql_close($con);

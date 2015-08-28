@@ -1,19 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="701aa1c4-e071-4d4b-8b89-7a95e8a38c8a" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/FindATutor/.idea/encodings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/FindATutor/.idea/inspectionProfiles/Project_Default.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/FindATutor/.idea/inspectionProfiles/profiles_settings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/FindATutor/.idea/scopes/scope_settings.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FindATutor/FindATutor.iml" afterPath="$PROJECT_DIR$/FindATutor/FindATutor.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FindATutor/app/app.iml" afterPath="$PROJECT_DIR$/FindATutor/app/app.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FindATutor/.idea/compiler.xml" afterPath="$PROJECT_DIR$/FindATutor/.idea/compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FindATutor/.idea/gradle.xml" afterPath="$PROJECT_DIR$/FindATutor/.idea/gradle.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FindATutor/.idea/misc.xml" afterPath="$PROJECT_DIR$/FindATutor/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FindATutor/.idea/modules.xml" afterPath="$PROJECT_DIR$/FindATutor/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FindATutor/.idea/vcs.xml" afterPath="$PROJECT_DIR$/FindATutor/.idea/vcs.xml" />
-    </list>
+    <list default="true" id="701aa1c4-e071-4d4b-8b89-7a95e8a38c8a" name="Default" comment="" />
     <ignored path="DropInTutorMe.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -70,9 +58,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="ProjectPane" />
-      <pane id="Scope" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -88,6 +73,9 @@
         </subPane>
       </pane>
       <pane id="Scratches" />
+      <pane id="Scope" />
+      <pane id="ProjectPane" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">

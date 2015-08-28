@@ -190,13 +190,19 @@ public class CollegeTutor extends Tutor
     {
         CollegeTutor copiedTutor = new CollegeTutor();
 
-        copiedTutor.tutorID = tutor.tutorID;
-        copiedTutor.pictureURL = tutor.pictureURL;
-        copiedTutor.picture = tutor.picture;
-        copiedTutor.firstName = tutor.firstName;
-        copiedTutor.lastName = tutor.lastName;
-        copiedTutor.bio = tutor.bio;
-        copiedTutor.emailAddress = tutor.emailAddress;
+        try {
+            copiedTutor.tutorID = tutor.tutorID;
+            copiedTutor.pictureURL = tutor.pictureURL;
+            copiedTutor.picture = tutor.picture;
+            copiedTutor.firstName = tutor.firstName;
+            copiedTutor.lastName = tutor.lastName;
+            copiedTutor.bio = tutor.bio;
+            copiedTutor.emailAddress = tutor.emailAddress;
+        }
+        catch (Exception e){
+            Log.d("CollegeTutorCopyFail", "Failed to successfully copy tutor");
+            e.printStackTrace();
+        }
 
         return copiedTutor;
     }
