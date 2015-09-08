@@ -41,7 +41,12 @@ public class TutorContainerFragment extends Fragment
         });
 
         tutorIndex = getArguments().getInt("index");
-        new LoadPictureTask().execute(new ApiConnector());
+
+        if(Globals.tutorList[tutorIndex].pictureURL != "")
+        {
+            //new LoadPictureTask().execute(new ApiConnector());
+        }
+
 
         TextView tv = (TextView) l.getChildAt(0);
         tv.setText(Globals.tutorList[tutorIndex].firstName + " " + Globals.tutorList[tutorIndex].lastName);

@@ -58,6 +58,7 @@ public class CollegeTutor extends Tutor
             //Friday: 50000
             //i.e Tuesday at 2:30 p.m. = 21430
 
+
             String[] dayStrings = jsonObj.getString("GROUP_CONCAT(day_times.day)").split(",");
             String[] startStrings = jsonObj.getString("GROUP_CONCAT(day_times.start_time)").split(",");
             String[] endStrings = jsonObj.getString("GROUP_CONCAT(day_times.end_time)").split(",");

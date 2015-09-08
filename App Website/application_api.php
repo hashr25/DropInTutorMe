@@ -66,20 +66,29 @@ if(isset($_POST['tag']))
 		
 		if($subject_id > 0 && $course_id > 0)
 		{
-			$query = "SELECT tutors.*, day_times.*
+			$query = "SELECT tutors.*, GROUP_CONCAT(day_times.start_time), GROUP_CONCAT(day_times.end_time), GROUP_CONCAT(day_times.day)
 						FROM tutors 
-						JOIN day_times
+						JOIN day_times 
 						ON tutors.schedule_id = day_times.schedule_id
 						WHERE tutor_id IN 
-						( SELECT tutor_id FROM tutors_courses WHERE course_id = $course_id )";
+						( SELECT tutor_id FROM tutors_courses WHERE course_id = $subject_id )
+						AND college_id = ( 
+						SELECT college_id
+						FROM colleges
+						WHERE college_name LIKE  '$college_name' ) 
+						GROUP BY tutor_id";
 		}
 		else
 		{
-			$query = "SELECT * 
-						FROM tutors 
-						JOIN day_times
-						ON tutors.schedule_id = day_times.schedule_id 
-						WHERE college_id = (SELECT college_id FROM colleges WHERE college_name LIKE '$college_name')";
+			$query = "SELECT DISTINCT tutors.* , GROUP_CONCAT(day_times.start_time) , GROUP_CONCAT(day_times.end_time) , GROUP_CONCAT(day_times.day) 
+					FROM tutors
+					JOIN day_times 
+					ON tutors.schedule_id = day_times.schedule_id
+					WHERE college_id = ( 
+					SELECT college_id
+					FROM colleges
+					WHERE college_name LIKE  '$college_name' ) 
+					GROUP BY tutor_id";
 		}
 		
 		$result = mysql_query($query) or trigger_error(mysql_error()." in ".$query);

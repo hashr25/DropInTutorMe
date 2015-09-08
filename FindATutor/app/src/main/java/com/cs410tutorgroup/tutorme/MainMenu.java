@@ -73,11 +73,12 @@ public class MainMenu extends Activity
 
         AutoCompleteTextView v = (AutoCompleteTextView) findViewById(R.id.collegeSearch);
 
-        //initialize the size of the array of valid colleges to the number of colleges returned from the database
-        validColleges = new String[listArray.length()];
 
         try
         {
+            //initialize the size of the array of valid colleges to the number of colleges returned from the database
+            validColleges = new String[listArray.length()];
+
             //Transfer the college names from the JSON to the String array
             for (int i = 0; i < listArray.length(); i++)
             {
