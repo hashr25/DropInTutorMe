@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  Drop'N'TutorMe
+//  TipCalculatorTutorial
 //
-//  Created by Randall Hash on 2/2/16.
+//  Created by Randall Hash on 2/1/16.
 //  Copyright © 2016 Randall Hash. All rights reserved.
 //
 

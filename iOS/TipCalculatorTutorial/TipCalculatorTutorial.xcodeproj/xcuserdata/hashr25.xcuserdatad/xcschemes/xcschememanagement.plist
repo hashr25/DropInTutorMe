@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Drop'N'TutorMe.xcscheme</key>
+		<key>TipCalculatorTutorial.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -12,17 +12,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>63059B5C1C616DBD0037916E</key>
+		<key>63059AE41C5FE85A0037916E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>63059B701C616DBE0037916E</key>
+		<key>63059AF81C5FE85A0037916E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>63059B7B1C616DBE0037916E</key>
+		<key>63059B031C5FE85A0037916E</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "63059B5C1C616DBD0037916E"
-               BuildableName = "Drop&apos;N&apos;TutorMe.app"
-               BlueprintName = "Drop&apos;N&apos;TutorMe"
-               ReferencedContainer = "container:Drop&apos;N&apos;TutorMe.xcodeproj">
+               BlueprintIdentifier = "63059AE41C5FE85A0037916E"
+               BuildableName = "TipCalculatorTutorial.app"
+               BlueprintName = "TipCalculatorTutorial"
+               ReferencedContainer = "container:TipCalculatorTutorial.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,30 +32,30 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "63059B701C616DBE0037916E"
-               BuildableName = "Drop&apos;N&apos;TutorMeTests.xctest"
-               BlueprintName = "Drop&apos;N&apos;TutorMeTests"
-               ReferencedContainer = "container:Drop&apos;N&apos;TutorMe.xcodeproj">
+               BlueprintIdentifier = "63059AF81C5FE85A0037916E"
+               BuildableName = "TipCalculatorTutorialTests.xctest"
+               BlueprintName = "TipCalculatorTutorialTests"
+               ReferencedContainer = "container:TipCalculatorTutorial.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "63059B7B1C616DBE0037916E"
-               BuildableName = "Drop&apos;N&apos;TutorMeUITests.xctest"
-               BlueprintName = "Drop&apos;N&apos;TutorMeUITests"
-               ReferencedContainer = "container:Drop&apos;N&apos;TutorMe.xcodeproj">
+               BlueprintIdentifier = "63059B031C5FE85A0037916E"
+               BuildableName = "TipCalculatorTutorialUITests.xctest"
+               BlueprintName = "TipCalculatorTutorialUITests"
+               ReferencedContainer = "container:TipCalculatorTutorial.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "63059B5C1C616DBD0037916E"
-            BuildableName = "Drop&apos;N&apos;TutorMe.app"
-            BlueprintName = "Drop&apos;N&apos;TutorMe"
-            ReferencedContainer = "container:Drop&apos;N&apos;TutorMe.xcodeproj">
+            BlueprintIdentifier = "63059AE41C5FE85A0037916E"
+            BuildableName = "TipCalculatorTutorial.app"
+            BlueprintName = "TipCalculatorTutorial"
+            ReferencedContainer = "container:TipCalculatorTutorial.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -75,10 +75,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "63059B5C1C616DBD0037916E"
-            BuildableName = "Drop&apos;N&apos;TutorMe.app"
-            BlueprintName = "Drop&apos;N&apos;TutorMe"
-            ReferencedContainer = "container:Drop&apos;N&apos;TutorMe.xcodeproj">
+            BlueprintIdentifier = "63059AE41C5FE85A0037916E"
+            BuildableName = "TipCalculatorTutorial.app"
+            BlueprintName = "TipCalculatorTutorial"
+            ReferencedContainer = "container:TipCalculatorTutorial.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -94,10 +94,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "63059B5C1C616DBD0037916E"
-            BuildableName = "Drop&apos;N&apos;TutorMe.app"
-            BlueprintName = "Drop&apos;N&apos;TutorMe"
-            ReferencedContainer = "container:Drop&apos;N&apos;TutorMe.xcodeproj">
+            BlueprintIdentifier = "63059AE41C5FE85A0037916E"
+            BuildableName = "TipCalculatorTutorial.app"
+            BlueprintName = "TipCalculatorTutorial"
+            ReferencedContainer = "container:TipCalculatorTutorial.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

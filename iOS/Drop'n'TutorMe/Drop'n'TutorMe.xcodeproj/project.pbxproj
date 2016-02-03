@@ -7,46 +7,70 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		63C77E9B1B9A0F7100E8973B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C77E9A1B9A0F7100E8973B /* AppDelegate.swift */; };
-		63C77E9D1B9A0F7100E8973B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C77E9C1B9A0F7100E8973B /* ViewController.swift */; };
-		63C77EA01B9A0F7100E8973B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63C77E9E1B9A0F7100E8973B /* Main.storyboard */; };
-		63C77EA21B9A0F7100E8973B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63C77EA11B9A0F7100E8973B /* Images.xcassets */; };
-		63C77EA51B9A0F7100E8973B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63C77EA31B9A0F7100E8973B /* LaunchScreen.xib */; };
-		63C77EB11B9A0F7200E8973B /* Drop_n_TutorMeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C77EB01B9A0F7200E8973B /* Drop_n_TutorMeTests.swift */; };
+		63059B611C616DBD0037916E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63059B601C616DBD0037916E /* AppDelegate.swift */; };
+		63059B631C616DBD0037916E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63059B621C616DBD0037916E /* ViewController.swift */; };
+		63059B661C616DBD0037916E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63059B641C616DBD0037916E /* Main.storyboard */; settings = {ASSET_TAGS = (collegeName, ); }; };
+		63059B681C616DBE0037916E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63059B671C616DBE0037916E /* Assets.xcassets */; };
+		63059B6B1C616DBE0037916E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63059B691C616DBE0037916E /* LaunchScreen.storyboard */; };
+		63059B761C616DBE0037916E /* Drop_N_TutorMeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63059B751C616DBE0037916E /* Drop_N_TutorMeTests.swift */; };
+		63059B811C616DBE0037916E /* Drop_N_TutorMeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63059B801C616DBE0037916E /* Drop_N_TutorMeUITests.swift */; };
+		63059B8F1C616EEF0037916E /* background2.png in Resources */ = {isa = PBXBuildFile; fileRef = 63059B8E1C616EEF0037916E /* background2.png */; };
+		63059B951C61753D0037916E /* ApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63059B941C61753D0037916E /* ApiController.swift */; };
+		63059B971C61AB1C0037916E /* BackLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 63059B961C61AB1C0037916E /* BackLogo.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		63C77EAB1B9A0F7200E8973B /* PBXContainerItemProxy */ = {
+		63059B721C616DBE0037916E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 63C77E8D1B9A0F7100E8973B /* Project object */;
+			containerPortal = 63059B551C616DBD0037916E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 63C77E941B9A0F7100E8973B;
-			remoteInfo = "Drop'n'TutorMe";
+			remoteGlobalIDString = 63059B5C1C616DBD0037916E;
+			remoteInfo = "Drop'N'TutorMe";
+		};
+		63059B7D1C616DBE0037916E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 63059B551C616DBD0037916E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 63059B5C1C616DBD0037916E;
+			remoteInfo = "Drop'N'TutorMe";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		63C77E951B9A0F7100E8973B /* Drop'n'TutorMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Drop'n'TutorMe.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		63C77E991B9A0F7100E8973B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		63C77E9A1B9A0F7100E8973B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		63C77E9C1B9A0F7100E8973B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		63C77E9F1B9A0F7100E8973B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		63C77EA11B9A0F7100E8973B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		63C77EA41B9A0F7100E8973B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		63C77EAA1B9A0F7200E8973B /* Drop'n'TutorMeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Drop'n'TutorMeTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		63C77EAF1B9A0F7200E8973B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		63C77EB01B9A0F7200E8973B /* Drop_n_TutorMeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drop_n_TutorMeTests.swift; sourceTree = "<group>"; };
+		63059B5D1C616DBD0037916E /* Drop'N'TutorMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Drop'N'TutorMe.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		63059B601C616DBD0037916E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		63059B621C616DBD0037916E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		63059B651C616DBD0037916E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		63059B671C616DBE0037916E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		63059B6A1C616DBE0037916E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		63059B6C1C616DBE0037916E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		63059B711C616DBE0037916E /* Drop'N'TutorMeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Drop'N'TutorMeTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		63059B751C616DBE0037916E /* Drop_N_TutorMeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drop_N_TutorMeTests.swift; sourceTree = "<group>"; };
+		63059B771C616DBE0037916E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		63059B7C1C616DBE0037916E /* Drop'N'TutorMeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Drop'N'TutorMeUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		63059B801C616DBE0037916E /* Drop_N_TutorMeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drop_N_TutorMeUITests.swift; sourceTree = "<group>"; };
+		63059B821C616DBE0037916E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		63059B8E1C616EEF0037916E /* background2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background2.png; path = Assets.xcassets/background2.png; sourceTree = "<group>"; };
+		63059B941C61753D0037916E /* ApiController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ApiController.swift; path = ../ApiController.swift; sourceTree = "<group>"; };
+		63059B961C61AB1C0037916E /* BackLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = BackLogo.png; path = Assets.xcassets/BackLogo.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		63C77E921B9A0F7100E8973B /* Frameworks */ = {
+		63059B5A1C616DBD0037916E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		63C77EA71B9A0F7200E8973B /* Frameworks */ = {
+		63059B6E1C616DBE0037916E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		63059B791C616DBE0037916E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -56,120 +80,143 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		63C77E8C1B9A0F7100E8973B = {
+		63059B541C616DBD0037916E = {
 			isa = PBXGroup;
 			children = (
-				63C77E971B9A0F7100E8973B /* Drop'n'TutorMe */,
-				63C77EAD1B9A0F7200E8973B /* Drop'n'TutorMeTests */,
-				63C77E961B9A0F7100E8973B /* Products */,
+				63059B5F1C616DBD0037916E /* Drop'N'TutorMe */,
+				63059B741C616DBE0037916E /* Drop'N'TutorMeTests */,
+				63059B7F1C616DBE0037916E /* Drop'N'TutorMeUITests */,
+				63059B5E1C616DBD0037916E /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		63C77E961B9A0F7100E8973B /* Products */ = {
+		63059B5E1C616DBD0037916E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				63C77E951B9A0F7100E8973B /* Drop'n'TutorMe.app */,
-				63C77EAA1B9A0F7200E8973B /* Drop'n'TutorMeTests.xctest */,
+				63059B5D1C616DBD0037916E /* Drop'N'TutorMe.app */,
+				63059B711C616DBE0037916E /* Drop'N'TutorMeTests.xctest */,
+				63059B7C1C616DBE0037916E /* Drop'N'TutorMeUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		63C77E971B9A0F7100E8973B /* Drop'n'TutorMe */ = {
+		63059B5F1C616DBD0037916E /* Drop'N'TutorMe */ = {
 			isa = PBXGroup;
 			children = (
-				63C77E9A1B9A0F7100E8973B /* AppDelegate.swift */,
-				63C77E9C1B9A0F7100E8973B /* ViewController.swift */,
-				63C77E9E1B9A0F7100E8973B /* Main.storyboard */,
-				63C77EA11B9A0F7100E8973B /* Images.xcassets */,
-				63C77EA31B9A0F7100E8973B /* LaunchScreen.xib */,
-				63C77E981B9A0F7100E8973B /* Supporting Files */,
+				63059B601C616DBD0037916E /* AppDelegate.swift */,
+				63059B621C616DBD0037916E /* ViewController.swift */,
+				63059B941C61753D0037916E /* ApiController.swift */,
+				63059B641C616DBD0037916E /* Main.storyboard */,
+				63059B961C61AB1C0037916E /* BackLogo.png */,
+				63059B8E1C616EEF0037916E /* background2.png */,
+				63059B671C616DBE0037916E /* Assets.xcassets */,
+				63059B691C616DBE0037916E /* LaunchScreen.storyboard */,
+				63059B6C1C616DBE0037916E /* Info.plist */,
 			);
-			path = "Drop'n'TutorMe";
+			path = "Drop'N'TutorMe";
 			sourceTree = "<group>";
 		};
-		63C77E981B9A0F7100E8973B /* Supporting Files */ = {
+		63059B741C616DBE0037916E /* Drop'N'TutorMeTests */ = {
 			isa = PBXGroup;
 			children = (
-				63C77E991B9A0F7100E8973B /* Info.plist */,
+				63059B751C616DBE0037916E /* Drop_N_TutorMeTests.swift */,
+				63059B771C616DBE0037916E /* Info.plist */,
 			);
-			name = "Supporting Files";
+			path = "Drop'N'TutorMeTests";
 			sourceTree = "<group>";
 		};
-		63C77EAD1B9A0F7200E8973B /* Drop'n'TutorMeTests */ = {
+		63059B7F1C616DBE0037916E /* Drop'N'TutorMeUITests */ = {
 			isa = PBXGroup;
 			children = (
-				63C77EB01B9A0F7200E8973B /* Drop_n_TutorMeTests.swift */,
-				63C77EAE1B9A0F7200E8973B /* Supporting Files */,
+				63059B801C616DBE0037916E /* Drop_N_TutorMeUITests.swift */,
+				63059B821C616DBE0037916E /* Info.plist */,
 			);
-			path = "Drop'n'TutorMeTests";
-			sourceTree = "<group>";
-		};
-		63C77EAE1B9A0F7200E8973B /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				63C77EAF1B9A0F7200E8973B /* Info.plist */,
-			);
-			name = "Supporting Files";
+			path = "Drop'N'TutorMeUITests";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		63C77E941B9A0F7100E8973B /* Drop'n'TutorMe */ = {
+		63059B5C1C616DBD0037916E /* Drop'N'TutorMe */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 63C77EB41B9A0F7200E8973B /* Build configuration list for PBXNativeTarget "Drop'n'TutorMe" */;
+			buildConfigurationList = 63059B851C616DBE0037916E /* Build configuration list for PBXNativeTarget "Drop'N'TutorMe" */;
 			buildPhases = (
-				63C77E911B9A0F7100E8973B /* Sources */,
-				63C77E921B9A0F7100E8973B /* Frameworks */,
-				63C77E931B9A0F7100E8973B /* Resources */,
+				63059B591C616DBD0037916E /* Sources */,
+				63059B5A1C616DBD0037916E /* Frameworks */,
+				63059B5B1C616DBD0037916E /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "Drop'n'TutorMe";
-			productName = "Drop'n'TutorMe";
-			productReference = 63C77E951B9A0F7100E8973B /* Drop'n'TutorMe.app */;
+			name = "Drop'N'TutorMe";
+			productName = "Drop'N'TutorMe";
+			productReference = 63059B5D1C616DBD0037916E /* Drop'N'TutorMe.app */;
 			productType = "com.apple.product-type.application";
 		};
-		63C77EA91B9A0F7200E8973B /* Drop'n'TutorMeTests */ = {
+		63059B701C616DBE0037916E /* Drop'N'TutorMeTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 63C77EB71B9A0F7200E8973B /* Build configuration list for PBXNativeTarget "Drop'n'TutorMeTests" */;
+			buildConfigurationList = 63059B881C616DBE0037916E /* Build configuration list for PBXNativeTarget "Drop'N'TutorMeTests" */;
 			buildPhases = (
-				63C77EA61B9A0F7200E8973B /* Sources */,
-				63C77EA71B9A0F7200E8973B /* Frameworks */,
-				63C77EA81B9A0F7200E8973B /* Resources */,
+				63059B6D1C616DBE0037916E /* Sources */,
+				63059B6E1C616DBE0037916E /* Frameworks */,
+				63059B6F1C616DBE0037916E /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				63C77EAC1B9A0F7200E8973B /* PBXTargetDependency */,
+				63059B731C616DBE0037916E /* PBXTargetDependency */,
 			);
-			name = "Drop'n'TutorMeTests";
-			productName = "Drop'n'TutorMeTests";
-			productReference = 63C77EAA1B9A0F7200E8973B /* Drop'n'TutorMeTests.xctest */;
+			name = "Drop'N'TutorMeTests";
+			productName = "Drop'N'TutorMeTests";
+			productReference = 63059B711C616DBE0037916E /* Drop'N'TutorMeTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		63059B7B1C616DBE0037916E /* Drop'N'TutorMeUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 63059B8B1C616DBE0037916E /* Build configuration list for PBXNativeTarget "Drop'N'TutorMeUITests" */;
+			buildPhases = (
+				63059B781C616DBE0037916E /* Sources */,
+				63059B791C616DBE0037916E /* Frameworks */,
+				63059B7A1C616DBE0037916E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				63059B7E1C616DBE0037916E /* PBXTargetDependency */,
+			);
+			name = "Drop'N'TutorMeUITests";
+			productName = "Drop'N'TutorMeUITests";
+			productReference = 63059B7C1C616DBE0037916E /* Drop'N'TutorMeUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		63C77E8D1B9A0F7100E8973B /* Project object */ = {
+		63059B551C616DBD0037916E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0640;
+				KnownAssetTags = (
+					collegeName,
+				);
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Randall Hash";
 				TargetAttributes = {
-					63C77E941B9A0F7100E8973B = {
-						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = Y9Y8EXZN43;
+					63059B5C1C616DBD0037916E = {
+						CreatedOnToolsVersion = 7.2;
 					};
-					63C77EA91B9A0F7200E8973B = {
-						CreatedOnToolsVersion = 6.4;
-						TestTargetID = 63C77E941B9A0F7100E8973B;
+					63059B701C616DBE0037916E = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = 63059B5C1C616DBD0037916E;
+					};
+					63059B7B1C616DBE0037916E = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = 63059B5C1C616DBD0037916E;
 					};
 				};
 			};
-			buildConfigurationList = 63C77E901B9A0F7100E8973B /* Build configuration list for PBXProject "Drop'n'TutorMe" */;
+			buildConfigurationList = 63059B581C616DBD0037916E /* Build configuration list for PBXProject "Drop'N'TutorMe" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -177,29 +224,39 @@
 				en,
 				Base,
 			);
-			mainGroup = 63C77E8C1B9A0F7100E8973B;
-			productRefGroup = 63C77E961B9A0F7100E8973B /* Products */;
+			mainGroup = 63059B541C616DBD0037916E;
+			productRefGroup = 63059B5E1C616DBD0037916E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				63C77E941B9A0F7100E8973B /* Drop'n'TutorMe */,
-				63C77EA91B9A0F7200E8973B /* Drop'n'TutorMeTests */,
+				63059B5C1C616DBD0037916E /* Drop'N'TutorMe */,
+				63059B701C616DBE0037916E /* Drop'N'TutorMeTests */,
+				63059B7B1C616DBE0037916E /* Drop'N'TutorMeUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		63C77E931B9A0F7100E8973B /* Resources */ = {
+		63059B5B1C616DBD0037916E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				63C77EA01B9A0F7100E8973B /* Main.storyboard in Resources */,
-				63C77EA51B9A0F7100E8973B /* LaunchScreen.xib in Resources */,
-				63C77EA21B9A0F7100E8973B /* Images.xcassets in Resources */,
+				63059B8F1C616EEF0037916E /* background2.png in Resources */,
+				63059B971C61AB1C0037916E /* BackLogo.png in Resources */,
+				63059B6B1C616DBE0037916E /* LaunchScreen.storyboard in Resources */,
+				63059B681C616DBE0037916E /* Assets.xcassets in Resources */,
+				63059B661C616DBD0037916E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		63C77EA81B9A0F7200E8973B /* Resources */ = {
+		63059B6F1C616DBE0037916E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		63059B7A1C616DBE0037916E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -209,54 +266,68 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		63C77E911B9A0F7100E8973B /* Sources */ = {
+		63059B591C616DBD0037916E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				63C77E9D1B9A0F7100E8973B /* ViewController.swift in Sources */,
-				63C77E9B1B9A0F7100E8973B /* AppDelegate.swift in Sources */,
+				63059B631C616DBD0037916E /* ViewController.swift in Sources */,
+				63059B611C616DBD0037916E /* AppDelegate.swift in Sources */,
+				63059B951C61753D0037916E /* ApiController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		63C77EA61B9A0F7200E8973B /* Sources */ = {
+		63059B6D1C616DBE0037916E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				63C77EB11B9A0F7200E8973B /* Drop_n_TutorMeTests.swift in Sources */,
+				63059B761C616DBE0037916E /* Drop_N_TutorMeTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		63059B781C616DBE0037916E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				63059B811C616DBE0037916E /* Drop_N_TutorMeUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		63C77EAC1B9A0F7200E8973B /* PBXTargetDependency */ = {
+		63059B731C616DBE0037916E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 63C77E941B9A0F7100E8973B /* Drop'n'TutorMe */;
-			targetProxy = 63C77EAB1B9A0F7200E8973B /* PBXContainerItemProxy */;
+			target = 63059B5C1C616DBD0037916E /* Drop'N'TutorMe */;
+			targetProxy = 63059B721C616DBE0037916E /* PBXContainerItemProxy */;
+		};
+		63059B7E1C616DBE0037916E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 63059B5C1C616DBD0037916E /* Drop'N'TutorMe */;
+			targetProxy = 63059B7D1C616DBE0037916E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		63C77E9E1B9A0F7100E8973B /* Main.storyboard */ = {
+		63059B641C616DBD0037916E /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				63C77E9F1B9A0F7100E8973B /* Base */,
+				63059B651C616DBD0037916E /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		63C77EA31B9A0F7100E8973B /* LaunchScreen.xib */ = {
+		63059B691C616DBE0037916E /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				63C77EA41B9A0F7100E8973B /* Base */,
+				63059B6A1C616DBE0037916E /* Base */,
 			);
-			name = LaunchScreen.xib;
+			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		63C77EB21B9A0F7200E8973B /* Debug */ = {
+		63059B831C616DBE0037916E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -275,8 +346,9 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -285,14 +357,13 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -301,7 +372,7 @@
 			};
 			name = Debug;
 		};
-		63C77EB31B9A0F7200E8973B /* Release */ = {
+		63059B841C616DBE0037916E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -331,7 +402,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -339,91 +410,113 @@
 			};
 			name = Release;
 		};
-		63C77EB51B9A0F7200E8973B /* Debug */ = {
+		63059B861C616DBE0037916E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				INFOPLIST_FILE = "Drop'n'TutorMe/Info.plist";
+				INFOPLIST_FILE = "Drop'N'TutorMe/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "hashr25.Drop-N-TutorMe";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
-		63C77EB61B9A0F7200E8973B /* Release */ = {
+		63059B871C616DBE0037916E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				INFOPLIST_FILE = "Drop'n'TutorMe/Info.plist";
+				INFOPLIST_FILE = "Drop'N'TutorMe/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "hashr25.Drop-N-TutorMe";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
 		};
-		63C77EB81B9A0F7200E8973B /* Debug */ = {
+		63059B891C616DBE0037916E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "Drop'n'TutorMeTests/Info.plist";
+				INFOPLIST_FILE = "Drop'N'TutorMeTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "hashr25.Drop-N-TutorMeTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Drop'n'TutorMe.app/Drop'n'TutorMe";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Drop'N'TutorMe.app/Drop'N'TutorMe";
 			};
 			name = Debug;
 		};
-		63C77EB91B9A0F7200E8973B /* Release */ = {
+		63059B8A1C616DBE0037916E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "Drop'n'TutorMeTests/Info.plist";
+				INFOPLIST_FILE = "Drop'N'TutorMeTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "hashr25.Drop-N-TutorMeTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Drop'n'TutorMe.app/Drop'n'TutorMe";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Drop'N'TutorMe.app/Drop'N'TutorMe";
+			};
+			name = Release;
+		};
+		63059B8C1C616DBE0037916E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "Drop'N'TutorMeUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "hashr25.Drop-N-TutorMeUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "Drop'N'TutorMe";
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		63059B8D1C616DBE0037916E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "Drop'N'TutorMeUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "hashr25.Drop-N-TutorMeUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "Drop'N'TutorMe";
+				USES_XCTRUNNER = YES;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		63C77E901B9A0F7100E8973B /* Build configuration list for PBXProject "Drop'n'TutorMe" */ = {
+		63059B581C616DBD0037916E /* Build configuration list for PBXProject "Drop'N'TutorMe" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				63C77EB21B9A0F7200E8973B /* Debug */,
-				63C77EB31B9A0F7200E8973B /* Release */,
+				63059B831C616DBE0037916E /* Debug */,
+				63059B841C616DBE0037916E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		63C77EB41B9A0F7200E8973B /* Build configuration list for PBXNativeTarget "Drop'n'TutorMe" */ = {
+		63059B851C616DBE0037916E /* Build configuration list for PBXNativeTarget "Drop'N'TutorMe" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				63C77EB51B9A0F7200E8973B /* Debug */,
-				63C77EB61B9A0F7200E8973B /* Release */,
+				63059B861C616DBE0037916E /* Debug */,
+				63059B871C616DBE0037916E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
-		63C77EB71B9A0F7200E8973B /* Build configuration list for PBXNativeTarget "Drop'n'TutorMeTests" */ = {
+		63059B881C616DBE0037916E /* Build configuration list for PBXNativeTarget "Drop'N'TutorMeTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				63C77EB81B9A0F7200E8973B /* Debug */,
-				63C77EB91B9A0F7200E8973B /* Release */,
+				63059B891C616DBE0037916E /* Debug */,
+				63059B8A1C616DBE0037916E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		63059B8B1C616DBE0037916E /* Build configuration list for PBXNativeTarget "Drop'N'TutorMeUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				63059B8C1C616DBE0037916E /* Debug */,
+				63059B8D1C616DBE0037916E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 63C77E8D1B9A0F7100E8973B /* Project object */;
+	rootObject = 63059B551C616DBD0037916E /* Project object */;
 }

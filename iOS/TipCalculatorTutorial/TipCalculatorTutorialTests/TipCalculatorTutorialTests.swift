@@ -1,15 +1,15 @@
 //
-//  Drop_N_TutorMeTests.swift
-//  Drop'N'TutorMeTests
+//  TipCalculatorTutorialTests.swift
+//  TipCalculatorTutorialTests
 //
-//  Created by Randall Hash on 2/2/16.
+//  Created by Randall Hash on 2/1/16.
 //  Copyright © 2016 Randall Hash. All rights reserved.
 //
 
 import XCTest
-@testable import Drop_N_TutorMe
+@testable import TipCalculatorTutorial
 
-class Drop_N_TutorMeTests: XCTestCase {
+class TipCalculatorTutorialTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
