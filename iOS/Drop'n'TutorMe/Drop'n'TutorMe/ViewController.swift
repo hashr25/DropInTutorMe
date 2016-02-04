@@ -33,7 +33,11 @@ class ViewController: UIViewController {
     // ////////////////////////////////////////////////////////////////////////////
     /// Main Menu
     // ////////////////////////////////////////////////////////////////////////////
+    @IBOutlet weak var txtEnterACollege: UITextField!
+    
+    
     @IBAction func btnCollegeSearch(sender: UIButton) {
+        hideKeyboards()
         ///Just a place holder until autocomplete and college search has been implemented
         performSegueWithIdentifier("segueToCollegeSelected", sender: nil)
     }
@@ -42,6 +46,13 @@ class ViewController: UIViewController {
         performSegueWithIdentifier("segueToOnlineResources", sender: nil)
     }
     
+    func hideKeyboards(){
+        txtEnterACollege.resignFirstResponder()
+    }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        hideKeyboards()
+    }
     
     
     // ////////////////////////////////////////////////////////////////////////////

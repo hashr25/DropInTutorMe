@@ -16,9 +16,13 @@ class ApiController {
         
     }
     
+    
+    
     static func GetNarrowedTutors(collegeName : String, subjectID: Int, courseID: Int) /* ->  Data Type for Tutors */ {
         
     }
+    
+    
     
     static func GetAllColleges() /*-> [String]*/  {
         //var endResult = [String]()
@@ -32,17 +36,25 @@ class ApiController {
         //return nil
     }
     
+    
+    
     static func GetSubjects(collegeName: String) /* -> data type for query */ {
-        
+       
     }
+    
+    
     
     static func GetCourses(collegeName: String, subjectID: Int) /* -> data type for query */ {
         
     }
     
+    
+    
     static func GetReviews(tutorID: Int) /* -> data type for query */ {
         
     }
+    
+    
     
     static func AddReview(tutorID: Int, reviewText: String, stars: Float) -> Bool {
         var success : Bool = true;
@@ -52,6 +64,8 @@ class ApiController {
         return success;
     }
     
+    
+    
     func ReportReview(reviewID: Int, numOfReports: Int) -> Bool {
         var success : Bool = true;
         
@@ -60,13 +74,19 @@ class ApiController {
         return success;
     }
     
+    
+    
     func GetTutorCourses(tutorID: Int) /* -> data type for query */ {
         
     }
     
+    
+    
     func GetTutorPhoto(tutorID: Int) /* -> data type for photo */ {
         
     }
+    
+    
     
     func WriteQueryString(data: [String:String] ) -> String  {
         var urlEnding : String = ""
@@ -83,22 +103,54 @@ class ApiController {
         return urlEnding
     }
     
-    // This function cleans the JSON string from all characters before and after the set brackets []
+    
+    
+    // This function cleans a json string and takes out the brackets []
     class func CleanString(str: String) -> String {
-        return str.stringBetween("[", backChar: "]" )n "";
+        return str.stringBetween("[", backChar: "]" )
     }
     
-    // This Function supposedly converts a long string into a dictionary
-    class func convertStringToDictionary(text: String) -> [String:AnyObject]? {
+    
+    
+    // This Function supposedly converts a long string into a JSONArray
+    class func parseToJSONArray(text: String) -> JSONArray {
+        var array = JSONArray()
         var workingString : String = text
+        var wordJustMade : Bool = false
         
-        while workingString.characters.count > 0{
-            for letter in workingString.characters{
-                var first
+        var splitInObjects : [String] = []
+        
+        //Loop to create list of Object Strings
+        while(workingString.characters.count > 0 ){
+            wordJustMade = false
+            var pastFirstBracket : Bool = false
+            var pastSecondBracket : Bool = false
+            var objectString : String = ""
+            
+            //Loops through each letter
+            while(!pastSecondBracket){
+                var letter = workingString.removeAtIndex(workingString.startIndex)
+                
+                if(letter == "{"){
+                    pastFirstBracket = true
+                } else if ( letter == "}") {
+                    ///This means it is at the ending bracket
+                    pastSecondBracket = true
+                    wordJustMade = true
+                    
+                    splitInObjects.append(objectString)
+                    
+                    print("\n\nObjectString: \(objectString)")
+                } else if (pastFirstBracket && !pastSecondBracket ){
+                    objectString.append(letter)
+                }
             }
         }
-        return nil
+        
+        return array
     }
+    
+    
     
     // Taken from a blog tutorial
     // http://www.brianjcoleman.com/tutorial-post-to-web-server-api-in-swift-using-nsurlconnection/
@@ -115,7 +167,7 @@ class ApiController {
         NSURLProtocol.setProperty(contentType, forKey: "Content-Type", inRequest: request)
         
         // set data
-        var dataString = "tag=get_tutors&"
+        var dataString = "tag=get_tutors"
         /// var dataString = WriteQueryString(params)
         
         let requestBodyData = (dataString as NSString).dataUsingEncoding(NSUTF8StringEncoding)
@@ -132,14 +184,16 @@ class ApiController {
         
 
         print("API Response: \(results)")
-        
+      
         let cleanedString : String = CleanString(results as! String)
         
         print("Cleaned String: \(cleanedString)")
         
-        let dict = convertStringToDictionary(cleanedString)
+        parseToJSONArray(cleanedString)
         
-        print("Dictionary Response: \(dict)" )
+        //let dict = convertStringToDictionary(cleanedString)
+        
+        //print("Dictionary Response: \(dict)" )
         
         
         //return results!

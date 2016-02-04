@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -58,8 +58,9 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
+                        <outlet property="txtEnterACollege" destination="zAq-Dl-n38" id="630-aP-B0W"/>
                         <segue destination="Aim-Ys-S5w" kind="show" identifier="segueToOnlineResources" animates="NO" id="S9O-Wl-AYG"/>
-                        <segue destination="IlF-bF-OU4" kind="show" identifier="segueToCollegeSelected" id="NPS-HY-KBe"/>
+                        <segue destination="IlF-bF-OU4" kind="show" identifier="segueToCollegeSelected" animates="NO" id="NPS-HY-KBe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -173,7 +174,7 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="segueBackFromCollegeSelected" id="QkU-Ik-4ub"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="segueBackFromCollegeSelected" animates="NO" id="QkU-Ik-4ub"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fki-D6-0Vl" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -186,6 +187,6 @@
         <image name="background2.png" width="800" height="1280"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="NAl-rQ-Y6D"/>
+        <segue reference="QkU-Ik-4ub"/>
     </inferredMetricsTieBreakers>
 </document>
