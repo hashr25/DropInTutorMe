@@ -864,6 +864,7 @@ Log.d("Print tutorID", Integer.toString(tutorID));
             POSTstring.append(URLEncoder.encode(p.getValue(), "UTF-8"));
         }
 
+        Log.d("url string: ", POSTstring.toString());
         writer.write(POSTstring.toString());
         writer.flush();
         writer.close();

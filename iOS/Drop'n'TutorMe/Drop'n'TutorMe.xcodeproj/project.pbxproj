@@ -15,8 +15,8 @@
 		63059B761C616DBE0037916E /* Drop_N_TutorMeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63059B751C616DBE0037916E /* Drop_N_TutorMeTests.swift */; };
 		63059B811C616DBE0037916E /* Drop_N_TutorMeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63059B801C616DBE0037916E /* Drop_N_TutorMeUITests.swift */; };
 		63059B8F1C616EEF0037916E /* background2.png in Resources */ = {isa = PBXBuildFile; fileRef = 63059B8E1C616EEF0037916E /* background2.png */; };
-		63059B951C61753D0037916E /* ApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63059B941C61753D0037916E /* ApiController.swift */; };
 		63059B971C61AB1C0037916E /* BackLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 63059B961C61AB1C0037916E /* BackLogo.png */; };
+		63059B9B1C6287CA0037916E /* ApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63059B9A1C6287CA0037916E /* ApiController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,8 +51,8 @@
 		63059B801C616DBE0037916E /* Drop_N_TutorMeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drop_N_TutorMeUITests.swift; sourceTree = "<group>"; };
 		63059B821C616DBE0037916E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		63059B8E1C616EEF0037916E /* background2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background2.png; path = Assets.xcassets/background2.png; sourceTree = "<group>"; };
-		63059B941C61753D0037916E /* ApiController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ApiController.swift; path = ../ApiController.swift; sourceTree = "<group>"; };
 		63059B961C61AB1C0037916E /* BackLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = BackLogo.png; path = Assets.xcassets/BackLogo.png; sourceTree = "<group>"; };
+		63059B9A1C6287CA0037916E /* ApiController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,8 +104,8 @@
 			isa = PBXGroup;
 			children = (
 				63059B601C616DBD0037916E /* AppDelegate.swift */,
+				63059B9A1C6287CA0037916E /* ApiController.swift */,
 				63059B621C616DBD0037916E /* ViewController.swift */,
-				63059B941C61753D0037916E /* ApiController.swift */,
 				63059B641C616DBD0037916E /* Main.storyboard */,
 				63059B961C61AB1C0037916E /* BackLogo.png */,
 				63059B8E1C616EEF0037916E /* background2.png */,
@@ -270,9 +270,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63059B9B1C6287CA0037916E /* ApiController.swift in Sources */,
 				63059B631C616DBD0037916E /* ViewController.swift in Sources */,
 				63059B611C616DBD0037916E /* AppDelegate.swift in Sources */,
-				63059B951C61753D0037916E /* ApiController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
