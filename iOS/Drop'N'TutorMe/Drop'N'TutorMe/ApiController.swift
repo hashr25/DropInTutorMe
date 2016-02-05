@@ -12,50 +12,133 @@ let apiURL : String = "http://dropintutorme.web44.net/application_api.php"
 
 class ApiController {
     
-    static func GetTutors() /* ->  Data Type for Tutors */ {
+    ///This is a stand-alone test suite for all query functions
+    ///This is intended to be used just to test query outputs
+    ///Only run this is a non-production product. Again, only 
+    ///for testing purposes.
+    static func QueryTestSuite(){
+        print("Get Tutors Query: \n")
+        let query1 = GetTutors()
+        query1.printArray()
         
+        //print("\n\nGet Narrowed Tutors Query: \n")
+        //let query2 = GetNarrowedTutors("Concord University", subjectID: 0, courseID: 0)
+        //query2.printArray()
+        
+        print("\n\nGet Colleges Query: \n")
+        let query3 = GetAllColleges()
+        query3.printArray()
+        
+        print("\n\nGet Subjects Query: \n")
+        let query4 = GetSubjects("Concord University")
+        query4.printArray()
+        
+        print("\n\nGet Courses Query: \n")
+        let query5 = GetCourses("Concord University", subjectID: 8)
+        query5.printArray()
+        
+        print("\n\nGet Reviews Query: \n")
+        let query6 = GetReviews(36)
+        query6.printArray()
+        
+        print("\n\nGet Tutor Courses Query: \n")
+        let query7 = GetTutorCourses(36)
+        query7.printArray()
+    }
+    
+/////////////////////////////////////////////
+///
+/// PostGet Methods
+/// These methods return a JSONArray
+///
+/////////////////////////////////////////////
+    static func GetTutors() -> JSONArray {
+        let postRules : [String : String] = [
+            "tag":"get_tutors"
+        ]
+        
+        return postGet(postRules)
     }
     
     
     
-    static func GetNarrowedTutors(collegeName : String, subjectID: Int, courseID: Int) /* ->  Data Type for Tutors */ {
+    static func GetNarrowedTutors(collegeName : String, subjectID: Int, courseID: Int) -> JSONArray {
+        let postRules : [String : String] = [
+            "tag":"get_tutors_narrowed",
+            "college_name":collegeName,
+            "subject_id":String(subjectID),
+            "course_id":String(courseID)
+        ]
         
+        return postGet(postRules)
     }
     
     
     
-    static func GetAllColleges() /*-> [String]*/  {
-        //var endResult = [String]()
-        //NSLog(apiURL.stringBetween("[", backChar: "]"))
-        NSLog("\nit is hitting this line of code\n")
-        let postRules : Dictionary<String, String> = ["tag":"get_colleges"]
+    static func GetAllColleges() -> JSONArray  {
+        let postRules : [String : String] = [
+            "tag":"get_colleges"
+        ]
         
-        NSLog("\n\n\nBefore post()\n\n\n")
-        post()
-        
-        //return nil
+        return postGet(postRules)
     }
     
     
     
-    static func GetSubjects(collegeName: String) /* -> data type for query */ {
-       
-    }
-    
-    
-    
-    static func GetCourses(collegeName: String, subjectID: Int) /* -> data type for query */ {
+    static func GetSubjects(collegeName: String) -> JSONArray {
+        let postRules : [String : String] = [
+            "tag":"get_subjects",
+            "college_name":collegeName
+        ]
         
+        return postGet(postRules)
     }
     
     
     
-    static func GetReviews(tutorID: Int) /* -> data type for query */ {
+    static func GetCourses(collegeName: String, subjectID: Int) -> JSONArray {
+        let postRules : [String : String] = [
+            "tag":"get_courses",
+            "subject_id":String(subjectID)
+        ]
         
+        return postGet(postRules)
     }
     
     
     
+    static func GetReviews(tutorID: Int) -> JSONArray {
+        let postRules : [String : String] = [
+            "tag":"get_reviews",
+            "tutor_id":String(tutorID)
+        ]
+        
+        return postGet(postRules)
+    }
+    
+    
+    
+    static func GetTutorCourses(tutorID: Int) -> JSONArray {
+        let postRules : [String : String] = [
+            "tag":"get_tutor_courses",
+            "tutor_id":String(tutorID)
+        ]
+        
+        return postGet(postRules)
+    }
+    
+    
+    
+    static func GetTutorPhoto(tutorID: Int) /* -> data type for photo */ {
+        ///Figure something about queuing a link to a picture
+    }
+    
+/////////////////////////////////////////////
+///
+/// PostGet Methods
+/// These methods return a Boolean
+///
+/////////////////////////////////////////////
     static func AddReview(tutorID: Int, reviewText: String, stars: Float) -> Bool {
         var success : Bool = true;
         
@@ -66,7 +149,7 @@ class ApiController {
     
     
     
-    func ReportReview(reviewID: Int, numOfReports: Int) -> Bool {
+    static func ReportReview(reviewID: Int, numOfReports: Int) -> Bool {
         var success : Bool = true;
         
         success = false;
@@ -76,19 +159,15 @@ class ApiController {
     
     
     
-    func GetTutorCourses(tutorID: Int) /* -> data type for query */ {
-        
-    }
     
     
-    
-    func GetTutorPhoto(tutorID: Int) /* -> data type for photo */ {
-        
-    }
-    
-    
-    
-    func WriteQueryString(data: [String:String] ) -> String  {
+/////////////////////////////////////////////
+///
+/// Helper Methods
+/// These methods are used in the request methods
+///
+/////////////////////////////////////////////
+    class func WriteQueryString(data: [String:String] ) -> String  {
         var urlEnding : String = ""
         
         for item in data{
@@ -98,11 +177,11 @@ class ApiController {
             urlEnding.appendContentsOf("&")
         }
         
-        urlEnding.removeAtIndex(urlEnding.endIndex)
+        urlEnding = urlEnding.substringToIndex(urlEnding.characters.count-1)
+        print("URL Ending: \(urlEnding)")
         
         return urlEnding
     }
-    
     
     
     // This function cleans a json string and takes out the brackets []
@@ -114,51 +193,21 @@ class ApiController {
     
     // This Function supposedly converts a long string into a JSONArray
     class func parseToJSONArray(text: String) -> JSONArray {
-        var array = JSONArray()
-        var workingString : String = text
-        var wordJustMade : Bool = false
-        
-        var splitInObjects : [String] = []
-        
-        //Loop to create list of Object Strings
-        while(workingString.characters.count > 0 ){
-            wordJustMade = false
-            var pastFirstBracket : Bool = false
-            var pastSecondBracket : Bool = false
-            var objectString : String = ""
-            
-            //Loops through each letter
-            while(!pastSecondBracket){
-                var letter = workingString.removeAtIndex(workingString.startIndex)
-                
-                if(letter == "{"){
-                    pastFirstBracket = true
-                } else if ( letter == "}") {
-                    ///This means it is at the ending bracket
-                    pastSecondBracket = true
-                    wordJustMade = true
-                    
-                    splitInObjects.append(objectString)
-                    
-                    print("\n\nObjectString: \(objectString)")
-                } else if (pastFirstBracket && !pastSecondBracket ){
-                    objectString.append(letter)
-                }
-            }
-        }
+        let array = JSONArray(param: text)
+        //array.printArray()
         
         return array
     }
-    
+       
     
     
     // Taken from a blog tutorial
     // http://www.brianjcoleman.com/tutorial-post-to-web-server-api-in-swift-using-nsurlconnection/
     // Added the ability to specify parameters to enter as the dataString
-    class func post(/*params : Dictionary<String, String>*/) /*-> NSString*/ {
+    class func postGet(params : Dictionary<String, String>) -> JSONArray {
         let url = NSURL(string:apiURL)
         let cachePolicy = NSURLRequestCachePolicy.ReloadIgnoringLocalCacheData
-        var request = NSMutableURLRequest(URL: url!, cachePolicy: cachePolicy, timeoutInterval: 2.0)
+        let request = NSMutableURLRequest(URL: url!, cachePolicy: cachePolicy, timeoutInterval: 2.0)
         request.HTTPMethod = "POST"
         
         // set Content-Type in HTTP header
@@ -167,8 +216,8 @@ class ApiController {
         NSURLProtocol.setProperty(contentType, forKey: "Content-Type", inRequest: request)
         
         // set data
-        var dataString = "tag=get_tutors"
-        /// var dataString = WriteQueryString(params)
+        // var dataString = "tag=get_tutors"
+        let dataString = WriteQueryString(params)
         
         let requestBodyData = (dataString as NSString).dataUsingEncoding(NSUTF8StringEncoding)
         request.HTTPBody = requestBodyData
@@ -177,26 +226,13 @@ class ApiController {
         //NSURLProtocol.setProperty(requestBodyData.length, forKey: "Content-Length", inRequest: request)
         
         var response: NSURLResponse? = nil
-        var error: NSError? = nil
         let reply = try! NSURLConnection.sendSynchronousRequest(request, returningResponse:&response)
         
         let results = NSString(data:reply, encoding:NSUTF8StringEncoding)
         
-
-        print("API Response: \(results)")
-      
-        let cleanedString : String = CleanString(results as! String)
+        let endResult : JSONArray = JSONArray(param: String(results))
         
-        print("Cleaned String: \(cleanedString)")
-        
-        parseToJSONArray(cleanedString)
-        
-        //let dict = convertStringToDictionary(cleanedString)
-        
-        //print("Dictionary Response: \(dict)" )
-        
-        
-        //return results!
+        return endResult
     }
     
     
@@ -278,16 +314,17 @@ extension String
     
     public func stringBetween(frontChar: Character, backChar: Character) -> String {
         var endProduct : String = ""
-        var pastFirst : Bool = false
-        var pastLast : Bool = false
+        //var pastFirst : Bool = false
+        //var pastLast : Bool = false
         
         for letter in self.characters{
             if(letter == frontChar){
-                pastFirst = true
+                ///This just needs to skip it
+                //pastFirst = true
             } else if(letter == backChar) {
-                pastLast = true
+                //pastLast = true
                 return endProduct
-            } else if(pastFirst && !pastLast) {
+            } else {
                 endProduct.append(letter)
             }
         }
