@@ -26,7 +26,7 @@ class JSONObject{
         objectData[ key ] = value;
     }
     
-    func remove(key: String, value: AnyObject) {
+    func remove(key: String) {
         self.objectData[key] = nil
     }
     

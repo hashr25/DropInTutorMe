@@ -19,5 +19,51 @@
             landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Drop&apos;N&apos;TutorMe/AppContainers.swift"
+            timestampString = "476428770.346062"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "20"
+            endingLineNumber = "20">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Drop_N_TutorMe.Tutor.__deallocating_deinit"
+                  moduleName = "Drop&apos;N&apos;TutorMe"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hashr25/OneDrive/Programming%20Projects/DropInTutorMe/iOS/Drop&apos;N&apos;TutorMe/Drop&apos;N&apos;TutorMe/AppContainers.swift"
+                  timestampString = "476428771.355896"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Drop_N_TutorMe.Tutor.init (Drop_N_TutorMe.Tutor.Type)() -&gt; Drop_N_TutorMe.Tutor"
+                  moduleName = "Drop&apos;N&apos;TutorMe"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hashr25/OneDrive/Programming%20Projects/DropInTutorMe/iOS/Drop&apos;N&apos;TutorMe/Drop&apos;N&apos;TutorMe/AppContainers.swift"
+                  timestampString = "476428771.358364"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "8">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

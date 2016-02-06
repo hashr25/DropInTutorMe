@@ -20,6 +20,9 @@
 		638F95AA1C62EC4D003D5E5D /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638F95A91C62EC4D003D5E5D /* SwiftyJSON.swift */; };
 		638F95AC1C62F5F8003D5E5D /* JSONObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638F95AB1C62F5F8003D5E5D /* JSONObject.swift */; };
 		638F95AE1C62F650003D5E5D /* JSONArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638F95AD1C62F650003D5E5D /* JSONArray.swift */; };
+		63F8F7821C65ACE700268F28 /* AutoCompleteTextField in Resources */ = {isa = PBXBuildFile; fileRef = 63F8F7811C65ACE700268F28 /* AutoCompleteTextField */; };
+		63F8F7841C65B1A600268F28 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F8F7831C65B1A600268F28 /* Globals.swift */; };
+		63F8F7861C65B2B100268F28 /* AppContainers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F8F7851C65B2B100268F28 /* AppContainers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +62,9 @@
 		638F95A91C62EC4D003D5E5D /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		638F95AB1C62F5F8003D5E5D /* JSONObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSONObject.swift; path = ../JSONObject.swift; sourceTree = "<group>"; };
 		638F95AD1C62F650003D5E5D /* JSONArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSONArray.swift; path = ../JSONArray.swift; sourceTree = "<group>"; };
+		63F8F7811C65ACE700268F28 /* AutoCompleteTextField */ = {isa = PBXFileReference; lastKnownFileType = folder; path = AutoCompleteTextField; sourceTree = "<group>"; };
+		63F8F7831C65B1A600268F28 /* Globals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
+		63F8F7851C65B2B100268F28 /* AppContainers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppContainers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,10 +117,13 @@
 			children = (
 				638F95AD1C62F650003D5E5D /* JSONArray.swift */,
 				638F95AB1C62F5F8003D5E5D /* JSONObject.swift */,
+				63F8F7811C65ACE700268F28 /* AutoCompleteTextField */,
 				63059B601C616DBD0037916E /* AppDelegate.swift */,
 				63059B9A1C6287CA0037916E /* ApiController.swift */,
 				63059B621C616DBD0037916E /* ViewController.swift */,
 				63059B641C616DBD0037916E /* Main.storyboard */,
+				63F8F7831C65B1A600268F28 /* Globals.swift */,
+				63F8F7851C65B2B100268F28 /* AppContainers.swift */,
 				638F95A91C62EC4D003D5E5D /* SwiftyJSON.swift */,
 				63059B961C61AB1C0037916E /* BackLogo.png */,
 				63059B8E1C616EEF0037916E /* background2.png */,
@@ -254,6 +263,7 @@
 				63059B971C61AB1C0037916E /* BackLogo.png in Resources */,
 				63059B6B1C616DBE0037916E /* LaunchScreen.storyboard in Resources */,
 				63059B681C616DBE0037916E /* Assets.xcassets in Resources */,
+				63F8F7821C65ACE700268F28 /* AutoCompleteTextField in Resources */,
 				63059B661C616DBD0037916E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -284,6 +294,8 @@
 				63059B631C616DBD0037916E /* ViewController.swift in Sources */,
 				63059B611C616DBD0037916E /* AppDelegate.swift in Sources */,
 				638F95AA1C62EC4D003D5E5D /* SwiftyJSON.swift in Sources */,
+				63F8F7861C65B2B100268F28 /* AppContainers.swift in Sources */,
+				63F8F7841C65B1A600268F28 /* Globals.swift in Sources */,
 				638F95AC1C62F5F8003D5E5D /* JSONObject.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

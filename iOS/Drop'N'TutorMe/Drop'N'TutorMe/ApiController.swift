@@ -17,9 +17,9 @@ class ApiController {
     ///Only run this is a non-production product. Again, only 
     ///for testing purposes.
     static func QueryTestSuite(){
-        print("Get Tutors Query: \n")
-        let query1 = GetTutors()
-        query1.printArray()
+        //print("Get Tutors Query: \n")
+        //let query1 = GetTutors()
+        //query1.printArray()
         
         //print("\n\nGet Narrowed Tutors Query: \n")
         //let query2 = GetNarrowedTutors("Concord University", subjectID: 0, courseID: 0)
@@ -29,21 +29,21 @@ class ApiController {
         let query3 = GetAllColleges()
         query3.printArray()
         
-        print("\n\nGet Subjects Query: \n")
-        let query4 = GetSubjects("Concord University")
-        query4.printArray()
+        //print("\n\nGet Subjects Query: \n")
+        //let query4 = GetSubjects("Concord University")
+        //query4.printArray()
         
-        print("\n\nGet Courses Query: \n")
-        let query5 = GetCourses("Concord University", subjectID: 8)
-        query5.printArray()
+        //print("\n\nGet Courses Query: \n")
+        //let query5 = GetCourses("Concord University", subjectID: 8)
+        //query5.printArray()
         
-        print("\n\nGet Reviews Query: \n")
-        let query6 = GetReviews(36)
-        query6.printArray()
+        //print("\n\nGet Reviews Query: \n")
+        //let query6 = GetReviews(36)
+        //query6.printArray()
         
-        print("\n\nGet Tutor Courses Query: \n")
-        let query7 = GetTutorCourses(36)
-        query7.printArray()
+        //print("\n\nGet Tutor Courses Query: \n")
+        //let query7 = GetTutorCourses(36)
+        //query7.printArray()
     }
     
 /////////////////////////////////////////////

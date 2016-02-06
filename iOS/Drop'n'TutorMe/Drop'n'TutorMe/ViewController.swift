@@ -18,8 +18,10 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        ApiController.QueryTestSuite()
-        
+        //ApiController.QueryTestSuite()
+        if(GlobalData.Colleges.count == 0){
+            GlobalData.FillColleges()
+        }
     }
 
     override func didReceiveMemoryWarning() {

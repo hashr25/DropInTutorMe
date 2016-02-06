@@ -20,11 +20,6 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background2.png" translatesAutoresizingMaskIntoConstraints="NO" id="3ia-hA-fJY">
                                 <rect key="frame" x="0.0" y="20" width="414" height="665"/>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter a College" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zAq-Dl-n38">
-                                <rect key="frame" x="20" y="366" width="374" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B3I-oa-v44">
                                 <rect key="frame" x="138" y="427" width="138" height="30"/>
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
@@ -58,7 +53,6 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
-                        <outlet property="txtEnterACollege" destination="zAq-Dl-n38" id="630-aP-B0W"/>
                         <segue destination="Aim-Ys-S5w" kind="show" identifier="segueToOnlineResources" animates="NO" id="S9O-Wl-AYG"/>
                         <segue destination="IlF-bF-OU4" kind="show" identifier="segueToCollegeSelected" animates="NO" id="NPS-HY-KBe"/>
                     </connections>
