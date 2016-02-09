@@ -40,27 +40,24 @@ class JSONArray {
     // This Function supposedly converts a long string into a JSONArray
     func populateFromString(param: String) {
         var workingString : String = cleanString(param)
-        var wordJustMade : Bool = false
         
         var splitInObjects : [String] = []
         
         //Loop to create list of Object Strings
         while(workingString.characters.count > 0 ){
-            wordJustMade = false
             var pastFirstBracket : Bool = false
             var pastSecondBracket : Bool = false
             var objectString : String = ""
             
             //Loops through each letter
             while(!pastSecondBracket){
-                var letter = workingString.removeAtIndex(workingString.startIndex)
+                let letter = workingString.removeAtIndex(workingString.startIndex)
                 
                 if(letter == "{"){
                     pastFirstBracket = true
                 } else if ( letter == "}") {
                     ///This means it is at the ending bracket
                     pastSecondBracket = true
-                    wordJustMade = true
                     
                     splitInObjects.append(objectString)
                     
@@ -71,7 +68,7 @@ class JSONArray {
             }
         
             for object in splitInObjects{
-                var thisObject = JSONObject(param: object)
+                let thisObject = JSONObject(param: object)
                 append(thisObject)
             }
         }

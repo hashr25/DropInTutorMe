@@ -9,10 +9,10 @@
 import Foundation
 
 class JSONObject{
-    var objectData : Dictionary<String, AnyObject>
+    var objectData : Dictionary<String, String>
     
     init(param: String){
-        self.objectData = Dictionary<String, AnyObject>()
+        self.objectData = Dictionary<String, String>()
         populateFromString(param)
     }
     
@@ -30,12 +30,12 @@ class JSONObject{
         self.objectData[key] = nil
     }
     
-    func findValue(key: String) -> AnyObject {
+    func findValue(key: String) -> String {
         return self.objectData[key]!
     }
     
     func populateFromString(param: String){
-        var keyValuePairStrings = param.componentsSeparatedByString(",")
+        let keyValuePairStrings = param.componentsSeparatedByString(",")
         
         for keyValuePair in keyValuePairStrings {
             appendFromString(keyValuePair)
@@ -44,11 +44,11 @@ class JSONObject{
     
     func appendFromString(keyValuePairString: String){
         var keyAndValue = keyValuePairString.componentsSeparatedByString("\":\"")
-        var key = keyAndValue[0].substringFromIndex(1)
+        let key = keyAndValue[0].substringFromIndex(1)
         //var value : String
         
         //if(
-        var value = keyAndValue[1].substringToIndex(keyAndValue[1].characters.count-1)
+        let value = keyAndValue[1].substringToIndex(keyAndValue[1].characters.count-1)
         
         
         //print("Key: \(key)")

@@ -178,7 +178,7 @@ class ApiController {
         }
         
         urlEnding = urlEnding.substringToIndex(urlEnding.characters.count-1)
-        print("URL Ending: \(urlEnding)")
+        //print("URL Ending: \(urlEnding)")
         
         return urlEnding
     }

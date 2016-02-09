@@ -12,9 +12,13 @@ class College {
     var name : String = ""
     var id : Int = 42
     
+    init(){
+        ///This is only to allow a hack. Remove if the hack within Globals is corrected
+    }
+    
     init(collegeObject : JSONObject){
-        name = collegeObject.findValue("college_name") as! String
-        id = Int(collegeObject.findValue("college_id") as! NSNumber)
+        name = collegeObject.findValue("college_name") 
+        id = Int(collegeObject.findValue("college_id") )!
     }
 }
 

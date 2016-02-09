@@ -1,55 +1,33 @@
 //
-//  ViewController.swift
+//  OnlineResourcesViewController.swift
 //  Drop'N'TutorMe
 //
-//  Created by Randall Hash on 2/2/16.
+//  Created by Randall Hash on 2/8/16.
 //  Copyright © 2016 Randall Hash. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
-class ViewController: UIViewController {
-    
+class OnlineResourcesViewController : UIViewController {
     /*
-     *  Basic Information
-     */
-
+    *  Basic Information
+    */
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        //ApiController.QueryTestSuite()
-        if(GlobalData.Colleges.count == 0){
-            GlobalData.FillColleges()
-        }
+        
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    
-    
-    
-    // ////////////////////////////////////////////////////////////////////////////
-    /// Main Menu
-    // ////////////////////////////////////////////////////////////////////////////
-    @IBOutlet weak var txtEnterACollege: UITextField!
-    
-    
-    @IBAction func btnCollegeSearch(sender: UIButton) {
-        hideKeyboards()
-        ///Just a place holder until autocomplete and college search has been implemented
-        performSegueWithIdentifier("segueToCollegeSelected", sender: nil)
-    }
-    
-    @IBAction func btnOnlineResources(sender: UIButton) {
-        performSegueWithIdentifier("segueToOnlineResources", sender: nil)
-    }
-    
     func hideKeyboards(){
-        txtEnterACollege.resignFirstResponder()
+        //Text Fields?
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -90,13 +68,4 @@ class ViewController: UIViewController {
         }
     }
 
-    // ////////////////////////////////////////////////////////////////////////////
-    /// College Selected
-    // ////////////////////////////////////////////////////////////////////////////
-    @IBAction func btnBackFromCollegeSelected(sender: UIButton) {
-        performSegueWithIdentifier("segueBackFromCollegeSelected", sender: nil)
-    }
-    
-
 }
-

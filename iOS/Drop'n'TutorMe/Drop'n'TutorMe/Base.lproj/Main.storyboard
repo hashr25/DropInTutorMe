@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Main Menu View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Drop_N_TutorMe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MainMenuViewController" customModule="Drop_N_TutorMe" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -46,6 +46,14 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter a College" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="28h-uA-5io" customClass="AutoCompleteTextField" customModule="Drop_N_TutorMe" customModuleProvider="target">
+                                <rect key="frame" x="20" y="368" width="374" height="30"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" searchField="YES"/>
+                                </accessibility>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -53,6 +61,7 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
+                        <outlet property="txtEnterCollege" destination="28h-uA-5io" id="ABf-hP-MEy"/>
                         <segue destination="Aim-Ys-S5w" kind="show" identifier="segueToOnlineResources" animates="NO" id="S9O-Wl-AYG"/>
                         <segue destination="IlF-bF-OU4" kind="show" identifier="segueToCollegeSelected" animates="NO" id="NPS-HY-KBe"/>
                     </connections>
@@ -61,10 +70,10 @@
             </objects>
             <point key="canvasLocation" x="245" y="399"/>
         </scene>
-        <!--View Controller-->
+        <!--Online Resources View Controller-->
         <scene sceneID="Hxf-0K-Ezm">
             <objects>
-                <viewController id="Aim-Ys-S5w" customClass="ViewController" customModule="Drop_N_TutorMe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Aim-Ys-S5w" customClass="OnlineResourcesViewController" customModule="Drop_N_TutorMe" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="GYV-aP-cwl"/>
                         <viewControllerLayoutGuide type="bottom" id="TrE-h0-nhM"/>
@@ -133,10 +142,10 @@
             </objects>
             <point key="canvasLocation" x="245" y="1277"/>
         </scene>
-        <!--View Controller-->
+        <!--Tutor Search Narrower View Controller-->
         <scene sceneID="99R-Qr-I4V">
             <objects>
-                <viewController id="IlF-bF-OU4" customClass="ViewController" customModule="Drop_N_TutorMe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="IlF-bF-OU4" customClass="TutorSearchNarrowerViewController" customModule="Drop_N_TutorMe" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="O4T-nw-2B8"/>
                         <viewControllerLayoutGuide type="bottom" id="cgp-bb-j1q"/>
@@ -168,6 +177,7 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
+                        <outlet property="txtCollegeName" destination="lKO-sL-IGL" id="Ym7-fa-ygI"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="segueBackFromCollegeSelected" animates="NO" id="QkU-Ik-4ub"/>
                     </connections>
                 </viewController>
