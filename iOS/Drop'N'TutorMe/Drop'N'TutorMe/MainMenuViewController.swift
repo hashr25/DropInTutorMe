@@ -59,23 +59,24 @@ class MainMenuViewController : UIViewController {
         hideKeyboards()
         
         ///Just a place holder until autocomplete and college search has been implemented
-        let CollageNameString = txtEnterCollege.text
+        let CollegeNameString = txtEnterCollege.text
         
-        for college in GlobalData.Colleges {
-            if college.name == CollageNameString {
-                GlobalData.CurrentCollege = college
-            }
-        }
+        GlobalData.SetCollege(CollegeNameString!)
         
         
         if(GlobalData.CurrentCollege.name != ""){
             performSegueWithIdentifier("segueToCollegeSelected", sender: nil)
+            
             ///Clear the current college
             GlobalData.CurrentCollege = College()
         } else {
-            print("Something isn't right...")
-            let alert = UIAlertController(title: "Invalid College", message: "That is not a valid college. Please select from autocomplete options.", preferredStyle: UIAlertControllerStyle.Alert)
+            let alert = UIAlertController(
+                title: "Invalid College",
+                message: "That is not a valid college. Please select from autocomplete options.",
+                preferredStyle: UIAlertControllerStyle.Alert)
+            
             alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
+            
             self.presentViewController(alert, animated: true, completion: nil)
         }
         

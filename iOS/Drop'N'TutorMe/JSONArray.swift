@@ -66,12 +66,13 @@ class JSONArray {
                     objectString.append(letter)
                 }
             }
-        
-            for object in splitInObjects{
-                let thisObject = JSONObject(param: object)
-                append(thisObject)
-            }
         }
+        
+        for object in splitInObjects{
+            let thisObject = JSONObject(param: object)
+            append(thisObject)
+        }
+        
     }// End of func populateFromString(param: String)
 
 }

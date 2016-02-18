@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "JSONObject.swift"
-            timestampString = "476336291.096509"
+            timestampString = "477429271.089192"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "65"
@@ -26,21 +26,37 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Drop&apos;N&apos;TutorMe/AppContainers.swift"
-            timestampString = "476431378.092785"
+            timestampString = "477460894.792624"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24">
+            startingLineNumber = "62"
+            endingLineNumber = "62">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Drop&apos;N&apos;TutorMe/TutorSearchNarrowerViewController.swift"
+            timestampString = "476768089.330839"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "12"
+            endingLineNumber = "12"
+            landmarkName = "TutorSearchNarrowerViewController"
+            landmarkType = "3">
             <Locations>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Drop_N_TutorMe.Tutor.__deallocating_deinit"
+                  symbolName = "Drop_N_TutorMe.TutorSearchNarrowerViewController.__deallocating_deinit"
                   moduleName = "Drop&apos;N&apos;TutorMe"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/hashr25/OneDrive/Programming%20Projects/DropInTutorMe/iOS/Drop&apos;N&apos;TutorMe/Drop&apos;N&apos;TutorMe/AppContainers.swift"
-                  timestampString = "476646300.503626"
+                  urlString = "file:///Users/hashr25/OneDrive/Programming%20Projects/DropInTutorMe/iOS/Drop&apos;N&apos;TutorMe/Drop&apos;N&apos;TutorMe/TutorSearchNarrowerViewController.swift"
+                  timestampString = "476852797.948163"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -48,19 +64,19 @@
                   offsetFromSymbolStart = "12">
                </Location>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Drop_N_TutorMe.Tutor.init (Drop_N_TutorMe.Tutor.Type)() -&gt; Drop_N_TutorMe.Tutor"
+                  symbolName = "Drop_N_TutorMe.TutorSearchNarrowerViewController.init (Drop_N_TutorMe.TutorSearchNarrowerViewController.Type)(nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.NSBundle&gt;) -&gt; Drop_N_TutorMe.TutorSearchNarrowerViewController"
                   moduleName = "Drop&apos;N&apos;TutorMe"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/hashr25/OneDrive/Programming%20Projects/DropInTutorMe/iOS/Drop&apos;N&apos;TutorMe/Drop&apos;N&apos;TutorMe/AppContainers.swift"
-                  timestampString = "476646300.504052"
+                  urlString = "file:///Users/hashr25/OneDrive/Programming%20Projects/DropInTutorMe/iOS/Drop&apos;N&apos;TutorMe/Drop&apos;N&apos;TutorMe/TutorSearchNarrowerViewController.swift"
+                  timestampString = "476852797.948312"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "27"
-                  endingLineNumber = "27"
-                  offsetFromSymbolStart = "8">
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "58">
                </Location>
             </Locations>
          </BreakpointContent>

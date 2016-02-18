@@ -170,6 +170,18 @@
                                     <action selector="btnBackFromCollegeSelected:" destination="IlF-bF-OU4" eventType="touchUpInside" id="Pv9-Yx-esC"/>
                                 </connections>
                             </button>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pIL-0z-j8X">
+                                <rect key="frame" x="20" y="164" width="375" height="70"/>
+                            </pickerView>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m7P-xE-ikE">
+                                <rect key="frame" x="20" y="286" width="375" height="70"/>
+                            </pickerView>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ILa-EF-Wta">
+                                <rect key="frame" x="207" y="426" width="187" height="70"/>
+                            </pickerView>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nFS-kz-U9L">
+                                <rect key="frame" x="20" y="426" width="189" height="70"/>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -177,6 +189,10 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
+                        <outlet property="CoursePicker" destination="m7P-xE-ikE" id="wN6-zi-Nw3"/>
+                        <outlet property="DayPicker" destination="nFS-kz-U9L" id="9q2-2U-nBP"/>
+                        <outlet property="SubjectPicker" destination="pIL-0z-j8X" id="XjB-lg-n5m"/>
+                        <outlet property="TimePicker" destination="ILa-EF-Wta" id="hOS-u5-SjF"/>
                         <outlet property="txtCollegeName" destination="lKO-sL-IGL" id="Ym7-fa-ygI"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="segueBackFromCollegeSelected" animates="NO" id="QkU-Ik-4ub"/>
                     </connections>

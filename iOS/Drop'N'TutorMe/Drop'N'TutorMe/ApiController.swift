@@ -171,14 +171,29 @@ class ApiController {
         var urlEnding : String = ""
         
         for item in data{
-            urlEnding.appendContentsOf(item.0)
+            for character in item.0.characters {
+                if(character == " ") {
+                    urlEnding.appendContentsOf( "+" )
+                } else {
+                    urlEnding.append(character)
+                }
+            }
             urlEnding.appendContentsOf("=")
-            urlEnding.appendContentsOf(item.1)
+            
+            for character in item.1.characters {
+                if(character == " ") {
+                    urlEnding.appendContentsOf("+")
+                } else {
+                    urlEnding.append(character)
+                }
+            }
             urlEnding.appendContentsOf("&")
         }
         
+        
+        
         urlEnding = urlEnding.substringToIndex(urlEnding.characters.count-1)
-        //print("URL Ending: \(urlEnding)")
+        print("URL Ending: \(urlEnding)")
         
         return urlEnding
     }
@@ -231,6 +246,14 @@ class ApiController {
         let results = NSString(data:reply, encoding:NSUTF8StringEncoding)
         
         let endResult : JSONArray = JSONArray(param: String(results))
+        
+        print("Query: \(params["tag"])")
+        for param in params {
+            print(param)
+        }
+        
+        //endResult.printArray()
+        //print(results)
         
         return endResult
     }
