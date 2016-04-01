@@ -23,7 +23,8 @@ class GlobalDataController {
     var Courses : [Course] = []
     var CurrentCourse : Course = Course()
     
-    //var Tutors : [Tutor] = []
+    var Tutors : [Tutor] = []
+    var CurrentTutor : Tutor = Tutor()
     
     
     private init(){
@@ -48,7 +49,7 @@ class GlobalDataController {
         Subjects.removeAll()
         let subjects : JSONArray =  ApiController.GetSubjects(CurrentCollege.name)
         
-        subjects.printArray()
+        //subjects.printArray()
         
         for subject in subjects.array {
             Subjects.append(Subject(subjectObject: subject))
@@ -61,6 +62,19 @@ class GlobalDataController {
         
         for course in courses.array {
             Courses.append(Course(courseObject: course))
+        }
+    }
+    
+    func FillTutors() {
+        Tutors.removeAll()
+        let tutors : JSONArray = ApiController.GetNarrowedTutors(
+                                    GlobalData.CurrentCollege.name,
+                                    subjectID: GlobalData.CurrentSubject.subjectID,
+                                    courseID: GlobalData.CurrentCourse.courseID)
+        
+        //Add tutors to global data array. 
+        for tutor in tutors.array {
+            GlobalData.Tutors.append(Tutor(tutorObject: tutor))
         }
     }
     
@@ -80,7 +94,7 @@ class GlobalDataController {
     func SetSubject(subjectName : String) {
         if(subjectName == "Any") {
             CurrentSubject.name = ""
-            CurrentSubject.collegeID = 0
+            CurrentSubject.collegeID = CurrentCollege.collegeID
             CurrentSubject.subjectID = -1
         } else {
             for subject in Subjects {
@@ -97,11 +111,19 @@ class GlobalDataController {
     }
     
     func SetCourse(courseName : String) {
-        for course in Courses {
-            if(course.displayText == courseName) {
-                CurrentCourse = course
+        if(courseName == "Any" ) {
+            CurrentCourse.displayText = ""
+            CurrentCourse.subjectID = CurrentSubject.subjectID
+            CurrentCourse.collegeID = CurrentCollege.collegeID
+            CurrentCourse.courseID = -1
+        } else {
+            for course in Courses {
+                if(course.displayText == courseName) {
+                    CurrentCourse = course
+                }
             }
         }
+        
     }
 }
 

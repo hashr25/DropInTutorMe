@@ -26,6 +26,7 @@ class MainMenuViewController : UIViewController {
             GlobalData.FillColleges()
             
         }
+        GlobalData.CurrentCollege = College()
         
         ///Only does it on the first screen
         if(txtEnterCollege != nil){
@@ -37,8 +38,6 @@ class MainMenuViewController : UIViewController {
             
             txtEnterCollege.autoCompleteStrings = collegeNames
         }
-        
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -68,7 +67,7 @@ class MainMenuViewController : UIViewController {
             performSegueWithIdentifier("segueToCollegeSelected", sender: nil)
             
             ///Clear the current college
-            GlobalData.CurrentCollege = College()
+            //GlobalData.CurrentCollege = College()
         } else {
             let alert = UIAlertController(
                 title: "Invalid College",
@@ -79,6 +78,7 @@ class MainMenuViewController : UIViewController {
             
             self.presentViewController(alert, animated: true, completion: nil)
         }
+        
         
     }
     

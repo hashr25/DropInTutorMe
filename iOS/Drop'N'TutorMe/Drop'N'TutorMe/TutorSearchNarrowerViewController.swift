@@ -46,7 +46,6 @@ class TutorSearchNarrowerViewController : UIViewController, UIPickerViewDelegate
     /*
     * Standard Functions
     */
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -117,8 +116,11 @@ class TutorSearchNarrowerViewController : UIViewController, UIPickerViewDelegate
             if(subjects[row] != "Any") {
                 GlobalData.SetSubject(subjects[row])
                 fillCourseData()
-                CoursePicker.selectRow(0, inComponent: 0, animated: true)
+            } else {
+                
             }
+            
+            CoursePicker.selectRow(0, inComponent: 0, animated: true)
         } else if (pickerView.tag == 2) {
             if(courses[row] != "Any") {
                 GlobalData.SetCourse(courses[row])
@@ -160,5 +162,12 @@ class TutorSearchNarrowerViewController : UIViewController, UIPickerViewDelegate
         performSegueWithIdentifier("segueBackFromCollegeSelected", sender: nil)
     }
 
+    @IBAction func btnTutorSearchNarrower(sender: UIButton) {
+        GlobalData.FillTutors()
+        
+        print("There are \(GlobalData.Tutors.count) tutors")
+        
+        performSegueWithIdentifier("SegueToTutorList", sender: nil)
+    }
     
 }

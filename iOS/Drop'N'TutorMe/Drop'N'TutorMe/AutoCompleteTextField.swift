@@ -122,11 +122,11 @@ public class AutoCompleteTextField:UITextField, UITableViewDataSource, UITableVi
     }
     
     public func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        if cell.respondsToSelector("setSeparatorInset:"){
+        if cell.respondsToSelector(Selector("setSeparatorInset:")){
             cell.separatorInset = autoCompleteSeparatorInset}
-        if cell.respondsToSelector("setPreservesSuperviewLayoutMargins:"){
+        if cell.respondsToSelector(Selector("setPreservesSuperviewLayoutMargins:")){
             cell.preservesSuperviewLayoutMargins = false}
-        if cell.respondsToSelector("setLayoutMargins:"){
+        if cell.respondsToSelector(Selector("setLayoutMargins:")){
             cell.layoutMargins = autoCompleteSeparatorInset}
     }
     
@@ -165,7 +165,7 @@ public class AutoCompleteTextField:UITextField, UITableViewDataSource, UITableVi
         autoCompleteAttributes = [NSForegroundColorAttributeName:UIColor.blackColor()]
         autoCompleteAttributes![NSFontAttributeName] = UIFont(name: "HelveticaNeue-Bold", size: 12)
         self.clearButtonMode = .Always
-        self.addTarget(self, action: "textFieldDidChange", forControlEvents: .EditingChanged)
+        self.addTarget(self, action: #selector(AutoCompleteTextField.textFieldDidChange), forControlEvents: .EditingChanged)
     }
     
     private func setupAutocompleteTable(view:UIView){

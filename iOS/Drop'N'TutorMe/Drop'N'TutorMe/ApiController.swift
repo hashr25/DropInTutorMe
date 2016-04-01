@@ -25,7 +25,7 @@ class ApiController {
         //let query2 = GetNarrowedTutors("Concord University", subjectID: 0, courseID: 0)
         //query2.printArray()
         
-        print("\n\nGet Colleges Query: \n")
+        //print("\n\nGet Colleges Query: \n")
         let query3 = GetAllColleges()
         query3.printArray()
         
@@ -135,7 +135,7 @@ class ApiController {
     
 /////////////////////////////////////////////
 ///
-/// PostGet Methods
+/// PostPush Methods
 /// These methods return a Boolean
 ///
 /////////////////////////////////////////////
@@ -193,7 +193,7 @@ class ApiController {
         
         
         urlEnding = urlEnding.substringToIndex(urlEnding.characters.count-1)
-        print("URL Ending: \(urlEnding)")
+        //print("URL Ending: \(urlEnding)")
         
         return urlEnding
     }
@@ -247,9 +247,9 @@ class ApiController {
         
         let endResult : JSONArray = JSONArray(param: String(results))
         
-        print("Query: \(params["tag"])")
+        //print("Query: \(params["tag"])")
         for param in params {
-            print(param)
+            //print(param)
         }
         
         //endResult.printArray()
@@ -333,6 +333,27 @@ extension String
         } else {
             return [self]
         }
+    }
+    
+    public func split(separator: Character) -> [String] {
+        var strings : [String] = []
+        var startString : Int = 0
+        var endString : Int = 0
+        
+        for char in self.characters {
+            if (char == separator) {
+                strings.append(self.substringWithRange(startString, end: endString))
+                endString += 1
+                startString = endString
+            }
+            else {
+                endString += 1
+            }
+        }
+        
+        strings.append(self.substringWithRange(startString, end: endString))
+        
+        return strings
     }
     
     public func stringBetween(frontChar: Character, backChar: Character) -> String {
