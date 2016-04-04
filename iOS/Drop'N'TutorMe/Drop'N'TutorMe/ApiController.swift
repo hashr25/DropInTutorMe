@@ -69,7 +69,9 @@ class ApiController {
             "subject_id":String(subjectID),
             "course_id":String(courseID)
         ]
+        print("get_tutor_narrowed:\ncollege_name:", collegeName, "\nsubject_id:",subjectID, "\ncourse_id:",courseID)
         
+        postGet(postRules).printArray()
         return postGet(postRules)
     }
     
@@ -230,27 +232,25 @@ class ApiController {
         let contentType = "multipart/form-data; boundary=" + boundaryConstant
         NSURLProtocol.setProperty(contentType, forKey: "Content-Type", inRequest: request)
         
-        // set data
-        // var dataString = "tag=get_tutors"
+        // set data parameters
         let dataString = WriteQueryString(params)
         
         let requestBodyData = (dataString as NSString).dataUsingEncoding(NSUTF8StringEncoding)
         request.HTTPBody = requestBodyData
         
-        // set content length
-        //NSURLProtocol.setProperty(requestBodyData.length, forKey: "Content-Length", inRequest: request)
         
         var response: NSURLResponse? = nil
         let reply = try! NSURLConnection.sendSynchronousRequest(request, returningResponse:&response)
         
         let results = NSString(data:reply, encoding:NSUTF8StringEncoding)
-        
+        //print(results)
         let endResult : JSONArray = JSONArray(param: String(results))
         
+        /*
         //print("Query: \(params["tag"])")
         for param in params {
-            //print(param)
-        }
+            print(param)
+        }*/
         
         //endResult.printArray()
         //print(results)

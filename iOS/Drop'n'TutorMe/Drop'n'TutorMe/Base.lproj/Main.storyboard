@@ -326,12 +326,6 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tutor Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QvK-tW-i2r">
-                                <rect key="frame" x="222" y="197" width="173" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tutor Major" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9if-eU-jn1">
                                 <rect key="frame" x="196" y="244" width="179" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -375,7 +369,7 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NPS-7d-5fp">
                                 <rect key="frame" x="20" y="310" width="375" height="90"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="TutorBio" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Sf-WY-jVy">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="TutorBio" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4Sf-WY-jVy">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -386,7 +380,7 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YuB-ZU-BDO">
                                 <rect key="frame" x="20" y="427" width="375" height="90"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="TutorCourses" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r87-TD-3SL">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="TutorCourses" translatesAutoresizingMaskIntoConstraints="NO" id="r87-TD-3SL">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -397,7 +391,7 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Haw-v6-o44">
                                 <rect key="frame" x="20" y="556" width="375" height="90"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="TutorSchedule" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IBG-3Q-f5u">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="TutorSchedule" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="IBG-3Q-f5u">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -405,6 +399,12 @@
                                     </textView>
                                 </subviews>
                             </scrollView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Tutor Location" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="2NB-yC-XId">
+                                <rect key="frame" x="220" y="190" width="161" height="54"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -412,9 +412,10 @@
                     <connections>
                         <outlet property="imgTutorPhoto" destination="fI4-RC-Cet" id="O2u-Da-ejS"/>
                         <outlet property="txtCollegeName" destination="gs7-R6-apL" id="kyK-xh-GpT"/>
+                        <outlet property="txtMajorLabel" destination="zM3-mi-9ES" id="yPy-Bf-kDt"/>
                         <outlet property="txtTutorBio" destination="4Sf-WY-jVy" id="UWf-O8-FQZ"/>
                         <outlet property="txtTutorCourses" destination="r87-TD-3SL" id="dEh-EV-RlE"/>
-                        <outlet property="txtTutorLocation" destination="QvK-tW-i2r" id="ijM-5u-HxT"/>
+                        <outlet property="txtTutorLocation" destination="2NB-yC-XId" id="AGC-Hj-4hN"/>
                         <outlet property="txtTutorMajor" destination="9if-eU-jn1" id="oa3-PW-g6X"/>
                         <outlet property="txtTutorName" destination="HW0-cN-Vyo" id="PID-eL-deb"/>
                         <outlet property="txtTutorSchedule" destination="IBG-3Q-f5u" id="fqo-ut-BzV"/>
@@ -426,19 +427,6 @@
             </objects>
             <point key="canvasLocation" x="2118" y="399"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="DYD-45-BPF">
-            <objects>
-                <viewController id="BPL-ar-Xbv" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="eSq-Vw-vVa">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="asM-dc-BHo" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-        </scene>
     </scenes>
     <resources>
         <image name="BackLogo.png" width="177" height="177"/>
@@ -446,7 +434,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="NAl-rQ-Y6D"/>
-        <segue reference="NPS-HY-KBe"/>
         <segue reference="CrX-KY-fcs"/>
+        <segue reference="cGG-G1-SyU"/>
     </inferredMetricsTieBreakers>
 </document>

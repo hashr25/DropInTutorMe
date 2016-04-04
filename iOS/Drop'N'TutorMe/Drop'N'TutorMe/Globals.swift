@@ -67,6 +67,9 @@ class GlobalDataController {
     
     func FillTutors() {
         Tutors.removeAll()
+        
+        print("Loading Tutors with these parameters: \nCollege Name:", GlobalData.CurrentCollege.name, "\nSubject:", GlobalData.CurrentSubject.name, "\nCourse:",GlobalData.CurrentCourse.displayText)
+        
         let tutors : JSONArray = ApiController.GetNarrowedTutors(
                                     GlobalData.CurrentCollege.name,
                                     subjectID: GlobalData.CurrentSubject.subjectID,
@@ -93,8 +96,7 @@ class GlobalDataController {
     
     func SetSubject(subjectName : String) {
         if(subjectName == "Any") {
-            CurrentSubject.name = ""
-            CurrentSubject.collegeID = CurrentCollege.collegeID
+            CurrentSubject.name = "Any"
             CurrentSubject.subjectID = -1
         } else {
             for subject in Subjects {
@@ -112,14 +114,16 @@ class GlobalDataController {
     
     func SetCourse(courseName : String) {
         if(courseName == "Any" ) {
-            CurrentCourse.displayText = ""
-            CurrentCourse.subjectID = CurrentSubject.subjectID
-            CurrentCourse.collegeID = CurrentCollege.collegeID
+            CurrentCourse.displayText = "Any"
             CurrentCourse.courseID = -1
+            CurrentCourse.subjectID = -1
         } else {
             for course in Courses {
                 if(course.displayText == courseName) {
-                    CurrentCourse = course
+                    CurrentCourse.collegeID = course.collegeID
+                    CurrentCourse.courseID = course.courseID
+                    CurrentCourse.displayText = course.displayText
+                    CurrentCourse.subjectID = course.subjectID
                 }
             }
         }

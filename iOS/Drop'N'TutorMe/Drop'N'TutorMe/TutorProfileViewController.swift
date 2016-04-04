@@ -15,7 +15,8 @@ class TutorProfileViewController: UIViewController {
     
     //Tutor Profile UI Outlets
     @IBOutlet weak var txtTutorName: UILabel!
-    @IBOutlet weak var txtTutorLocation: UILabel!
+    @IBOutlet weak var txtTutorLocation: UITextView!
+    @IBOutlet weak var txtMajorLabel: UILabel!
     @IBOutlet weak var txtTutorMajor: UILabel!
     @IBOutlet weak var imgTutorPhoto: UIImageView!
     
@@ -40,13 +41,26 @@ class TutorProfileViewController: UIViewController {
     
     ///Methods for loading profile
     func LoadProfile() {
+        GlobalData.CurrentTutor.loadProfileData()
         txtTutorName.text = GlobalData.CurrentTutor.firstName + " " + GlobalData.CurrentTutor.lastName
+        
         txtTutorLocation.text = GlobalData.CurrentTutor.building + " " + GlobalData.CurrentTutor.room
-        txtTutorMajor.text = GlobalData.CurrentTutor.major
         imgTutorPhoto.image = GlobalData.CurrentTutor.photo
+        
+        if(GlobalData.CurrentTutor.major != "") {
+            txtTutorMajor.text = GlobalData.CurrentTutor.major
+        } else {
+            txtTutorMajor.text = ""
+            txtMajorLabel.text = ""
+        }
+        
+        
         txtTutorBio.text = GlobalData.CurrentTutor.bio
         txtTutorCourses.text = GlobalData.CurrentTutor.courses
         txtTutorSchedule.text = GlobalData.CurrentTutor.schedule
+        txtTutorBio.selectable = false
+        txtTutorCourses.selectable = false
+        txtTutorSchedule.selectable = false
     }
     
     

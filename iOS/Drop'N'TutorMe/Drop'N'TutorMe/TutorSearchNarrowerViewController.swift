@@ -66,6 +66,8 @@ class TutorSearchNarrowerViewController : UIViewController, UIPickerViewDelegate
         DayPicker.tag = 3
         TimePicker.tag = 4
         
+        GlobalData.SetSubject("Any")
+        GlobalData.SetCourse("Any")
         fillSubjectData()
     }
     
@@ -117,7 +119,8 @@ class TutorSearchNarrowerViewController : UIViewController, UIPickerViewDelegate
                 GlobalData.SetSubject(subjects[row])
                 fillCourseData()
             } else {
-                
+                GlobalData.SetSubject(subjects[row])
+                fillCourseData()
             }
             
             CoursePicker.selectRow(0, inComponent: 0, animated: true)
@@ -125,10 +128,13 @@ class TutorSearchNarrowerViewController : UIViewController, UIPickerViewDelegate
             if(courses[row] != "Any") {
                 GlobalData.SetCourse(courses[row])
             }
+            else {
+                print("Any selected for course")
+            }
         } else if (pickerView.tag == 3) {
-            //Do Something
+            //Do Something to day narrow
         } else {
-            //Do Something
+            //Do Something to time narrow
         }
     }
     
@@ -147,6 +153,7 @@ class TutorSearchNarrowerViewController : UIViewController, UIPickerViewDelegate
     func fillCourseData() {
         courses.removeAll()
         courses.append("Any")
+        GlobalData.FillCourses()
         
         for course in GlobalData.Courses {
             courses.append(course.displayText)

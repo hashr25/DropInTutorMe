@@ -24,10 +24,8 @@ class TutorListViewController: UIViewController, UITableViewDelegate, UITableVie
         tableData = GlobalData.Tutors
         
         // Register custom cell
-        var nib = UINib(nibName: "TutorCell", bundle: nil)
+        let nib = UINib(nibName: "TutorCell", bundle: nil)
         tableView.registerNib(nib, forCellReuseIdentifier: "tutorCell")
-        
-        print("There are", tableView.visibleCells.count, "cells visible")
     }
     
     override func didReceiveMemoryWarning() {
@@ -44,11 +42,17 @@ class TutorListViewController: UIViewController, UITableViewDelegate, UITableVie
     // 3
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell 	{
         
-        var cell : TutorCell = self.tableView.dequeueReusableCellWithIdentifier("tutorCell") as! TutorCell
+        let cell : TutorCell = self.tableView.dequeueReusableCellWithIdentifier("tutorCell") as! TutorCell
         
         cell.txtTutorName.text = tableData[indexPath.row].firstName + " " + tableData[indexPath.row].lastName
-        cell.txtTutorSubject.text = "Major: " + tableData[indexPath.row].major
         cell.imgTutorPicture.image = tableData[indexPath.row].photo
+        
+        if(tableData[indexPath.row].major != "") {
+            cell.txtTutorSubject.text = "Major: " + tableData[indexPath.row].major
+        } else {
+            cell.txtTutorSubject.text = ""
+        }
+        
         
         return cell
         
@@ -56,7 +60,7 @@ class TutorListViewController: UIViewController, UITableViewDelegate, UITableVie
     
     // 4
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        print("Row \(indexPath.row) selected")
+        //print("Row \(indexPath.row) selected")
         GlobalData.CurrentTutor = tableData[indexPath.row]
         performSegueWithIdentifier("segueToTutorProfile", sender: nil)
     }

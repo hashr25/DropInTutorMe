@@ -114,6 +114,11 @@ public class ApiConnector {
             POSTlist.add(new BasicNameValuePair("subject_id", Integer.toString(subjectID)));
             POSTlist.add(new BasicNameValuePair("course_id", Integer.toString(courseID)));
 
+            Log.d("Query:", "Printing Narrowed Tutor Parameters");
+            Log.d("college_name",collegeName);
+            Log.d("subject_id",Integer.toString(subjectID));
+            Log.d("course_id",Integer.toString(courseID));
+
             OutputStream out = new BufferedOutputStream(conn.getOutputStream());
             writeStream(out, POSTlist);
             out.close();

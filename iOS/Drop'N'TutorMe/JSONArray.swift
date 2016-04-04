@@ -48,9 +48,10 @@ class JSONArray {
             var pastFirstBracket : Bool = false
             var pastSecondBracket : Bool = false
             var objectString : String = ""
+            var stringNotEmpty : Bool = workingString.characters.count > 0
             
             //Loops through each letter
-            while(!pastSecondBracket){
+            while(!pastSecondBracket && stringNotEmpty){
                 let letter = workingString.removeAtIndex(workingString.startIndex)
                 
                 if(letter == "{"){
@@ -65,6 +66,8 @@ class JSONArray {
                 } else if (pastFirstBracket && !pastSecondBracket ){
                     objectString.append(letter)
                 }
+                
+                stringNotEmpty = workingString.characters.count > 0
             }
         }
         

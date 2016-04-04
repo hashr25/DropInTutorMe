@@ -62,6 +62,7 @@ class Course {
 }
 
 class Tutor {
+    /// Data Declarations ///
     var tutorID : Int
     var firstName : String
     var lastName : String
@@ -75,7 +76,9 @@ class Tutor {
     var pictureURL : String
     var startTimes : [Int]
     var endTimes : [Int]
+    var profileLoaded : Bool
     var photo : UIImage
+    /// End of Data Declarations ///
     
     init() {
         tutorID = -1
@@ -92,7 +95,8 @@ class Tutor {
         photo = UIImage(named: "NoPhoto")!
         startTimes = []
         endTimes = []
-    }
+        profileLoaded = false
+    } //End of init()
     
     init( tutorObject : JSONObject ) {
         tutorID = tutorObject.getInt("tutor_id")
@@ -107,6 +111,7 @@ class Tutor {
         pictureURL = tutorObject.getString("picture").stringByReplacingOccurrencesOfString("\\", withString: "")
         photo = UIImage(named: "NoPhoto")!
         major = ""
+        profileLoaded = false
         startTimes = []
         endTimes = []
         
@@ -119,15 +124,7 @@ class Tutor {
             }
         }
         
-        ///Get Course String
-        let courseJSON = ApiController.GetTutorCourses(tutorID).array
-        for course in courseJSON {
-            courses += course.getString("display_text")
-            courses += ", "
-        }
-        courses = courses.substringToIndex(courses.characters.count-2)
-
-        ///Convert all day/times
+        //Saving
         var days : [String] = tutorObject.getString("GROUP_CONCAT(day_times.day)").split(",")
         var startStrings : [String] = tutorObject.getString("GROUP_CONCAT(day_times.start_time)").split(",")
         var endStrings : [String] = tutorObject.getString("GROUP_CONCAT(day_times.end_time)").split(",")
@@ -138,18 +135,16 @@ class Tutor {
             endTimes.append(convertTime(days[index], time: endStrings[index]))
         }
         
-        
         ///If there is a picture URL, download the image.
         if(pictureURL.characters.count > 3) {
             self.loadPicture()
         }
         
-        makeSchedule()
-    }
+    } //End of init(tutorObject : JSONObject)
     
     
     //load picture
-    func loadPicture() {
+    private func loadPicture() {
         //print("Attempting to load photo from", pictureURL)
         if let url = NSURL(string: pictureURL) {
             //print("Loaded url")
@@ -158,14 +153,14 @@ class Tutor {
                 photo = UIImage(data: imgData)!
             }
         }
-    }
+    } //End of loadPicture()
     
     //This method as well as the loadPhoto() method was taken from stackoverflow.com but changed to fit this class
-    func getDataFromUrl(url:NSURL, completion: ((data: NSData?, response: NSURLResponse?, error: NSError? ) -> Void)) {
+    private func getDataFromUrl(url:NSURL, completion: ((data: NSData?, response: NSURLResponse?, error: NSError? ) -> Void)) {
         NSURLSession.sharedSession().dataTaskWithURL(url) { (data, response, error) in
             completion(data: data, response: response, error: error)
             }.resume()
-    }
+    } //End of getDataFromUrl()
     
     
     private func convertTime(day : String, time : String) -> Int {
@@ -207,10 +202,20 @@ class Tutor {
         result += minute!
         
         return result
-    }
+    } //End of convertTime()
     
+    private func makeCourses() {
+        ///Get Course String
+        let courseJSON = ApiController.GetTutorCourses(tutorID).array
+        for course in courseJSON {
+            courses += course.getString("display_text")
+            courses += ", "
+        }
+        courses = courses.substringToIndex(courses.characters.count-2)
+    } //End of makeCourses()
     
     private func makeSchedule() {
+        //Converting all data
         let days : [String] = ["blah", "Monday","Tuesday","Wednesday","Thursday","Friday"]
         
         var tutorSchedule : String = "";
@@ -263,13 +268,22 @@ class Tutor {
             startTimeStr = startTimeStr + " " + startAmOrPm
             endTimeStr = endTimeStr + " " + endAmOrPm
             
-            timeSlot = timeSlot + ": " + startTimeStr + " - " + endTimeStr + ", "
+            timeSlot = timeSlot + ": " + startTimeStr + " - " + endTimeStr + "\n"
             
             tutorSchedule = tutorSchedule + timeSlot
         } // End of for loop.
         
-        tutorSchedule = tutorSchedule.substringToIndex(tutorSchedule.characters.count-2)
+        tutorSchedule = tutorSchedule.substringToIndex(tutorSchedule.characters.count-1)
         
         schedule = tutorSchedule
+    } //End of makeSchedule()
+    
+    func loadProfileData() {
+        if(!profileLoaded){
+            profileLoaded = true;
+            makeCourses()
+            makeSchedule()
+        }
+        
     }
 }
